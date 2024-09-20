@@ -1,0 +1,112 @@
+{
+    "About_Us": "Sobre nosotras",
+    "What_we_do": "QUE HACEMOS",
+    "What_we_do_messageH1": "Wir sind eine in Indien ansässige internationale Rechtsberatung, die auf den dharmischen Prinzipien des Naturrechts, der Gerechtigkeit und des Mitgefühls basiert ",
+   "What_we_do_message1": "Durch unser breites Spektrum an Tätigkeitsbereichen bieten wir fortschrittliche Rechtsberatung für eine Klientel, die Nationalstaaten, internationale Organisationen, multinationale Unternehmen, Nischen-Start-ups und individuelle Interessen umfasst." ,
+   "Our_services": "Nuestros servicios", 
+
+   "Our_Legacy": "Nuestro legado",
+   "Legacy_Message1": "Über verschiedene Bereiche, Branchen und internationale Grenzen hinweg wahren unsere juristischen Dienstleistungen und Lösungen die höchsten Standards an Integrität und Vertraulichkeit.",
+   "Legacy_sub_Message1": "Unsere preisgekrönte Praxis basiert vor allem auf den dauerhaften Beziehungen, die wir zu jedem Kunden pflegen. Und die von uns angebotene Rechts- und Wirtschaftsberatung spiegelt dieses bewusste Verständnis der Interessen unserer Mandanten wider.",
+   "Our_Firms": "NUESTRA FIRMA",
+
+   "Practice_Areas": "Areas de práctica",
+   "Art_Law": "LEY DEL ARTE",
+   "Corporate_Advisor": "ASESORÍA CORPORATIVA",
+   "Domestic_AM": "ARBITRAJE Y MEDIACIÓN DOMÉSTICOS",
+   "Int_DesResolution": "RESOLUCIÓN DE DISPUTAS INTERNACIONALES",
+   "Bank_ResIns": "QUIEBRA, REESTRUCTURACIÓN E INSOLVENCIA",
+   "Data_protection": "PROTECCIÓN DE DATOS Y PRIVACIDAD",
+   "Farud_Assets_Enforcement": "FRAUDE, SEGUIMIENTO DE ACTIVOS Y APLICACIÓN",
+   "Low_bano": "BONO BAJO",
+   "Bribery_corruption": "SOBORNO Y CORRUPCIÓN",
+   "Dispute_Resolution": "RESOLUCIÓN DE CONFLICTOS",
+   "Intelectual_Property": "PROPIEDAD INTELECTUAL",
+   "Private_Clinet_Prctice": "PRÁCTICA DEL CLIENTE PRIVADO",
+   "Trail_Litigation": "JUICIO Y LITIGIO",
+   "REAL_ESTATE": "Bienes raíces",
+
+   "Message_Founder": "MENSAJE DE NUESTRAS FUNDADORAS",
+   "Message_Founder_Detail": "Estamos muy agradecidos por haber tenido el privilegio de atender a clientes de todas las industrias, pequeñas, medianas y grandes, y haber sido asesores de la República de la India. Reconocemos humildemente las bendiciones y los hombros altos de las generaciones anteriores. Los profundos valores que nos han inculcado continúan inspirándonos a crear una plataforma que saque a relucir las mejores versiones de nosotros mismos de manera colectiva, mientras buscamos servir a nuestros clientes y promover la causa de la justicia.",
+   "Kamla_Naganand": "Kamala Naganand",
+   "Managing_partner": "SOCIO DIRECTOR",
+   "Shreyas Jayasimha": "Shreyas Jayasimha",
+   "Founding_partner": "SOCIO FUNDADOR",
+   "Meet_Our Team": "Conozca a nuestro equipo",
+
+   "Location": "UBICACIONES",
+
+   "Aarna_Law": "Ley Aarna",
+   "Bengaluru": "Bengaluru",   
+   "Mumbai": "BOMBAI",
+   "Contact_expers": "CONTACTA CON NUESTROS EXPERTOS",
+   "Be_Address1": "No. 5, 2da Carretera Principal,",
+   "Be_Address2": "Vyalikaval",
+   "Be_Address3": "Bengaluru 560003",
+   "De_Address1": "No. 53, Sundernagar,",
+   "De_Address2": "Nueva Delhi- 110003",
+
+   "Mu_Address1": "No. 109, DBS Heritage,",
+   "mu_Address2": "Prescott Road, Fuerte,",
+   "mu_Address3": "Bombai- 400001",
+
+   
+   "Whatwedo_Message1": "Unsere beratungsgeführte, technologiegestützte Praxis sieht Gerechtigkeit als einen wesentlichen Dienst in dieser globalen Wirtschaft des internationalen Handels und fließender Grenzen.",
+   "Whatwedo_Message2": "Wir beraten inländische, ausländische und diasporische Klienten zu einer Reihe von Themen. Von der Minimierung regulatorischer, finanzieller und rechtlicher Risiken bis hin zur Navigation in hochspezialisierten Bereichen des nationalen und internationalen Rechts beraten wir mit kompromissloser Integrität.",
+
+   "Partners_Message1": "La experiencia de nuestro exitoso equipo ancla nuestra práctica en el pensamiento.",
+   "Partners_Message2": "liderazgo, tutoría y la búsqueda de la excelencia...",
+   "Partners": "SOCIAS",
+
+   "Manjushree_Somasundara": "Manjushree Somasundara",
+   "Manjushree_Role": "Socio - Derecho y práctica bancaria, Gestión de riesgos",
+   "Manjushree_exp": "Con más de 20 años de experiencia en total en el...",
+   "Read_More": "Leer más..",
+
+
+   "Kirit_Javali": "Kirit Javali",
+   "Kirit_Role": "Abogado Socio Principal",
+   "Kirit_exp": "Kirit Javali estudió derecho en la Universidad de Leeds ...",
+ 
+   "Spandana_Ashwath": "Spandana Ashwath",
+   "Spandana_Role": "PAREJA",
+   "Spandana_exp": "Spandana Ashwath estudió derecho en la Universidad...",
+
+   "Punthi_Shah": "Punthi Shah",
+   "Punthi_Role": "DEFENSORA",
+   "Punthi_exp": "Punthi Shah se graduó de K.C.",
+ 
+   "Apoorva_Guruprasad": "Apoorva Guruprasad",
+   "Apoorva_Role": "PAREJA",
+   "Apoorva_exp": "Apoorva Guruprasad se graduó de la Universidad",
+
+   "Shreyas_Jayasimha": "Shreyas Jayasimha",
+   "Shreyas_Role": "FUNDADOR | CONSEJO | ABOGADO | MEDIADOR | ÁRBITRO",
+   "Shreyas_exp": "Shreyas Jayasimha aporta sus más de 20 años de experiencia.",
+
+   "Kamala_Naganand": "Kamala Naganand",
+   "Kamala_Role": "FUNDADOR | CONSEJO | MEDIADOR",
+   "Kamala_exp": "Kamala comenzó su carrera en su empresa familiar...",
+ 
+   "Partners_end_Message2": "Estamos agradecidos con cada cliente y miembro del equipo presente y pasado.",
+ 
+   "JAYASIMHA_FOUNDATION": "FUNDACIÓN JAYASIMHA",
+   "JayaFoundation_Mesage1": "Establecida en memoria del difunto juez R Jayasimha Babu (1942-2015), la Fundación Jayasimha lleva adelante un ilustre legado arraigado en la búsqueda de la excelencia a través de un espíritu de servicio.",
+   "JayaFoundation_Mesage2": "La fundación encarna los principios rectores de integridad, coraje y disciplina que ejemplificaron al juez Jayasimha Babu.   ",
+   "JayaFoundation_Mesage3": "A través de sus distinguidos nombramientos como juez del Tribunal Superior de Madrás, y anteriormente del Tribunal Superior de Karnataka, el juez Jayasimha Babu pronunció sentencias ampliamente citadas sobre derecho constitucional, derecho comercial y de sociedades, y tributación. Además, su astuto enfoque en la resolución de conflictos como árbitro en disputas nacionales e internacionales fue ampliamente considerado en gran estima.",
+   "JayaFoundation_Mesage4": "Conocedor de la música carnática, indostánica y clásica occidental, el juez Babu estaba interesado en alentar y empoderar a los jóvenes talentos del derecho.",
+   
+
+   "Founder_Message": "MENSAJE DE NUESTRAS FUNDADORAS",
+   "Founder_Message1": "We are very grateful for having had the privilege of serving clients across industries, small medium and large, and to have been on the counsel for the Republic of India. We humbly cknowledge the blessings and tall shoulders of previous generations. The deep values they have instilled continue to inspire us to create a platform that brings out the best versions of our selves collectively, while we seek to serve our clients and further the cause of justice",
+
+   "Managing_Partner": "SOCIO DIRECTOR",
+   "Founding_Partner": "SOCIO FUNDADOR",
+   "Meet_Our_Team": "CONOZCA A NUESTRO EQUIPO",
+
+   "Would_You_Join": "¿Te gustaría unirte a nuestro equipo?",
+   "Openining_message1": "Somos una organización innovadora que se empodera mutuamente para crecer y prosperar. Integridad, eficiencia, trabajo en equipo y altruismo son los pilares de nuestra práctica boutique.",
+   "View_Curent_Openining": "VER APERTURAS ACTUALES"
+}
+  
+  

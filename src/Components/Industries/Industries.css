@@ -1,0 +1,167 @@
+.industry-container {
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .industry-header {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 2rem;
+  }
+  
+  .industry-header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .industry-content {
+    max-width: 56%;
+    margin: 0 auto;
+    padding: 0 2%;
+  }
+  
+  .industry-dropdown {
+    margin-bottom: 2rem;
+    /* Removed the border */
+  }
+  
+  /* New styles for the dropdown to match the image */
+  .industry-dropdown select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #333;
+    border: 1px solid #dc2626;
+    border-radius: 4px;
+    background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+  
+  .industry-description p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    color: #333;
+  }
+  
+  .industry-list p {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 800;
+  }
+  
+  .industry-list ul {
+    list-style-type: none;
+    padding-left: 1.5rem;
+    margin-top: 0;
+  }
+  
+  .industry-list li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    color: #333;
+  }
+  
+  .industry-list li::before {
+    content: "\2022";
+    color: #dc2626;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+  }
+  
+  .industry-contact {
+    margin-top: 2rem;
+    text-align: left;
+  }
+  
+  .contact-button {
+    background-color: white;
+    color: #333;
+    border: 2px solid #dc2626;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-button:hover {
+    background-color: #dc2626;
+    color: white;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1200px) {
+    .industry-content {
+      max-width: 64%;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .industry-content {
+      max-width: 72%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .industry-header {
+      height: 200px;
+    }
+  
+    .industry-content {
+      max-width: 80%;
+      padding: 0 15px;
+    }
+  
+    .industry-description p,
+    .industry-list li {
+      font-size: 0.9rem;
+    }
+  
+    .contact-button {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .industry-header {
+      height: 150px;
+    }
+  
+    .industry-content {
+      max-width: 90%;
+      padding: 0 10px;
+    }
+  
+    .industry-description p,
+    .industry-list li {
+      font-size: 0.8rem;
+    }
+  
+    .contact-button {
+      font-size: 0.8rem;
+      padding: 6px 12px; /* Adds 15px padding to the bottom */
+      margin-bottom: 2rem;
+    }
+  }
+  .industry-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }

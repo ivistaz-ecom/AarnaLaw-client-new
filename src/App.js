@@ -73,7 +73,7 @@ const App = () => {
       <LanguageProvider>
         <Navbar />
         <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/" element={<Home />} />
           <Route path="/userSignIn" element={<UserSignIn />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />

@@ -5,6 +5,7 @@ import "../../src/styles/navbar.css";
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../images/logo.svg';
 import { LanguageContext } from "../Components/LanguageContext";
+import { FaArrowCircleUp } from "react-icons/fa";
 
 const translations = {
   ar: require('../Components/json/Navbar/ar.json'),
@@ -173,7 +174,10 @@ const Navbar = () => {
         </button>
         <div className="relative inline-block text-left">
           <div>
-            <button
+
+            {/*This is a language button; It is hidden for now. */}
+
+            {/* <button
               type="button"
               className="inline-flex justify-center w-full shadow-2xl px-4 py-3 bg-white text-custom-blue hover:text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               onClick={toggleDropdown}
@@ -192,7 +196,7 @@ const Navbar = () => {
                   clipRule="evenodd"
                 />
               </svg>
-            </button>
+            </button> */}
           </div>
 
           {isOpen && (
@@ -299,66 +303,72 @@ const Navbar = () => {
                   {translations[selectedLanguage].industries}
                 </Link>
               </li>
+
+
+
+              
               <li className="relative">
-                <div
-                  className="block py-2 px-3 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
-                  onClick={toggleSubmenu}
-                >
-                   {translations[selectedLanguage].news_insight}
-                  <svg
-                    className="w-4 h-4 ml-1 inline-block text-gray-500 group-hover:text-custom-red"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M3 10a7 7 0 1114 0 7 7 0 01-14 0zm1.5 0a5.5 5.5 0 1111 0 5.5 5.5 0 01-11 0zm5.5-4.5a1 1 0 00-.707.293l-3 3a1 1 0 001.414 1.414L9 8.414V14a1 1 0 102 0V8.414l2.293 2.293a1 1 0 001.414-1.414l-3-3A1 1 0 0010 5.5z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                {isSubmenuOpen && (
-                  <ul className="flex flex-col mt-2 md:absolute md:-ml-6 bg-white md:bg-transparent md:shadow-none shadow-lg rounded-md">
-                    <li>
-                      <Link
-                        to="/insights"
-                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-                        onClick={handleNavigation}
-                      >
-                         {translations[selectedLanguage].insights}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/aarnaNews"
-                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-                        onClick={handleNavigation}
-                      >
-                         {translations[selectedLanguage].arnaNews}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/publications"
-                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-                        onClick={handleNavigation}
-                      >
-                        {translations[selectedLanguage].publication}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/podcast"
-                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-                        onClick={handleNavigation}
-                      >
-                         {translations[selectedLanguage].podcast}
-                      </Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
+  <div
+    className="block py-2 px-3 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
+    onMouseEnter={() => setIsSubmenuOpen(true)}
+    
+  >
+    {translations[selectedLanguage].news_insight}
+   
+    {/* Rotate the icon when the submenu is open */}
+    <FaArrowCircleUp
+    className={`w-4 h-4 ml-2 inline-block text-custom-blue transition-transform duration-300 group-hover:text-custom-red ${
+      isSubmenuOpen ? 'rotate-180' : 'rotate-0'
+    }`}
+  />
+  </div>
+  {isSubmenuOpen && (
+    <ul
+      className="flex flex-col mt-2 md:absolute bg-white rounded-md shadow-lg"
+      onMouseEnter={() => setIsSubmenuOpen(true)} // Keep submenu open while hovering
+      onMouseLeave={() => setIsSubmenuOpen(false)} // Close submenu when leaving
+    >
+      <li>
+        <Link
+          to="/insights"
+          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+          onClick={handleNavigation}
+        >
+          {translations[selectedLanguage].insights}
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/aarnaNews"
+          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+          onClick={handleNavigation}
+        >
+          {translations[selectedLanguage].arnaNews}
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/publications"
+          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+          onClick={handleNavigation}
+        >
+          {translations[selectedLanguage].publication}
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/podcast"
+          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+          onClick={handleNavigation}
+        >
+          {translations[selectedLanguage].podcast}
+        </Link>
+      </li>
+    </ul>
+  )}
+</li>
+
+
               <li className="z-10">
               <Link
                   to="/careers"

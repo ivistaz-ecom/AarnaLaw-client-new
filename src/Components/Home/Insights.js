@@ -122,7 +122,7 @@ function HomeBanner() {
             insightsData.map((item, index) => (
               <div key={index}>
                 <div className="lg:p-4">
-                <div className="w-full h-[450px] my-auto lg:h-[620px] lg:w-[500px] bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 md:hover:bg-red-700 lg:flex flex-col group transition-colors duration-300 relative">
+                <div className="w-full h-[450px] my-auto lg:h-[620px] lg:w-[500px] bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 md:hover:bg-custom-red lg:flex flex-col group transition-colors duration-300 relative">
                 <img
                       src={item.imageUrl}
                       className="w-full h-[200px] md:h-[280px] object-cover"

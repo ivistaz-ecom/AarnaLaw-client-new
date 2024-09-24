@@ -118,7 +118,7 @@ function IndustryList({ selectIndustry = () => {}, defaultItem = "" }) {
       <div>
         <button
           type="button"
-          className="inline-flex justify-between w-full px-4 py-2 text-lg font-medium text-bg-151C4A border-2 border-red-500 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+          className="inline-flex justify-between w-full px-4 py-2 text-lg font-medium text-bg-151C4A border-2 border-custom-red rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-custom-red focus:border-custom-red"
           onClick={toggleDropdown}
           aria-haspopup="true"
           aria-expanded={isOpen}

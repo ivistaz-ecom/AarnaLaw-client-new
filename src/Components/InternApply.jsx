@@ -69,7 +69,7 @@ function InternApply({ handleClose }) {
           <div className="flex flex-wrap mb-4 -mx-2">
             <div className="w-full md:w-1/2 px-2 mb-4 md:mb-0">
               <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
-                First Name <span className="text-red-500">*</span>
+                First Name <span className="text-custom-red">*</span>
               </label>
               <input
                 type="text"
@@ -83,7 +83,7 @@ function InternApply({ handleClose }) {
             </div>
             <div className="w-full md:w-1/2 px-2">
               <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
-                Last Name <span className="text-red-500">*</span>
+                Last Name <span className="text-custom-red">*</span>
               </label>
               <input
                 type="text"
@@ -99,7 +99,7 @@ function InternApply({ handleClose }) {
           <div className="flex flex-wrap mb-4 -mx-2">
             <div className="w-full md:w-1/2 px-2 mb-4 md:mb-0">
               <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">
-                Phone Number <span className="text-red-500">*</span>
+                Phone Number <span className="text-custom-red">*</span>
               </label>
               <input
                 type="text"
@@ -113,7 +113,7 @@ function InternApply({ handleClose }) {
             </div>
             <div className="w-full md:w-1/2 px-2">
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email <span className="text-red-500">*</span>
+                Email <span className="text-custom-red">*</span>
               </label>
               <input
                 type="email"
@@ -142,7 +142,7 @@ function InternApply({ handleClose }) {
           <div className="flex flex-wrap mb-4 -mx-2">
             <div className="w-full md:w-1/2 px-2 mb-4 md:mb-0">
               <label htmlFor="currentSem" className="block text-sm font-medium text-gray-700">
-                Current Semester <span className="text-red-500">*</span>
+                Current Semester <span className="text-custom-red">*</span>
               </label>
               <input
                 type="text"
@@ -156,7 +156,7 @@ function InternApply({ handleClose }) {
             </div>
             <div className="w-full md:w-1/2 px-2">
               <label htmlFor="intershipMonth" className="block text-sm font-medium text-gray-700">
-                Internship Month <span className="text-red-500">*</span>
+                Internship Month <span className="text-custom-red">*</span>
               </label>
               <input
                 type="text"
@@ -171,7 +171,7 @@ function InternApply({ handleClose }) {
           </div>
           <div className="mb-4">
             <label htmlFor="role" className="block text-sm font-medium text-gray-700">
-              Pick a Role <span className="text-red-500">*</span>
+              Pick a Role <span className="text-custom-red">*</span>
             </label>
             <select
               id="role"

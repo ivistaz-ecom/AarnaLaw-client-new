@@ -52,27 +52,27 @@ function AutomotiveIndustry() {
                     </p>
                     <br></br>
                     <p className="text-lg font-inter font-medium">
-                    <span className="inline-block w-1.5 h-1.5 bg-red-600 rounded-full mr-2"></span>
+                    <span className="inline-block w-1.5 h-1.5 bg-custom-red rounded-full mr-2"></span>
                     Conducted extensive due diligence for companies on pending litigation, regulatory compliance of entities that were to be engaged as Official Dealers. We have also advised auto component manufacturers on production of Spare Parts and allied services.
                     </p>
                     <br></br>
                     <p className="text-lg font-inter font-medium">
-                    <span className="inline-block w-1.5 h-1.5 bg-red-600 rounded-full mr-2"></span>
+                    <span className="inline-block w-1.5 h-1.5 bg-custom-red rounded-full mr-2"></span>
                         Drafting and Vetting of Agreements including Share-Holder Agreements, Licensing Agreements, Dealership Agreements, and Technology Transfer Agreements.
                     </p>
                     <br></br>
                     <p className="text-lg font-inter font-medium">
-                    <span className="inline-block w-1.5 h-1.5 bg-red-600 rounded-full mr-2"></span>
+                    <span className="inline-block w-1.5 h-1.5 bg-custom-red rounded-full mr-2"></span>
                         Drafted progressive Data Privacy Agreements for large corporations keeping in mind Global Regulatory Requirements as well as the Indian Data Privacy Law and upcoming Regulations.
                     </p>
                     <br></br>
                     <p className="text-lg font-inter font-medium">
-                    <span className="inline-block w-1.5 h-1.5 bg-red-600 rounded-full mr-2"></span>
+                    <span className="inline-block w-1.5 h-1.5 bg-custom-red rounded-full mr-2"></span>
                         Represented Automotive Companies in Consumer Disputes before the National Consumer Dispute Redressal Commission and State as well as District Level Commissions.
                     </p>
                     <br></br>
                     <p className="text-lg font-inter font-medium">
-                    <span className="inline-block w-1.5 h-1.5 bg-red-600 rounded-full mr-2"></span>
+                    <span className="inline-block w-1.5 h-1.5 bg-custom-red rounded-full mr-2"></span>
                         Represented Automotive Companies and component manufacturers in disputes before several Courts.
                     </p>
                 </div>

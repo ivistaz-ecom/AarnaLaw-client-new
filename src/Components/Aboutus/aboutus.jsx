@@ -274,7 +274,7 @@ function AboutUs() {
             <div className="flex items-center mt-4">
               <button
                 onClick={handleServiceButtonClick}
-                className="bg-white text-black border-2 border-red-500 px-6 py-2 rounded-full font-semibold hover:bg-red-500 hover:text-white"
+                className="bg-white text-black border-2 border-custom-red px-6 py-2 rounded-full font-semibold hover:bg-custom-red hover:text-white"
               >
                 {translations[selectedLanguage].Meet_Our_Team}
               </button>
@@ -360,7 +360,7 @@ function AboutUs() {
     </div>
     <div className="w-full md:w-auto mt-4 md:mt-0 flex justify-center md:justify-start">
       <button
-        className="bg-white text-black border-2 border-red-500 px-8 py-3 rounded-lg font-bold hover:bg-red-500 hover:text-white transition-colors duration-300 ml-4 md:ml-0"
+        className="bg-white text-black border-2 border-custom-red px-8 py-3 rounded-lg font-bold hover:bg-custom-red hover:text-white transition-colors duration-300 ml-4 md:ml-0"
         onClick={handleViewCurrentOpenings}
       >
         {translations[selectedLanguage]?.View_Current_Openings || "View Current Openings"}

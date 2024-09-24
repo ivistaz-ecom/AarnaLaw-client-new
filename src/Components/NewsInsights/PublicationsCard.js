@@ -15,7 +15,7 @@ const PublicationsCard = ({ cardDetails, onTitleClick }) => {
     <li className="flex w-full md:w-[710px] bg-white border border-gray-200 shadow dark:bg-white dark:border-gray-400 mb-10">
       {/* Left Side (Date and Image) */}
       <div className="flex flex-col items-center justify-center p-4 bg-gray-200 w-[35%]">
-        <span className="text-2xl text-red-800 font-bold">{formatDate(date).day}</span>
+        <span className="text-2xl text-custom-red font-bold">{formatDate(date).day}</span>
         <span className="text-xl font-bold">{formatDate(date).month}</span>
         <span className="text-lg font-bold">{formatDate(date).year}</span>
       </div>

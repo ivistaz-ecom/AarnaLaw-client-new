@@ -17,7 +17,7 @@ const AarnaNewscard = ({ cardDetails, onTitleClick }) => {
     <li className="flex w-full md:w-[710px] bg-white border border-gray-200 shadow dark:bg-white dark:border-gray-400 mb-10">
       {/* Left Side (Date) */}
       <div className="flex flex-col items-center justify-center p-4 bg-gray-200 w-[35%]">
-        <span className="text-2xl text-red-800 font-bold">{day}</span>
+        <span className="text-2xl text-custom-red font-bold">{day}</span>
         <span className="text-xl font-bold">{month}</span>
         <span className="text-lg font-bold">{year}</span>
       </div>

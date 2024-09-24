@@ -101,7 +101,7 @@ const PodcastCard1 = ({ podcastDetails }) => {
           </div>
         </div>
         <AiOutlineAudioMuted
-          className={`text-red-500 cursor-pointer ${isMuted ? "text-3xl" : ""}`}
+          className={`text-custom-red cursor-pointer ${isMuted ? "text-3xl" : ""}`}
           onClick={handleVolumeToggle}
         />
       </div>

@@ -82,9 +82,9 @@ const PracticeArea = () => {
               {columnIndex < 2 && (
                 <>
                   {/* Horizontal line for mobile */}
-                  <div className="block md:hidden w-full h-px bg-red-500 my-4"></div>
+                  <div className="block md:hidden w-full h-px bg-custom-red my-4"></div>
                   {/* Vertical line for medium and larger screens */}
-                  <div className="hidden md:block w-px bg-red-500 self-stretch"></div>
+                  <div className="hidden md:block w-px bg-custom-red self-stretch"></div>
                 </>
               )}
             </React.Fragment>

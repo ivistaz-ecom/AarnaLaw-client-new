@@ -59,16 +59,16 @@ const Contactus = () => {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-semibold mb-4">{city}</h3>
       <div className="flex items-start mb-2">
-        <span className="text-red-500 mr-2">📍</span>
+        <span className="text-custom-red mr-2">📍</span>
         <p className="text-gray-600">{address}</p>
       </div>
       <div className="flex items-center mb-2">
-        <span className="text-red-500 mr-2">📞</span>
+        <span className="text-custom-red mr-2">📞</span>
         <p className="text-gray-600">{phone}</p>
       </div>
       <button
         onClick={() => handleGetDirection(address)}
-        className="mt-4 text-red-500 hover:text-red-600 transition-colors"
+        className="mt-4 text-custom-red hover:text-red-600 transition-colors"
       >
         {translations[selectedLanguage].Get_direction}
       </button>
@@ -129,7 +129,7 @@ const Contactus = () => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-custom-red"
                   required
                 />
               </div>
@@ -143,7 +143,7 @@ const Contactus = () => {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-custom-red"
                   required
                 />
               </div>
@@ -158,7 +158,7 @@ const Contactus = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-custom-red"
                 required
               />
             </div>
@@ -172,7 +172,7 @@ const Contactus = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-custom-red"
                 required
               />
             </div>
@@ -185,13 +185,13 @@ const Contactus = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 h-32"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-custom-red h-32"
                 required
               ></textarea>
             </div>
             <button
               type="submit"
-              className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+              className="bg-custom-red text-white px-6 py-3 rounded-md hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-custom-red focus:ring-offset-2"
             >
               {translations[selectedLanguage].Submit}
             </button>

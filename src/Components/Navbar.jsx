@@ -2,27 +2,27 @@
 import React, { useState, useContext, useEffect } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../../src/styles/navbar.css";
-import { Link, useNavigate } from 'react-router-dom';
-import logo from '../images/logo.svg';
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../images/logo.svg";
 import { LanguageContext } from "../Components/LanguageContext";
 import { FaArrowCircleUp } from "react-icons/fa";
 
 const translations = {
-  ar: require('../Components/json/Navbar/ar.json'),
-  de: require('../Components/json/Navbar/de.json'),
-  en: require('../Components/json/Navbar/en.json'),
-  es: require('../Components/json/Navbar/es.json'),
-  fr: require('../Components/json/Navbar/fr.json'),
-  gu: require('../Components/json/Navbar/gu.json'),
-  hi: require('../Components/json/Navbar/hi.json'),
-  ja: require('../Components/json/Navbar/ja.json'),
-  kn: require('../Components/json/Navbar/kn.json'),
-  ko: require('../Components/json/Navbar/ko.json'),
-  ml: require('../Components/json/Navbar/ml.json'),
-  ru: require('../Components/json/Navbar/ru.json'),
-  ta: require('../Components/json/Navbar/ta.json'),
-  tel: require('../Components/json/Navbar/tel.json'),
-  zh: require('../Components/json/Navbar/zh.json'),
+  ar: require("../Components/json/Navbar/ar.json"),
+  de: require("../Components/json/Navbar/de.json"),
+  en: require("../Components/json/Navbar/en.json"),
+  es: require("../Components/json/Navbar/es.json"),
+  fr: require("../Components/json/Navbar/fr.json"),
+  gu: require("../Components/json/Navbar/gu.json"),
+  hi: require("../Components/json/Navbar/hi.json"),
+  ja: require("../Components/json/Navbar/ja.json"),
+  kn: require("../Components/json/Navbar/kn.json"),
+  ko: require("../Components/json/Navbar/ko.json"),
+  ml: require("../Components/json/Navbar/ml.json"),
+  ru: require("../Components/json/Navbar/ru.json"),
+  ta: require("../Components/json/Navbar/ta.json"),
+  tel: require("../Components/json/Navbar/tel.json"),
+  zh: require("../Components/json/Navbar/zh.json"),
 };
 
 const languageNames = {
@@ -40,7 +40,7 @@ const languageNames = {
   gu: "ગુજરાતી (Gujarati)",
   ru: "русский (Russian)",
   de: "Deutsch (German)",
-  ml: "മലയാളം (Malayalam)"
+  ml: "മലയാളം (Malayalam)",
 };
 
 const Navbar = () => {
@@ -65,7 +65,6 @@ const Navbar = () => {
     navigate(`/home`);
   };
 
-
   const handleLogInClick = () => {
     navigate(`/userSignIn`);
   };
@@ -73,8 +72,6 @@ const Navbar = () => {
   const handleccontactsClick = () => {
     navigate(`/contactus`);
   };
-
-  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -169,12 +166,14 @@ const Navbar = () => {
       onMouseLeave={handleMouseLeave}
     >
       <div className="absolute z-50 flex justify-end space-x-5 my-5 w-11/12 md:w-11/12">
-        <button className="bg-white text-custom-blue hover:text-white hover:bg-red-700 px-10 py-2 shadow-2xl "  onClick={handleLogInClick}>
+        <button
+          className="bg-white text-custom-blue hover:text-white hover:bg-red-700 px-10 py-2 shadow-2xl "
+          onClick={handleLogInClick}
+        >
           {translations[selectedLanguage].Log_in}
         </button>
         <div className="relative inline-block text-left">
           <div>
-
             {/*This is a language button; It is hidden for now. */}
 
             {/* <button
@@ -226,7 +225,12 @@ const Navbar = () => {
 
       <nav className="absolute bg-white dark:bg-gray-900 w-11/12 md:w-11/12 z-20 my-20 border-b border-gray-200 dark:border-gray-600 shadow-2xl">
         <div className="max-w-screen-xxl flex flex-wrap items-center justify-between mx-auto p-4 relative">
-          <Link to="/home" className="flex items-center space-x-3 rtl:space-x-reverse" onClick={handleLogoClick}>
+          <Link
+            to="/home"
+            className="flex items-center space-x-3 rtl:space-x-reverse"
+            onClick={handleLogoClick}
+            
+          >
             <img
               src={logo}
               height={60}
@@ -239,7 +243,8 @@ const Navbar = () => {
             <button
               type="button"
               className="border border-custom-red text-custom-red hover:bg-custom-red hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              onClick={handleccontactsClick} >
+              onClick={handleccontactsClick}
+            >
               {translations[selectedLanguage].contact_us}
             </button>
             <button
@@ -277,7 +282,9 @@ const Navbar = () => {
             <ul
               className={`flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 ${
                 isSearchActive ? "hidden" : ""
+                
               }`}
+              
             >
               <li className="z-10">
                 <Link
@@ -304,89 +311,81 @@ const Navbar = () => {
                 </Link>
               </li>
 
-
-
-              
               <li className="relative">
-  <div
-    className="block py-2 px-3 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
-    onMouseEnter={() => setIsSubmenuOpen(true)}
-    
-  >
-    {translations[selectedLanguage].news_insight}
-   
-    {/* Rotate the icon when the submenu is open */}
-    <FaArrowCircleUp
-    className={`w-4 h-4 ml-2 inline-block text-custom-blue transition-transform duration-300 group-hover:text-custom-red ${
-      isSubmenuOpen ? 'rotate-180' : 'rotate-0'
-    }`}
-  />
-  </div>
-  {isSubmenuOpen && (
-    <ul
-      className="flex flex-col mt-2 md:absolute bg-white rounded-md shadow-lg"
-      onMouseEnter={() => setIsSubmenuOpen(true)} // Keep submenu open while hovering
-      onMouseLeave={() => setIsSubmenuOpen(false)} // Close submenu when leaving
-    >
-      <li>
-        <Link
-          to="/insights"
-          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-          onClick={handleNavigation}
-        >
-          {translations[selectedLanguage].insights}
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="/aarnaNews"
-          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-          onClick={handleNavigation}
-        >
-          {translations[selectedLanguage].arnaNews}
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="/publications"
-          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-          onClick={handleNavigation}
-        >
-          {translations[selectedLanguage].publication}
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="/podcast"
-          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-          onClick={handleNavigation}
-        >
-          {translations[selectedLanguage].podcast}
-        </Link>
-      </li>
-    </ul>
-  )}
-</li>
+                <div
+                  className="block py-2 px-3 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
+                  onMouseEnter={() => setIsSubmenuOpen(true)}
+                 
+                >
+                  {translations[selectedLanguage].news_insight}
 
+                  {/* Rotate the icon when the submenu is open */}
+                  <FaArrowCircleUp
+                    className={`w-4 h-4 ml-2 inline-block text-custom-blue transition-transform duration-300 group-hover:text-custom-red ${
+                      isSubmenuOpen ? "rotate-180" : "rotate-0"
+                    }`}
+                  />
+                </div>
+                {isSubmenuOpen && (
+                  <ul
+                    className="flex flex-col mt-2 md:absolute bg-white rounded-md shadow-lg"
+                    onMouseEnter={() => setIsSubmenuOpen(true)} // Keep submenu open while hovering
+                    onMouseLeave={() => setIsSubmenuOpen(false)} // Close submenu when leaving
+                  >
+                    <li>
+                      <Link
+                        to="/insights"
+                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+                        onClick={handleNavigation}
+                      >
+                        {translations[selectedLanguage].insights}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/aarnaNews"
+                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+                        onClick={handleNavigation}
+                      >
+                        {translations[selectedLanguage].arnaNews}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/publications"
+                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+                        onClick={handleNavigation}
+                      >
+                        {translations[selectedLanguage].publication}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/podcast"
+                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+                        onClick={handleNavigation}
+                      >
+                        {translations[selectedLanguage].podcast}
+                      </Link>
+                    </li>
+                  </ul>
+                )}
+              </li>
 
               <li className="z-10">
-              <Link
+                <Link
                   to="/careers"
                   className="block py-2 px-1 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   {translations[selectedLanguage].careers}
                 </Link>
-                
               </li>
             </ul>
             <ul className="">
               <li className="relative lg:order-1 lg:ps-4">
                 <div className="search-box z-40 text-end flex-col justify-center items-center">
                   <div className="relative">
-                    <button
-                      className="btn-search "
-                      onClick={handleSearchClick}
-                    >
+                    <button className="btn-search " onClick={handleSearchClick}>
                       <i className="text-custom-blue bi bi-search "></i>
                     </button>
                     <input

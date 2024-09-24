@@ -17,7 +17,7 @@ module.exports = {
         bgDark3: "#16396e",
         bgDark4: "#0E1333",
         'custom-blue': '#1E396A',
-        'custom-red': '#ED1C24',
+        'custom-red': '#EE3E23',
         'custom-gray': '#7E838B',
       },
       backgroundColor: {

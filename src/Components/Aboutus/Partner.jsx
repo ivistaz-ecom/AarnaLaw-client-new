@@ -122,7 +122,7 @@ const Partner = () => {
   return (
     <div className="bg-bgDark3 py-10">
     <div className="text-center">
-      <p className="tracking-wider text-red-700 mb-4 font-bold text-2xl font-montserrat">
+      <p className="tracking-wider text-custom-red mb-4 font-bold text-2xl font-montserrat">
         {translations[selectedLanguage].Partners}
       </p>
     </div>
@@ -157,7 +157,7 @@ const Partner = () => {
             <p className="text-gray-700 text-base">
               {partner.workExperience}
             </p>
-            <Link to={`/${partner.profileName}`} className="mt-2 inline-block bg-red-700 text-white py-2 px-4 rounded hover:bg-red-800">
+            <Link to={`/${partner.profileName}`} className="mt-2 inline-block bg-custom-red text-white py-2 px-4 rounded hover:bg-red-800">
               {partner.ReadMore}
             </Link>
           </motion.div>
@@ -175,7 +175,7 @@ const Partner = () => {
               className="sr-only"
             />
             <span
-              className={`w-3 h-3 inline-block rounded-full ${index === currentIndex ? 'bg-red-700' : 'bg-gray-300'}`}
+              className={`w-3 h-3 inline-block rounded-full ${index === currentIndex ? 'bg-custom-red' : 'bg-gray-300'}`}
             ></span>
           </label>
         ))}

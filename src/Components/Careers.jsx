@@ -68,11 +68,11 @@ const Careers = () => {
             {/* Current Openings */}
             <ul>
               <li className="flex items-center justify-between text-3xl">Current Openings</li>
-              <li className="border-b-2 border-red-500 mt-1 mb-4"></li> {/* Reduced margin between title and line */}
+              <li className="border-b-2 border-custom-red mt-1 mb-4"></li> {/* Reduced margin between title and line */}
               <li className="flex items-center justify-between text-lg font-bold">
                 Litigation - 5 to 9 years - Bangalore
                 <button className="focus:outline-none" onClick={toggleDetails}>
-                  <span className={`font-bold text-x4 ${detailsVisible ? 'text-red-500' : 'text-red-500'}`}>
+                  <span className={`font-bold text-x4 ${detailsVisible ? 'text-custom-red' : 'text-custom-red'}`}>
                     {detailsVisible ? '−' : '+'}
                   </span>
                 </button>
@@ -94,7 +94,7 @@ const Careers = () => {
               <li className="flex items-center justify-between text-lg font-bold">
                 Corporate Advisory - 5 to 8 years - Bangalore
                 <button className="focus:outline-none" onClick={toggleDetailsReq}>
-                  <span className={`font-bold text-x4 ${detailsVisibleReq ? 'text-red-500' : 'text-red-500'}`}>
+                  <span className={`font-bold text-x4 ${detailsVisibleReq ? 'text-custom-red' : 'text-custom-red'}`}>
                     {detailsVisibleReq ? '−' : '+'}
                   </span>
                 </button>
@@ -122,13 +122,13 @@ const Careers = () => {
             </ul>
             <br />
             <div className="flex justify-start items-center">
-              <button onClick={handleApplyNowClick} className="bg-white text-black border-2 border-red-500 px-6 py-2 rounded-md font-semibold hover:bg-red-500 hover:text-white">Apply Now</button>
+              <button onClick={handleApplyNowClick} className="bg-white text-black border-2 border-custom-red px-6 py-2 rounded-md font-semibold hover:bg-custom-red hover:text-white">Apply Now</button>
             </div>
             <br />
             {/* Internships Section */}
             <ul>
               <li className="text-3xl">Internships</li>
-              <li className="border-b-2 border-red-500 mt-1 mb-4"></li> {/* Reduced margin between title and line */}
+              <li className="border-b-2 border-custom-red mt-1 mb-4"></li> {/* Reduced margin between title and line */}
               <li className="text-2xl">Internship</li>
               <br />
               <li>
@@ -146,7 +146,7 @@ const Careers = () => {
             </ul>
             <br />
             <div className="flex justify-start items-center">
-              <button onClick={handleApplyNowInternClick} className="bg-white text-black border-2 border-red-500 px-6 py-2 rounded-md font-semibold hover:bg-red-500 hover:text-white">Apply Now</button>
+              <button onClick={handleApplyNowInternClick} className="bg-white text-black border-2 border-custom-red px-6 py-2 rounded-md font-semibold hover:bg-custom-red hover:text-white">Apply Now</button>
             </div>
           </div>
           <br>

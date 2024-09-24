@@ -28,7 +28,7 @@ const AdminDashboard = () => {
       {loading ? (
         <p className="text-center">Loading...</p>
       ) : error ? (
-        <p className="text-center text-red-500">{error}</p>
+        <p className="text-center text-custom-red">{error}</p>
       ) : (
         <div>
           <h2 className="text-2xl font-semibold mb-4">User Management</h2>

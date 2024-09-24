@@ -72,7 +72,7 @@ const Podcast = () => {
             Insights
           </span>
           <span
-            onClick={() => handleTabClick("/aarnaNews")}
+            onClick={() => handleTabClick("/aarna-news")}
             className="text-gray-600 cursor-pointer hover:text-blue-700 transition"
           >
             Aarna News

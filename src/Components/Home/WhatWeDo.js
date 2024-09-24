@@ -6,7 +6,7 @@ import whatwedoImg from "../Home/Images/What_we_do.jpg";
 const WhatWeDo = () => {
   return (
     <div className="container mx-auto flex flex-col md:flex-row">
-      <div className="w-full md:w-1/2 px-5">
+      <div className="w-full md:w-1/2  md:ps-5 ps-5 md:pe-0 pe-5">
         <img
           src={whatwedoImg}
           width={683}

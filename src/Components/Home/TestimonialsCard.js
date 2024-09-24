@@ -34,7 +34,7 @@ const TestimonialsCard = ({ testimonialDetails }) => {
               {testimonialDetails.desc}
             </p>
           </div>
-          <a href="https://staging.aarnalaw.com/contact/" className="text-custom-blue">
+          <a href="" className="text-custom-blue">
         Read more
       </a>
         </div>

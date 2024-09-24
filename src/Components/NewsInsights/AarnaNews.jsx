@@ -21,6 +21,7 @@ const AarnaNews = () => {
         `https://www.aarnalaw.com/wp-json/wp/v2/posts?_embed&categories=${catgorie_id}`
       );
       const data = await response.json();
+      console.log(data);
 
       const fetchMedia = async (mediaId) => {
         const mediaResponse = await fetch(
@@ -169,20 +170,32 @@ const AarnaNews = () => {
                   alt={item.title}
                 />
                 <div className="p-4">
-                  <h5 
+                  <h5
                     className="text-lg font-semibold mb-2 text-custom-blue line-clamp-2"
-                    style={{ minHeight: "4rem" }} // Adjust '4rem' based on your line height
+                    style={{
+                      overflow: "hidden",
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      lineHeight: "1.5rem",
+                       
+                    }} // Adjust lineHeight as needed
                     dangerouslySetInnerHTML={{ __html: item.title }}
                   />
                   <p
-                    className="text-gray-700 text-sm mb-4 line-clamp-3"
+                    className="text-gray-700 text-sm mb-4 line-clamp-2"
+                    style={{
+                      overflow: "hidden",
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      lineHeight: "1.5rem",
+                    }} // Adjust lineHeight as needed
                     dangerouslySetInnerHTML={{ __html: item.content }}
                   />
                   <p className="text-sm text-gray-500 mb-4">
                     {item.formattedDate}
                   </p>
                   <a
-                    href={`/insights/${item.slug}`}
+                    href={`/aarna-news/${item.slug}`}
                     className="text-custom-red font-semibold hover:underline"
                   >
                     Read More

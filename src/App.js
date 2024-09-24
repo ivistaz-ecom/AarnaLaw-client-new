@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import SubscribeNewsletter from "./Components/SubscribeNewsletter";
 
@@ -64,16 +69,16 @@ import AarnaNews from "./Components/NewsInsights/AarnaNews";
 import Publications from "./Components/NewsInsights/Publications";
 import Podcast from "./Components/NewsInsights/Podcast";
 import Insitespage from "./Components/NewsInsights/Insightspage";
-
-
+import PageNotFound from "./Components/PageNotFound";
+import Posts from "./app/aarna-news/[slug]/Posts";
 const App = () => {
-  
   return (
     <div className="App">
       <LanguageProvider>
         <Navbar />
         <Routes>
-        <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<PageNotFound />} />
           <Route path="/userSignIn" element={<UserSignIn />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
@@ -84,38 +89,89 @@ const App = () => {
           <Route path="/practice-area" element={<PracticeArea />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/practice-area/art-law" element={<ArtLaw />} />
-          <Route path="/practice-area/bankruptcy-ins" element={<BankruptcyIns />} />
-          <Route path="/practice-area/corporate-advisory" element={<CorporateAdvisory />} />
-          <Route path="/practice-area/arbitrations-mediation" element={<ArbitrationsMediation />} />
+          <Route
+            path="/practice-area/bankruptcy-ins"
+            element={<BankruptcyIns />}
+          />
+          <Route
+            path="/practice-area/corporate-advisory"
+            element={<CorporateAdvisory />}
+          />
+          <Route
+            path="/practice-area/arbitrations-mediation"
+            element={<ArbitrationsMediation />}
+          />
           <Route path="/practice-area/fraud" element={<Fraud />} />
           <Route path="/practice-area/ipr" element={<Ipr />} />
-          <Route path="/practice-area/international-disputes" element={<InternationalDisputes />} />
+          <Route
+            path="/practice-area/international-disputes"
+            element={<InternationalDisputes />}
+          />
           <Route path="/practice-area/lowbono" element={<Lowbono />} />
-          <Route path="/practice-area/private-clients" element={<PrivateClients />} />
+          <Route
+            path="/practice-area/private-clients"
+            element={<PrivateClients />}
+          />
           <Route path="/practice-area/real-estate" element={<RealEstate />} />
-          <Route path="/practice-area/risk-management" element={<RiskManagement />} />
-          <Route path="/practice-area/trial-litigation" element={<TrialLitigation />} />
-          <Route path="/team/shreyas-jayasimha/" element={<Shreyasjayasimha />} />
+          <Route
+            path="/practice-area/risk-management"
+            element={<RiskManagement />}
+          />
+          <Route
+            path="/practice-area/trial-litigation"
+            element={<TrialLitigation />}
+          />
+          <Route
+            path="/team/shreyas-jayasimha/"
+            element={<Shreyasjayasimha />}
+          />
           <Route path="/team/kamala-naganand" element={<Kamalanaganand />} />
           <Route path="/team/manjushree" element={<Manjushree />} />
-          <Route path="/team/apoorva-guruprasad" element={<ApoorvaGuruprasad />} />
+          <Route
+            path="/team/apoorva-guruprasad"
+            element={<ApoorvaGuruprasad />}
+          />
           <Route path="/team/spandan-asshwath" element={<Spandanasshwath />} />
           <Route path="/team/punthi-shah" element={<Punthishah />} />
 
-          <Route path="/industries/automotive-industry" element={<Automotiveindustry />} />
+          <Route
+            path="/industries/automotive-industry"
+            element={<Automotiveindustry />}
+          />
           <Route path="/industries/aviation" element={<Aviation />} />
           <Route path="/industries/construction" element={<Construction />} />
           <Route path="/industries/corporate-law" element={<CorporateLaw />} />
-          <Route path="/industries/environmental-law" element={<EnvironmentalLaw />} />
+          <Route
+            path="/industries/environmental-law"
+            element={<EnvironmentalLaw />}
+          />
           <Route path="/industries/taxation" element={<Taxation />} />
           <Route path="/industries/energy-oil-gas" element={<EnergyOilGas />} />
-          <Route path="/industries/Financialservices" element={<Financialservices />} />
-          <Route path="/industries/foreign-investment" element={<ForeignInvestment />} />
+          <Route
+            path="/industries/Financialservices"
+            element={<Financialservices />}
+          />
+          <Route
+            path="/industries/foreign-investment"
+            element={<ForeignInvestment />}
+          />
           <Route path="/industries/healthcare" element={<Healthcare />} />
-          <Route path="/industries/it-iot-blockchain" element={<ITIoTBlockchain />} />
-          <Route path="/industries/media-telecommunications" element={<MediaTelecommunications />} />
-          <Route path="/industries/life-science-pharmaceuticals" element={<LifeSciencePharmaceuticals />} />
-          <Route path="/industries/shipping-maritime" element={<ShippingMaritime />} />
+          <Route
+            path="/industries/it-iot-blockchain"
+            element={<ITIoTBlockchain />}
+          />
+          <Route
+            path="/industries/media-telecommunications"
+            element={<MediaTelecommunications />}
+          />
+          <Route
+            path="/industries/life-science-pharmaceuticals"
+            element={<LifeSciencePharmaceuticals />}
+          />
+          <Route
+            path="/industries/shipping-maritime"
+            element={<ShippingMaritime />}
+          />
           <Route path="/industries/retail" element={<Retail />} />
           <Route path="/industries/space-law" element={<SpaceLaw />} />
           <Route path="/industries/sports-law" element={<SportsLaw />} />
@@ -123,19 +179,21 @@ const App = () => {
           <Route path="/insights" element={<Insights />} />
           <Route path="/insights/:slug" element={<Insitespage />} />
 
-          <Route path="/aarnaNews" element={<AarnaNews />} />
+          <Route path="/aarna-news" element={<AarnaNews />} />
+          <Route path="/aarna-news/:slug" element={<Posts />} />
+          
           <Route path="/publications" element={<Publications />} />
           <Route path="/podcast" element={<Podcast />} />
-
 
           <Route path="/careers" element={<Careers />} />
           <Route path="/contactus" element={<Contactus />} />
           <Route path="/apply-now" element={<ApplyNow />} />
 
+
+          
           <Route path="/upload-pdf" element={<UploadPdf />} />
           <Route path="/footer" element={<Footer />} />
         </Routes>
-        
       </LanguageProvider>
       <Footer />
     </div>

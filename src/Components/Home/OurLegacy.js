@@ -31,7 +31,7 @@ const OurLegacy = () => {
           </button>
         </div>
       </div>
-      <div className="w-full md:w-1/2 px-5">
+      <div className="w-full md:w-1/2 md:pe-5 pe-5 md:ps-0 ps-5">
         <img
           src={legacyImg}
           width={683}

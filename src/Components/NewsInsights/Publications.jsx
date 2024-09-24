@@ -102,7 +102,7 @@ const Publications = () => {
                 Insights
               </span>
               <span
-                onClick={() => handleTabClick("/aarnaNews")}
+                onClick={() => handleTabClick("/aarna-news")}
                 className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100"
               >
                 Aarna News
@@ -132,7 +132,7 @@ const Publications = () => {
             Insights
           </span>
           <span
-            onClick={() => handleTabClick("/aarnaNews")}
+            onClick={() => handleTabClick("/aarna-news")}
             className="text-gray-600 cursor-pointer hover:text-blue-700 transition"
           >
             Aarna News

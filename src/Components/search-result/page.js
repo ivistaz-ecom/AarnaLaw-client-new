@@ -26,6 +26,7 @@ const SearchResults = () => {
           q
         )}`;
         const response = await fetch(apiUrl);
+        
         console.log(response);
 
         if (!response.ok) {

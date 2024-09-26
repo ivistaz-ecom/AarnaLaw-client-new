@@ -52,8 +52,8 @@ function PracticeArea() {
     { imgSrc: fraudAssetTracingImg, to: "/practice-area/fraud", label: translations[selectedLanguage].Fraud_asset_tracing_and_enforcement },
     { imgSrc: intellectualPropertyImg, to: "/practice-area/ipr", label: translations[selectedLanguage].Intellectual_Property },
     { imgSrc: internationalDisputeImg, to: "/practice-area/international-disputes", label: translations[selectedLanguage].International_Dispute_Resolution },
-    { imgSrc: lowBonoImg, to: "/practice-area/lowbono", label: translations[selectedLanguage].Low_Bono },
     { imgSrc: privateClientImg, to: "/practice-area/private-clients", label: translations[selectedLanguage].Private_Client_Practice },
+    { imgSrc: lowBonoImg, to: "/practice-area/lowbono", label: translations[selectedLanguage].Low_Bono },
     { imgSrc: realEstateImg, to: "/practice-area/real-estate", label: translations[selectedLanguage].Real_Estate },
     { imgSrc: riskManagementImg, to: "/practice-area/risk-management", label: translations[selectedLanguage].Risk_Management_and_Compliance },
     { imgSrc: trialLitigationImg, to: "/practice-area/trial-litigation", label: translations[selectedLanguage].Trial_and_Litigation }
@@ -102,3 +102,4 @@ function PracticeArea() {
 }
 
 export default PracticeArea;
+

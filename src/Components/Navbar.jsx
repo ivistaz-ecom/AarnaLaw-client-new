@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../images/logo.svg";
 import { LanguageContext } from "../Components/LanguageContext";
 import { FaArrowCircleUp } from "react-icons/fa";
-
+import Search from "./search";
 const translations = {
   ar: require("../Components/json/Navbar/ar.json"),
   de: require("../Components/json/Navbar/de.json"),
@@ -160,6 +160,12 @@ const Navbar = () => {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch(e); // Trigger search on Enter key press
+    }
+  };
+
   return (
     <div
       className="w-full relative flex justify-center"
@@ -223,7 +229,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      <nav className="absolute bg-white dark:bg-gray-900 w-11/12 md:w-11/12 z-20 my-20 border-b border-gray-200 dark:border-gray-600 shadow-2xl">
+      <nav
+        className="absolute bg-white dark:bg-gray-900 w-11/12 md:w-11/12 z-20 my-20 border-b border-gray-200 dark:border-gray-600 shadow-2xl"
+        onMouseLeave={() => setIsSubmenuOpen(false)}
+      >
         <div className="max-w-screen-xxl flex flex-wrap items-center justify-between mx-auto p-4 relative">
           <Link
             to="/"
@@ -276,6 +285,7 @@ const Navbar = () => {
             className={`items-center justify-between text-center  w-full md:flex md:w-auto md:order-1 relative ${
               isMobileMenuOpen ? "block" : "hidden"
             }`}
+            onMouseLeave={() => setIsSubmenuOpen(false)}
             id="navbar-sticky"
           >
             <ul
@@ -308,7 +318,7 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              <li className="relative">
+              <li className="relative group">
                 <div
                   className="block py-2 px-3 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
                   onMouseEnter={() => setIsSubmenuOpen(true)}
@@ -322,6 +332,7 @@ const Navbar = () => {
                     }`}
                   />
                 </div>
+
                 {isSubmenuOpen && (
                   <ul
                     className="flex flex-col mt-2 md:absolute bg-white rounded-md shadow-lg"
@@ -367,6 +378,7 @@ const Navbar = () => {
                   </ul>
                 )}
               </li>
+
               <li className="z-10">
                 <Link
                   to="/careers"
@@ -376,60 +388,15 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <ul className="">
-              <li className="relative lg:order-1 lg:ps-4">
-                <div className="search-box z-40 text-end flex-col justify-center items-center">
-                  <div className="relative">
-                    <button className="btn-search " onClick={handleSearchClick}>
-                      <i className="text-custom-blue bi bi-search "></i>
-                    </button>
-                    <input
-                      type="text"
-                      className="input-search"
-                      placeholder="Type to Search..."
-                      onChange={handleSearch}
-                      value={searchInput}
-                      onFocus={() => setShowSearchResults(true)}
-                    />
-                    {showSearchResults && data.length > 0 && (
-                      <div className="absolute top-full mt-2 max-h-80 overflow-y-auto no-scrollbar bg-white p-2 text-start">
-                        {data.map((item, index) => (
-                          <div
-                            key={index}
-                            className="search-result-item"
-                            onClick={() => handleOptionClick(item.slug)}
-                          >
-                            <div className="lg:flex hover:bg-blue-950 hover:text-white p-2 border-b cursor-pointer items-center">
-                              {item._embedded &&
-                                item._embedded["wp:featuredmedia"] && (
-                                  <div
-                                    className="mr-2"
-                                    style={{ width: "100px" }}
-                                  >
-                                    <img
-                                      src={
-                                        item._embedded["wp:featuredmedia"][0]
-                                          .source_url
-                                      }
-                                      alt={item.title.rendered}
-                                      className="w-full h-auto hidden md:flex"
-                                      width="100"
-                                      height="100"
-                                    />
-                                  </div>
-                                )}
-                              <div className="lg:flex-1 lg:ps-3">
-                                {item.title.rendered}
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </li>
-            </ul>
+            <Search
+              handleSearch={handleSearch}
+              handleSearchClick={handleSearchClick}
+              searchInput={searchInput}
+              handleKeyDown={handleKeyDown}
+              showSearchResults={showSearchResults}
+              data={data}
+              handleOptionClick={handleOptionClick}
+            />
           </div>
         </div>
       </nav>

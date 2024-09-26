@@ -128,7 +128,7 @@ const Footer = () => {
           </div>
           <div>
             <button onClick={handleSubscribeClick}
-            className="border border-custom-red text-xs md:text-base md:px-6 px-2 py-2 text-white hover:bg-white hover:border-white hover:text-custom-red">
+            className="border border-custom-red text-xs md:text-base md:px-6 px-2 py-2 ml-4 mt-2 text-white hover:bg-white hover:border-white hover:text-custom-red">
               Subscribe to newsletter
             </button>
           </div>

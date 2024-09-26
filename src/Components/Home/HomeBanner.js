@@ -49,13 +49,13 @@ function HomeBanner() {
   };
   return (
     <>
-      <section className="relative w-full mx-auto overflow-hidden md:h-screen text-center">
+      <section className="relative w-full mx-auto md:overflow-hidden md:h-screen text-center">
         <Navbar />
         {/* Desktop View */}
         <div className="hidden md:block">
           <div className="relative">
             <BannerSlider {...settings} className="z-0">
-              <div className="relative overflow-hidden">
+              <div className="relative md:overflow-hidden">
                 <img
                   src={banner1Img}
                   className="w-full h-auto z-0"
@@ -70,7 +70,7 @@ function HomeBanner() {
                 </div>
               </div>
 
-              <div className="relative overflow-hidden">
+              <div className="relative md:overflow-hidden">
                 <img
                   src={banner2Img}
                   className="w-full h-auto z-0"
@@ -90,7 +90,7 @@ function HomeBanner() {
                 </div>
               </div>
 
-              <div className="relative overflow-hidden">
+              <div className="relative md:overflow-hidden">
                 <img
                   src={banner3Img}
                   className="w-full h-auto z-0"
@@ -115,7 +115,7 @@ function HomeBanner() {
         <div className="block md:hidden">
           <div className="relative">
             <BannerSlider {...settings} className="z-0">
-              <div className="relative overflow-hidden">
+              <div className="relative md:overflow-hidden">
                 <img
                   src={mobilebanner1Img}
                   className="w-full h-[450px] lg:h-auto z-0"
@@ -130,7 +130,7 @@ function HomeBanner() {
                 </div>
               </div>
 
-              <div className="relative overflow-hidden">
+              <div className="relative md:overflow-hidden">
                 <img
                   src={mobilebanner2Img}
                   className="w-full h-[450px] lg:h-auto z-0"
@@ -150,7 +150,7 @@ function HomeBanner() {
                 </div>
               </div>
 
-              <div className="relative overflow-hidden">
+              <div className="relative md:md:overflow-hidden">
                 <img
                   src={mobilebanner3Img}
                   className="w-full h-[450px] lg:h-auto z-0"

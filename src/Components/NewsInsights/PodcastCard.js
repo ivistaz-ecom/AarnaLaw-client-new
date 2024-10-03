@@ -3,7 +3,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { AiOutlineAudioMuted } from "react-icons/ai";
 
 const PodcastCard = ({ podcastDetails }) => {
-  const { formattedDate, imageUrl, title, podcastexcerpt, player_link } = podcastDetails;
+  const { formattedDate, imageUrl, title, podcastexcerpt, player_link } =
+    podcastDetails;
+    console.log(podcastDetails);
+    
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -54,11 +57,11 @@ const PodcastCard = ({ podcastDetails }) => {
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
   return (
-    <li className="w-full md:w-full h-auto shadow-lg mx-auto">
+    <li className="w-full md:w-full h-auto shadow-lg mx-auto list-none">
       {/* First Row: Image */}
       <div className="flex justify-center">
         <img

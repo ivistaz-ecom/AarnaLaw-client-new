@@ -10,7 +10,14 @@ import SubscribeNewsletter from "./Components/SubscribeNewsletter";
 
 import Home from "./Components/Home";
 import AboutUs from "./Components/Aboutus/aboutus";
-import PracticeArea from "./Components/PracticeArea";
+// Practice Area
+
+// import PracticeArea from "./Components/PracticeArea";
+import PostPage from "./app/practice-areaa/[slug]/page";
+import PostContent from "./app/practice-areaa/[slug]/Post" 
+import PracticeArea from "./app/practice-areaa/page";
+
+
 import Industries from "./Components/Industries";
 import Contactus from "./Components/Contactus";
 import ApplyNow from "./Components/ApplyNow";
@@ -86,9 +93,17 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/searchWidget" element={<SearchWidget />} />
           <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/practice-area" element={<PracticeArea />} />
+          
+          {/* <Route path="/practice-area" element={<PracticeArea />} /> */}
+          {/* Practice area */}
+          <Route path="/practice-areaa/:slug" element={<PostPage />} />
+          <Route path="/posts/:slug" component={<PostContent />} />
+          <Route path="/practice-areaa" element={<PracticeArea />} />
+          
+          
+          
           <Route path="/industries" element={<Industries />} />
-          <Route path="/practice-area/art-law" element={<ArtLaw />} />
+          {/* <Route path="/practice-area/art-law" element={<ArtLaw />} />
           <Route
             path="/practice-area/bankruptcy-ins"
             element={<BankruptcyIns />}
@@ -120,7 +135,7 @@ const App = () => {
           <Route
             path="/practice-area/trial-litigation"
             element={<TrialLitigation />}
-          />
+          /> */}
           <Route
             path="/team/shreyas-jayasimha/"
             element={<Shreyasjayasimha />}
@@ -133,7 +148,7 @@ const App = () => {
           />
           <Route path="/team/spandan-asshwath" element={<Spandanasshwath />} />
           <Route path="/team/punthi-shah" element={<Punthishah />} />
-
+          
           <Route
             path="/industries/automotive-industry"
             element={<Automotiveindustry />}

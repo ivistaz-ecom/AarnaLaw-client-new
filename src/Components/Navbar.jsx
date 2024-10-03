@@ -303,7 +303,8 @@ const Navbar = () => {
               </li>
               <li className="z-10">
                 <Link
-                  to="/practice-area"
+                  to="/practice-areaa"
+                  // href ="../app/practice-areaa"
                   className="block py-2 px-1 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   {translations[selectedLanguage].practice_area}

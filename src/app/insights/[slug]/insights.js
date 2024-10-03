@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ConfigData from "./config";
+import ConfigData from "../../config";
 
 const Insights = ({ slug }) => {
   const [data, setData] = useState([]);

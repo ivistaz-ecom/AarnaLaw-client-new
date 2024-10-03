@@ -30,7 +30,7 @@ const Podcast = () => {
             .map((podcast) => ({
               ...podcast,
               formattedDate: formatDate(podcast.date),
-              imageUrl: podcast.episode_player_image,
+              imageUrl: podcast.episode_featured_image,
               podcastexcerpt: podcast.excerpt.rendered,
             }));
 

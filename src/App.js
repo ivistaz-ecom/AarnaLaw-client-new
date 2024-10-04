@@ -13,9 +13,9 @@ import AboutUs from "./Components/Aboutus/aboutus";
 // Practice Area
 
 // import PracticeArea from "./Components/PracticeArea";
-import PostPage from "./app/practice-areaa/[slug]/page";
-import PostContent from "./app/practice-areaa/[slug]/Post" 
-import PracticeArea from "./app/practice-areaa/page";
+import PostPage from "./app/practice-area/[slug]/page";
+import PostContent from "./app/practice-area/[slug]/Post" 
+import PracticeArea from "./app/practice-area/page";
 
 
 import Industries from "./Components/Industries";
@@ -96,9 +96,9 @@ const App = () => {
           
           {/* <Route path="/practice-area" element={<PracticeArea />} /> */}
           {/* Practice area */}
-          <Route path="/practice-areaa/:slug" element={<PostPage />} />
+          <Route path="/practice-area/:slug" element={<PostPage />} />
           <Route path="/posts/:slug" component={<PostContent />} />
-          <Route path="/practice-areaa" element={<PracticeArea />} />
+          <Route path="/practice-area" element={<PracticeArea />} />
           
           
           

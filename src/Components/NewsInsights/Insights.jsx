@@ -189,23 +189,23 @@ const Insights = () => {
 
       {/* Displaying Insights in Rows */}
       <div className="md:px-2 mx-auto max-w-screen-xl grid md:grid-cols-2 gap-2">
-        {insights.map((insight) => (
-          <div key={insight.id} className="p-2">
+        {insights.map((item) => (
+          <div key={item.id} className="p-2">
             <div className="border rounded-md p-4 shadow-md hover:shadow-lg transition">
               <img
-                src={insight.imageUrl}
-                alt={insight.title}
+                src={item.imageUrl}
+                alt={item.title}
                 className="w-full h-48 object-cover rounded-md mb-4"
               />
-              <h2 className="text-xl font-semibold mb-2">{insight.title}</h2>
-              <p className="text-gray-600 mb-2">{insight.desc}</p>
-              <p className="text-gray-500 text-sm mb-4">{insight.formattedDate}</p>
-              <button
-                onClick={() => handleViewArticleClick(insight.link)}
-                className="text-custom-blue font-semibold hover:text-custom-red transition"
-              >
-                Read More
-              </button>
+              <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
+              <p className="text-gray-600 mb-2">{item.desc}</p>
+              <p className="text-gray-500 text-sm mb-4">{item.formattedDate}</p>
+              <a
+                    href={`/insights/${item.slug}`}
+                    className="text-custom-red font-semibold hover:underline"
+                  >
+                    Read More
+                  </a>
             </div>
           </div>
         ))}

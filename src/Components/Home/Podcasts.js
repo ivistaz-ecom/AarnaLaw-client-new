@@ -6,10 +6,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { leftArrow, rightArrow } from "../Home/utils/Icon";
 
-
 const Podcasts = () => {
   const sliderRef = useRef(null);
   const [podcasts, setPodcasts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Fetch podcasts data dynamically
   useEffect(() => {
@@ -28,8 +28,10 @@ const Podcasts = () => {
             imageUrl: podcast.episode_player_image,
           }))
         );
+        setLoading(false);
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     };
 
@@ -91,28 +93,26 @@ const Podcasts = () => {
   };
 
   return (
-    <div className="container mx-auto relative mb-14 mt-6 md:mt-[650px] flex flex-col items-center">
+    <div className="container mx-auto relative mb-14 mt-6 md:mt-[650px] flex flex-col items-center overflow-hidden">
       <h1 className="text-custom-blue text-2xl font-semibold text-center mb-8">
         Podcast
       </h1>
 
-      {/* Conditionally render the slider only if podcasts data is available */}
-      {podcasts.length > 0 ? (
-        <div className="w-full md:w-3/4 gap-24">
-          <InsightSlider ref={sliderRef} {...settings}>
-            {podcasts.slice(0, 4).map(
-              (
-                item // Display only the first 4 podcasts
-              ) => (
-                <div key={item.id} className="h-full">
-                  <PodcastCard podcastDetails={item} />
-                </div>
-              )
-            )}
-          </InsightSlider>
+      {/* Spinner while loading */}
+      {loading ? (
+        <div className="flex justify-center items-center h-32">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-700 border-solid border-opacity-70"></div>
         </div>
       ) : (
-        <p className="text-center mt-10">Loading...</p>
+        <div className="w-full md:w-3/4 gap-24 overflow-hidden">
+          <InsightSlider ref={sliderRef} {...settings}>
+            {podcasts.slice(0, 4).map((item) => (
+              <div key={item.id} className="h-full">
+                <PodcastCard podcastDetails={item} />
+              </div>
+            ))}
+          </InsightSlider>
+        </div>
       )}
 
       <div className="flex justify-center mt-10">

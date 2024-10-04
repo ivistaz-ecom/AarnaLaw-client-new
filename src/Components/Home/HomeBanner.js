@@ -112,64 +112,66 @@ function HomeBanner() {
         </div>
 
         {/* Mobile View */}
-        <div className="block md:hidden">
-          <div className="relative">
-            <BannerSlider {...settings} className="z-0">
-              <div className="relative md:overflow-hidden">
-                <img
-                  src={mobilebanner1Img}
-                  className="w-full h-[450px] lg:h-auto z-0"
-                  width={800}
-                  height={150}
-                  alt="Home Banner 1"
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-end text-center z-10 pb-36 md:pb-0 md:justify-center">
-                  <p className="text-white font-bold text-3xl lg:text-6xl">
-                    Unlocking Abundance
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative md:overflow-hidden">
-                <img
-                  src={mobilebanner2Img}
-                  className="w-full h-[450px] lg:h-auto z-0"
-                  width={800}
-                  height={150}
-                  alt="Home Banner 3"
-                />
-                <div className="absolute inset-0 flex flex-col justify-end text-center z-10 pb-8 md:pb-0">
-                  <p className="text-white font-bold text-3xl lg:text-6xl">
-                    Client-Centric Problem Solving
-                  </p>
-                  <p className="mt-4 text-white text-1xl lg:text-2xl">
-                    We are a counsel-led Indian legal advisory firm,
-                    representing India and people across the world in diverse
-                    areas of expertise.
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative md:md:overflow-hidden">
-                <img
-                  src={mobilebanner3Img}
-                  className="w-full h-[450px] lg:h-auto z-0"
-                  width={800}
-                  height={150}
-                  alt="Home Banner 2"
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-end text-center z-10 pb-28 md:pb-0 md:justify-center">
-                  <p className="text-white font-bold text-3xl lg:text-6xl">
-                    Rooted in India,
-                  </p>
-                  <p className="text-white font-bold text-3xl lg:text-6xl">
-                    Global in Practice.
-                  </p>
-                </div>
-              </div>
-            </BannerSlider>
-          </div>
+        {/* Mobile View */}
+<div className="block md:hidden">
+  <div className="relative overflow-hidden"> {/* Add overflow-hidden here */}
+    <BannerSlider {...settings} className="z-0">
+      <div className="relative md:overflow-hidden">
+        <img
+          src={mobilebanner1Img}
+          className="w-full h-[450px] lg:h-auto z-0"
+          width={800}
+          height={150}
+          alt="Home Banner 1"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-end text-center z-10 pb-36 md:pb-0 md:justify-center">
+          <p className="text-white font-bold text-3xl lg:text-6xl">
+            Unlocking Abundance
+          </p>
         </div>
+      </div>
+
+      <div className="relative md:overflow-hidden">
+        <img
+          src={mobilebanner2Img}
+          className="w-full h-[450px] lg:h-auto z-0"
+          width={800}
+          height={150}
+          alt="Home Banner 3"
+        />
+        <div className="absolute inset-0 flex flex-col justify-end text-center z-10 pb-8 md:pb-0">
+          <p className="text-white font-bold text-3xl lg:text-6xl">
+            Client-Centric Problem Solving
+          </p>
+          <p className="mt-4 text-white text-1xl lg:text-2xl">
+            We are a counsel-led Indian legal advisory firm,
+            representing India and people across the world in diverse
+            areas of expertise.
+          </p>
+        </div>
+      </div>
+
+      <div className="relative md:md:overflow-hidden">
+        <img
+          src={mobilebanner3Img}
+          className="w-full h-[450px] lg:h-auto z-0"
+          width={800}
+          height={150}
+          alt="Home Banner 2"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-end text-center z-10 pb-28 md:pb-0 md:justify-center">
+          <p className="text-white font-bold text-3xl lg:text-6xl">
+            Rooted in India,
+          </p>
+          <p className="text-white font-bold text-3xl lg:text-6xl">
+            Global in Practice.
+          </p>
+        </div>
+      </div>
+    </BannerSlider>
+  </div>
+</div>
+
       </section>
     </>
   );

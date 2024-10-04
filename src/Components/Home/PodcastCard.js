@@ -16,7 +16,7 @@ const PodcastCard = ({ podcastDetails }) => {
   };
 
   return (
-    <li className="w-full md:w-[565px] md:h-auto h-40 shadow-lg group transition-colors duration-300 md:hover:bg-custom-blue md:hover:text-white list-none mx-2">
+    <li className="w-full md:w-[565px] md:h-auto h-40 shadow-lg group transition-colors duration-300 md:hover:bg-custom-blue md:hover:text-white list-none mx-2 overflow-hidden"> {/* Added overflow-hidden here */}
       <div className="flex flex-row items-center h-full">
         {/* Image on the left for all views */}
         <img

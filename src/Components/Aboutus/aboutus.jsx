@@ -118,46 +118,45 @@ function AboutUs() {
       <br></br>
       {/* What LEGACY START Section */}
       <div className="container mx-auto flex flex-col-reverse md:flex-row-reverse justify-between">
-  {/* Our Legacy Section */}
-  <div id="legacy" className="bg-white ">
-    <div className="flex flex-col-reverse md:flex-row-reverse justify-between container mx-auto py-10 px-5">
-      <motion.div
-        className="w-full md:w-1/2 mb-4 md:mb-0"
-        initial={{ opacity: 0, x: "10vw" }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 2 }}
-      >
-        <img
-          src={Legacyimg}
-          className="w-full h-auto shadow-lg"
-          alt="legacy"
-          loading="lazy"
-          style={{ maxWidth: "100%", maxHeight: "100%" }}
-        />
-      </motion.div>
+        {/* Our Legacy Section */}
+        <div id="legacy" className="bg-white ">
+          <div className="flex flex-col-reverse md:flex-row-reverse justify-between container mx-auto px-5">
+            <motion.div
+              className="w-full md:w-1/2 mb-4 md:mb-0"
+              initial={{ opacity: 0, x: "10vw" }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 2 }}
+            >
+              <img
+                src={Legacyimg}
+                className="w-full h-auto shadow-lg"
+                alt="legacy"
+                loading="lazy"
+                style={{ maxWidth: "100%", maxHeight: "100%" }}
+              />
+            </motion.div>
 
-      <motion.div
-        className="w-full md:w-2/5 text-left md:ml-8"
-        initial={{ opacity: 0, x: "-100vw" }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 2 }}
-      >
-        <p className="text-custom-blue text-2xl font-bold">
-          {translations[selectedLanguage].Our_Legacy}
-        </p>
-        <br></br>
-        <div className="text-custom-red text-3xl font-semibold mt-4 md:mt-0 text-left word-spacing-custom">
-          {translations[selectedLanguage].Legacy_Message1}
+            <motion.div
+              className="w-full md:w-2/5 text-left md:ml-8"
+              initial={{ opacity: 0, x: "-100vw" }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 2 }}
+            >
+              <p className="text-custom-blue text-2xl font-bold">
+                {translations[selectedLanguage].Our_Legacy}
+              </p>
+              <br></br>
+              <div className="text-custom-red text-3xl font-semibold mt-4 md:mt-0 text-left word-spacing-custom">
+                {translations[selectedLanguage].Legacy_Message1}
+              </div>
+              <br></br>
+              <div className="text-custom-gray mt-2 md:mt-0">
+                <p>{translations[selectedLanguage].Legacy_sub_Message1}</p>
+              </div>
+            </motion.div>
+          </div>
         </div>
-        <br></br>
-        <div className="text-custom-gray mt-2 md:mt-0">
-          <p>{translations[selectedLanguage].Legacy_sub_Message1}</p>
-        </div>
-      </motion.div>
-    </div>
-  </div>
-</div>
-
+      </div>
 
       {/* What We Do Section */}
       <div className="mx-auto flex flex-col md:flex-row">
@@ -182,7 +181,7 @@ function AboutUs() {
             </motion.div>
 
             <motion.div
-              className="w-full md:w-2/5 text-left"
+              className="w-full md:w-2/5 text-left md:mr-20"
               initial={{ opacity: 0, x: "100vw" }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 2 }}
@@ -211,7 +210,7 @@ function AboutUs() {
 
       {/* Our Founder Start Section */}
       <div className="bg-white p-8">
-        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between md:w-4/5 container  mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between md:w-4/5 container mx-auto">
           {" "}
           {/* Adjusted margin */}
           <motion.div
@@ -230,18 +229,17 @@ function AboutUs() {
             />
           </motion.div>
           <motion.div
-            className="w-full md:w-1/2 text-left"
+            className="w-full md:w-1/2 text-left md:ml-8"
             initial={{ opacity: 0, x: "100vw" }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 2 }}
-            style={{ marginLeft: "30px" }}
           >
             <br />
             <div>
               <img src={quoteimg} alt="Quote" />
             </div>
             <br></br>
-            <h2 className="text-left font-semibold  tracking-wider text-blue-900 pl-25 mb-4 font-montserrat">
+            <h2 className="text-left font-semibold  tracking-wider text-blue-900 md:pl-25 mb-4 font-montserrat">
               {translations[selectedLanguage].Founder_Message}
             </h2>
             <div
@@ -253,32 +251,25 @@ function AboutUs() {
               </p>
             </div>
             <br></br>
-            <div className="flex justify-between">
-              <div className="mb-4 font-semibold">
-                <p>{translations[selectedLanguage].Kamala_Naganand}</p>
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+              <div className="text-left">
+                <p className="font-semibold">Kamala Naganand</p>
+                <p className="text-sm">MANAGING PARTNER</p>
               </div>
-              <div className="mb-4 font-semibold">
-                <p>{translations[selectedLanguage].Shreyas_Jayasimha} </p>
-              </div>
-            </div>
-
-            <div className="flex justify-between">
-              <div className="mb-4 font-base">
-                <p>{translations[selectedLanguage].Managing_Partner}</p>
-              </div>
-              <div className="mb-4 font-base">
-                <p>{translations[selectedLanguage].Founding_Partner}</p>
+              <div className="text-left mt-4 md:mt-0">
+                <p className="font-semibold">Shreyas Jayasimha</p>
+                <p className="text-sm">FOUNDING PARTNER</p>
               </div>
             </div>
 
-            <div className="flex items-center mt-4">
+            {/* <div className="flex items-center mt-4">
               <button
                 onClick={handleServiceButtonClick}
                 className="bg-white text-black border-2 border-custom-red px-6 py-2 rounded-full font-semibold hover:bg-custom-red hover:text-white"
               >
                 {translations[selectedLanguage].Meet_Our_Team}
               </button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>
@@ -286,88 +277,90 @@ function AboutUs() {
 
       {/* Foundation Section end */}
 
-      <div class="bg-151C4A  ">
-     <div className="sm:mt-0 pt-1 flex flex-col md:flex-row justify-center items-center h-screen/2 container mx-auto">
-        <motion.div
-          className="grid grid-cols-1 md:w-1/3"
-          initial={{ opacity: 0, x: "-100vw" }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 2 }} // Increased duration for a slower animation
-        >
-          <div className="col-span-6">
-            <div className="md:hidden">
-              <img
-                src={JayasimhaFoundationimg}
-                className="mx-auto rounded-md sm:ml-12"
-                alt="Jayasimha Foundation"
-              />
-            </div>
-            <br />
+      <div className="bg-151C4A">
+        <div className="flex flex-col text-justify md:flex-row justify-center items-center container mx-auto py-20 px-5 ">
+          {/* Left Column - Content */}
+          <div
+            className="flex-1 p-4 md:text-justify text-left"
+            // Increased duration for a slower animation
+          >
             <h2 className="text-left font-medium tracking-wider text-gray-400 mb-4 font-montserrat">
-              {translations[selectedLanguage].JAYASIMHA_FOUNDATION}
+              JAYASIMHA FOUNDATION
             </h2>
-            <p className="text-left text-white">
-              {translations[selectedLanguage].JayaFoundation_Mesage1}
+            <p className="text-white mb-4">
+              Established in memory of Late Justice R Jayasimha Babu
+              (1942-2015), the Jayasimha Foundation carries forward an
+              illustrious legacy rooted in the pursuit of excellence through a
+              spirit of service.
             </p>
-            <br />
-            <p className="text-left text-white">
-              {translations[selectedLanguage].JayaFoundation_Mesage2}
+            <p className="text-white mb-4">
+              The foundation embodies the guiding principles of integrity,
+              courage and discipline that exemplified Justice Jayasimha Babu.
             </p>
-            <br />
-            <p className="text-left text-white">
-              {translations[selectedLanguage].JayaFoundation_Mesage3}
+            <p className="text-white mb-4">
+              Through his distinguished appointments as Judge of the High Court
+              of Madras, and earlier of the High Court of Karnataka, Justice
+              Jayasimha Babu delivered widely cited judgments on constitutional
+              law, company and commercial law, and taxation. Further, his astute
+              approach to conflict resolution as an arbitrator in domestic and
+              international disputes was widely regarded in high esteem.
             </p>
-            <br />
-            <p className="text-left text-white">
-              {translations[selectedLanguage].JayaFoundation_Mesage4}
+            <p className="text-white">
+              A connoisseur of Carnatic, Hindustani and Western classical music,
+              Justice Babu was keen on encouraging and empowering young talents
+              in the law.
             </p>
-            <br />
-            <br />
           </div>
-        </motion.div>
-        <motion.div
-          className="w-full md:w-1/3 p-4 mt-4 md:mt-0"
-          initial={{ opacity: 0, x: "100vw" }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 2 }} // Increased duration for a slower animation
-        >
-          <div className="hidden md:block">
+
+          {/* Right Column - Image */}
+          <div
+            className="flex-1 p-4 hidden md:block md:ml-12"
+          >
             <img
               src={JayasimhaFoundationimg}
-              className="mx-auto rounded-md md:ml-12"
+              className="mx-auto rounded-md max-w-full h-auto"
               alt="Jayasimha Foundation"
             />
           </div>
-        </motion.div>
+
+          {/* Mobile Image */}
+          <div className="md:hidden p-4">
+            <img
+              src={JayasimhaFoundationimg}
+              className="mx-auto rounded-md"
+              alt="Jayasimha Foundation"
+            />
+          </div>
         </div>
       </div>
+
       {/* Foundation Section END */}
       {/* Opening Section START */}
-      <div className="bg-white-200 p-10 grid place-items-center">
-      
-  <div className="flex flex-col md:flex-row items-center md:justify-between w-[1500px]">
-    <div className="md:w-3/4">
-      <div className="text-left">
-        <div className="text-2xl font-semibold text-blue-900">
-          <p className="text-3xl leading-normal font-montserrat">
-            {translations[selectedLanguage].Would_You_Join}
-          </p>
-        </div>
-        <div className="text-gray-700 text-base font-semibold md:w-3/4">
-          <p>{translations[selectedLanguage].Openining_message1}</p>
+      <div className="bg-white-200 py-5 grid place-items-center">
+        <div className="flex flex-col md:flex-row items-center md:justify-between md:w-[1500px]">
+          <div className="md:w-[3/4]">
+            <div className="md:text-start text-center">
+              <div className="text-2xl font-semibold text-blue-900 py-5">
+                <p className="text-3xl leading-normal font-montserrat">
+                  {translations[selectedLanguage].Would_You_Join}
+                </p>
+              </div>
+              <div className="text-gray-700 text-base font-semibold md:w-3/4 ">
+                <p>{translations[selectedLanguage].Openining_message1}</p>
+              </div>
+            </div>
+          </div>
+          <div className="w-full md:w-auto mt-4 md:mt-0 flex justify-center md:justify-start">
+            <button
+              className="bg-white text-black border-2 border-custom-red px-8 py-3 rounded-lg font-bold hover:bg-custom-red hover:text-white transition-colors duration-300 ml-4 md:ml-0"
+              onClick={handleViewCurrentOpenings}
+            >
+              {translations[selectedLanguage]?.View_Current_Openings ||
+                "View Current Openings"}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="w-full md:w-auto mt-4 md:mt-0 flex justify-center md:justify-start">
-      <button
-        className="bg-white text-black border-2 border-custom-red px-8 py-3 rounded-lg font-bold hover:bg-custom-red hover:text-white transition-colors duration-300 ml-4 md:ml-0"
-        onClick={handleViewCurrentOpenings}
-      >
-        {translations[selectedLanguage]?.View_Current_Openings || "View Current Openings"}
-      </button>
-    </div>
-  </div>
-</div>
 
       {/* Opening Section END */}
     </div>

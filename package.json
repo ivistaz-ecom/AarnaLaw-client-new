@@ -38,12 +38,13 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.2",
     "scroll-to-top-react": "^0.0.7",
+    "sharp": "^0.33.5",
     "shortid": "^2.2.16",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start -p 3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

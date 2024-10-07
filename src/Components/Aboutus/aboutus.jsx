@@ -169,7 +169,7 @@ function AboutUs() {
               transition={{ duration: 2 }}
               // style={{ marginRight: "10px", marginLeft: "60px" }}
             >
-              <br></br>
+             
               <img
                 src={whatwedoimg}
                 className="w-full h-auto shadow-lg"
@@ -177,7 +177,7 @@ function AboutUs() {
                 loading="lazy"
                 style={{ maxWidth: "100%", maxHeight: "100%" }}
               />
-              <br></br>
+            
             </motion.div>
 
             <motion.div

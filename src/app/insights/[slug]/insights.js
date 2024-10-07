@@ -32,7 +32,7 @@ const Insights = ({ slug }) => {
         }
     </style>
     <div className="container mx-auto mt-10 leading-relaxed">
-      <h2>Test application</h2>
+      {/* <h2>Test application</h2> */}
       {data.map((post) => (
         <div className=" p-6 mb-6 overflow-x-hidden" key={post.id}>
           <h1 className="text-2xl font-semibold pb-10 pt-36">

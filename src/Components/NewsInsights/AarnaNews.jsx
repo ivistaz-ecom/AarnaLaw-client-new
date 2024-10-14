@@ -18,14 +18,14 @@ const AarnaNews = () => {
   const fetchAarnaNews = async () => {
     try {
       const response = await fetch(
-        `https://www.aarnalaw.com/wp-json/wp/v2/posts?_embed&categories=${catgorie_id}`
+        `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&categories=${catgorie_id}`
       );
       const data = await response.json();
       console.log(data);
 
       const fetchMedia = async (mediaId) => {
         const mediaResponse = await fetch(
-          `https://www.aarnalaw.com/wp-json/wp/v2/media/${mediaId}`
+          `https://docs.aarnalaw.com/wp-json/wp/v2/media/${mediaId}`
         );
         const mediaData = await mediaResponse.json();
         return mediaData.source_url;

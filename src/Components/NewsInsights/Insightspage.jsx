@@ -11,7 +11,7 @@ const Insightspage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://www.aarnalaw.com/wp-json/wp/v2/posts?_embed&slug=${slug}`
+          `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&slug=${slug}`
         );
         const data = await response.json();
         setData(data);

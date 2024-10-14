@@ -7,7 +7,7 @@ const Posts = ({ slug }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://www.aarnalaw.com/wp-json/wp/v2/practice-areas?_embed&slug=${slug}`
+          `https://docs.aarnalaw.com/wp-json/wp/v2/practice-areas?_embed&slug=${slug}`
         );
         const data = await response.json();
         console.log(data);

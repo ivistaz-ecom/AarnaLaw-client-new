@@ -9,10 +9,11 @@ const PracticeAreaComponent = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://www.aarnalaw.com/wp-json/wp/v2/practice-areas?_embed&per_page=100`
+          `https://docs.aarnalaw.com/wp-json/wp/v2/practice-areas?_embed&per_page=100`
         );
         const result = await response.json();
-        console.log(result);
+
+        console.log("Practice area dara", result);
         // Ensure the response is an array before setting the data
         if (Array.isArray(result)) {
           // Sort the data alphabetically by title
@@ -68,7 +69,7 @@ const PracticeAreaComponent = () => {
                   <div className="h-48 w-full overflow-hidden group">
                     {/* Add hover zoom effect with scale and transition */}
                     <img
-                      src={post.acf.banner_image.url}
+                      src={post.acf.banner_image}
                       alt={post.title.rendered}
                       className="object-cover w-full h-full transition-transform duration-500 ease-in-out transform group-hover:scale-105"
                     />

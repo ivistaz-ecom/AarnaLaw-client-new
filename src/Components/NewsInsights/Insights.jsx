@@ -19,22 +19,27 @@ const Insights = () => {
   const fetchInsights = async (newOffset) => {
     try {
       const response = await fetch(
-        `https://www.aarnalaw.com/wp-json/wp/v2/posts?_embed&offset=${newOffset}&per_page=${limit}`
+        `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&offset=${newOffset}&per_page=${limit}`
       );
       const data = await response.json();
 
-      const newInsights = data.map((item) => ({
-        ...item,
-        imageUrl: item["_embedded"]["wp:featuredmedia"][0]["source_url"],
-        title: item["yoast_head_json"]["title"],
-        desc: truncateText(item["yoast_head_json"]["og_description"], 150), // Truncate description to two lines
-        formattedDate: new Date(item.date).toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        }),
-        link: item.link, // Add link to each insight
-      }));
+      console.log("Insights data:", data);
+
+      const newInsights = data.map((item) => {
+        const imageUrl = item?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "";
+        return {
+          ...item,
+          imageUrl: imageUrl,
+          title: item["yoast_head_json"]["title"],
+          desc: truncateText(item["yoast_head_json"]["og_description"], 150), // Truncate description to two lines
+          formattedDate: new Date(item.date).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          }),
+          link: item.link, // Add link to each insight
+        };
+      });
 
       setInsights((prevInsights) => [...prevInsights, ...newInsights]);
       setOffset(newOffset + limit);
@@ -45,6 +50,7 @@ const Insights = () => {
 
   // Function to truncate text to a specified length
   const truncateText = (text, maxLength) => {
+    if (!text) return ""; // Check for undefined or null text
     if (text.length <= maxLength) return text;
     return text.substr(0, maxLength - 3) + "...";
   };
@@ -201,11 +207,11 @@ const Insights = () => {
               <p className="text-gray-600 mb-2">{item.desc}</p>
               <p className="text-gray-500 text-sm mb-4">{item.formattedDate}</p>
               <a
-                    href={`/insights/${item.slug}`}
-                    className="text-custom-red font-semibold hover:underline"
-                  >
-                    Read More
-                  </a>
+                href={item.link}
+                className="text-custom-red font-semibold hover:underline"
+              >
+                Read More
+              </a>
             </div>
           </div>
         ))}

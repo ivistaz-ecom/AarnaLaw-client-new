@@ -14,13 +14,15 @@ function HomeBanner() {
     const fetchInsights = async () => {
       try {
         const response = await fetch(
-          "https://www.aarnalaw.com/wp-json/wp/v2/posts?_embed"
+          "https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed"
         );
         const posts = await response.json();
 
+  //  console.log(posts)
+        
         const fetchMedia = async (mediaId) => {
           const mediaResponse = await fetch(
-            `https://www.aarnalaw.com/wp-json/wp/v2/media/${mediaId}`
+            `https://docs.aarnalaw.com/wp-json/wp/v2/media/${mediaId}`
           );
           const mediaData = await mediaResponse.json();
           return mediaData.source_url;
@@ -36,9 +38,11 @@ function HomeBanner() {
                 ...item,
                 imageUrl: imageUrl,
                 title: item.title.rendered,
-                desc: item.acf.excerpt,
+                desc: item.excerpt.rendered,
                 // desc: item.yoast_head_json.og_description,
+                
               };
+             
             })
         );
 

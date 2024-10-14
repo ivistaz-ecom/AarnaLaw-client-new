@@ -133,7 +133,7 @@ const Navbar = () => {
 
     try {
       const response = await fetch(
-        `https://www.aarnalaw.com/wp-json/wp/v2/posts?_embed&search=${search}`
+        `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&search=${search}`
       );
 
       if (!response.ok) {

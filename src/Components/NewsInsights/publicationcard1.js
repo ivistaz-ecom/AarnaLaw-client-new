@@ -33,7 +33,7 @@ const PublicationsCard1 = ({ cardDetails }) => {
           <h5 className="text-md md:text-lg text-custom-blue font-semibold mb-3">
             {content}
           </h5>
-          <a href="https://www.aarnalaw.com/publications/the-art-law-review/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Read MORE</a>
+          <a href="https://docs.aarnalaw.com/publications/the-art-law-review/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Read MORE</a>
           
         </div>
       </div>

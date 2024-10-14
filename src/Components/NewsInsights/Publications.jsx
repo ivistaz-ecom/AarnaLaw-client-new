@@ -27,7 +27,7 @@ const Publications = () => {
   const fetchPublications = async (newOffset) => {
     try {
       const response = await fetch(
-        `https://www.aarnalaw.com/wp-json/wp/v2/publications?_embed`
+        `https://docs.aarnalaw.com/wp-json/wp/v2/publications?_embed`
       );
       const data = await response.json();
 

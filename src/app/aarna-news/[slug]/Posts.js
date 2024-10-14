@@ -11,7 +11,7 @@ const Posts = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://www.aarnalaw.com/wp-json/wp/v2/posts?_embed&slug=${slug}`
+          `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&slug=${slug}`
         );
         const fetchedData = await response.json();
         if (fetchedData.length > 0) {
@@ -21,7 +21,7 @@ const Posts = () => {
           // Fetch the featured media details if it exists
           if (featuredMediaId) {
             const mediaResponse = await fetch(
-              `https://www.aarnalaw.com/wp-json/wp/v2/media/${featuredMediaId}`
+              `https://docs.aarnalaw.com/wp-json/wp/v2/media/${featuredMediaId}`
             );
             const mediaData = await mediaResponse.json();
             setMedia(mediaData); // Set the media data

@@ -14,7 +14,7 @@ const Podcast = () => {
       const fetchPodcasts = async () => {
         try {
           const response = await fetch(
-            "https://www.aarnalaw.com/wp-json/wp/v2/podcast"
+            "https://docs.aarnalaw.com/wp-json/wp/v2/podcast"
           );
           const data = await response.json();
           const latestPodcasts = data

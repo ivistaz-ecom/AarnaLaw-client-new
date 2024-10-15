@@ -14,6 +14,9 @@ const PracticeAreaComponent = () => {
         const result = await response.json();
 
         console.log("Practice area dara", result);
+        
+
+
         // Ensure the response is an array before setting the data
         if (Array.isArray(result)) {
           // Sort the data alphabetically by title
@@ -36,7 +39,14 @@ const PracticeAreaComponent = () => {
 
   return (
     <div className="">
-      <div className="relative">
+      <div className="relative hidden md:block">
+        <img src={PracticeAreaImg} className="w-full" alt="About Us Area" />
+        <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
+          <p>Practice Area</p>
+        </div>
+      </div>
+
+      <div className="relative block md:hidden">
         <img src={PracticeAreaImg} className="w-full" alt="About Us Area" />
         <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
           <p>Practice Area</p>
@@ -47,7 +57,7 @@ const PracticeAreaComponent = () => {
         <ul className="text-center py-5">
           <p className="font-bold text-gray-500">PRACTICE AREAS</p>
           <br />
-          <p className="text-3xl w-1/2 mx-auto">
+          <p className="text-3xl md:w-1/2 mx-auto">
             Our dynamic team provides experienced counsel on a diverse range of practice areas.
           </p>
         </ul>
@@ -69,7 +79,7 @@ const PracticeAreaComponent = () => {
                   <div className="h-48 w-full overflow-hidden group">
                     {/* Add hover zoom effect with scale and transition */}
                     <img
-                      src={post.acf.banner_image}
+                      src={post.acf.banner_image.url}
                       alt={post.title.rendered}
                       className="object-cover w-full h-full transition-transform duration-500 ease-in-out transform group-hover:scale-105"
                     />

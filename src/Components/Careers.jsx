@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import CareersImg from "../images/Careers.PNG";
+import CareersImg from "../images/careers-banner.jpg";
+import CareersmobImg from "../images/careers-mobile-banner.jpg";
 import ApplyNow from "./ApplyNow";
 import InternApply from "./InternApply"; // Import the Apply Now Form component
 const Careers = () => {
@@ -34,11 +35,23 @@ const Careers = () => {
 
   return (
     <div>
-      <section className="text-center font-extrabold text-3xl">
-        <div className="flex justify-center">
-          <img src={CareersImg} className="max-w-full h-auto rounded-md" alt="aboutus" />
+    <section className="text-center font-extrabold text-3xl">
+  {/* Desktop View */}
+  <div className="hidden md:flex justify-center">
+    <img src={CareersImg} className="w-full h-[500px]" alt="aboutus" />
+    <div className="absolute inset-x-0 md:mt-56 text-white text-5xl font-bold text-center">
+          <p>Careers</p>
         </div>
-      </section>
+  </div>
+  
+  {/* Mobile View */}
+  <div className="flex md:hidden justify-center">
+    <img src={CareersmobImg} className="w-full" alt="aboutus" />
+    <div className="absolute inset-x-0 mt-56 text-white text-5xl font-bold text-center">
+          <p>Careers</p>
+        </div>
+  </div>
+</section>
 
       <div className="grid grid-cols-7 gap-4 mt-8">
         <div className="col-span-1"></div>

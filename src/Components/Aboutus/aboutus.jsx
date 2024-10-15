@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { LanguageContext } from "../../Components/LanguageContext";
-import aboutusheader from "../../images/aboutusbanner.png";
+import aboutusheader from "../../images/about-us-banner.jpg";
+// import aboutusmobile from "../../images/About.png";
+import aboutusmobile from "../../images/about-us-mobile-banner.jpg";
 import aboutimg from "../../images/aboutus.jpg";
 import whatwedoimg from "../../images/Whatwedo.png";
 import Legacyimg from "../../images/OurLegacy.png";
@@ -56,12 +58,22 @@ function AboutUs() {
 
   return (
     <div className="bg-white">
-      <header className="relative">
-        <img src={aboutusheader} className="w-full" alt="About Us Area" />
-        <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
-          {translations[selectedLanguage].About_Us}
-        </div>
-      </header>
+     {/* Desktop Header */}
+<header className="relative hidden md:block">
+  <img src={aboutusheader} className="w-full h-[500px]" alt="About Us Area" />
+  <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
+    About us
+  </div>
+</header>
+
+{/* Mobile Header */}
+<header className="relative block md:hidden">
+  <img src={aboutusmobile} className="w-full" alt="About Us Area" />
+  <div className="absolute inset-x-0 top-2/4 text-white text-3xl font-bold text-center">
+    About us
+  </div>
+</header>
+
       <div className="mx-auto flex flex-col md:flex-row md:mx-1">
         {" "}
         {/* Added margin for both mobile and desktop */}
@@ -76,7 +88,7 @@ function AboutUs() {
               alt=""
             />
           </div>
-          <div className="w-full md:w-1/2 p-8">
+          <div className="w-full md:w-1/2 md:p-8">
             {/* mobile */}
             <h1 className="text-custom-red text-2xl font-bold text-center md:hidden">
               What We Do

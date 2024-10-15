@@ -14,13 +14,11 @@ const Podcasts = () => {
   // Fetch podcasts data dynamically
   useEffect(() => {
     const fetchPodcasts = async () => {
-      try {````
+      try {
         const response = await fetch(
-          "https://docs.aarnalaw.com/wp-json/wp/v2/podcast"
+          "https://www.aarnalaw.com/wp-json/wp/v2/podcast"
         );
         const data = await response.json();
-
-        console.log("podcast data =", data);
 
         // Set fetched podcasts
         setPodcasts(

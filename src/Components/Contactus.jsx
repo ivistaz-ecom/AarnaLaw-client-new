@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
-import ContactusImg from "../images/Contactus1.JPG";
+import ContactusImg from "../images/contact-banner.jpg";
+import ContactusmobImg from "../images/contact-mobile-banner.jpg";
 import { LanguageContext } from "../Components/LanguageContext";
 
 const Contactus = () => {
@@ -77,14 +78,32 @@ const Contactus = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      {/* Full-width image */}
-      <header className="w-full h-64 md:h-96">
-        <img
-          src={ContactusImg}
-          className="w-full h-full  object-cover" 
-          alt="Contact Us"
-        />
-      </header>
+
+    {/* Desktop View */}
+<header className="w-full relative hidden md:block">
+  <img
+    src={ContactusImg}
+    className="w-full h-[500px] object-cover"
+    alt="Contact Us"
+  />
+  <div className="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold">
+    <p>Contact Us</p>
+  </div>
+</header>
+
+{/* Mobile View */}
+<header className="w-full relative block md:hidden">
+  <img
+    src={ContactusmobImg}
+    className="w-full object-cover"
+    alt="Contact Us"
+  />
+  <div className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">
+    <p>Contact Us</p>
+  </div>
+</header>
+
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-3xl font-bold text-gray-800 mb-8 mt-[15px]" >

@@ -1,11 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
-//import { play, pause } from "../Home/utils/Icon"; // Import all icons
 import { AiOutlineAudioMuted } from "react-icons/ai";
+
+const decodeHtml = (html) => {
+  const txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
+};
 
 const PodcastCard = ({ podcastDetails }) => {
   const { formattedDate, imageUrl, title, podcastexcerpt, player_link } =
     podcastDetails;
-    console.log(podcastDetails);
     
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -62,19 +66,21 @@ const PodcastCard = ({ podcastDetails }) => {
 
   return (
     <li className="w-full md:w-full h-auto shadow-lg mx-auto list-none">
-      {/* First Row: Image */}
-      <div className="flex justify-center">
-        <img
-          src={imageUrl}
-          className="w-3/10 h-auto mx-auto"
-          alt="Podcast cover"
-        />
-      </div>
+      {/* First Row: Image (conditional rendering) */}
+      {imageUrl && (
+        <div className="flex justify-center">
+          <img
+            src={imageUrl}
+            className="w-3/10 h-auto mx-auto"
+            alt={decodeHtml(title.rendered)} // Use decoded title for alt text if desired
+          />
+        </div>
+      )}
 
       {/* Second Row: Title and Excerpt */}
       <div className="p-4">
         <h1 className="text-custom-blue text-center md:text-start text-xl md:text-2xl font-semibold mb-4">
-          {title.rendered}
+          {decodeHtml(title.rendered)} {/* Decode the title */}
         </h1>
         <div
           className="text-gray-600"

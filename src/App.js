@@ -18,7 +18,13 @@ import PostContent from "./app/practice-area/[slug]/Post"
 import PracticeArea from "./app/practice-area/page";
 
 
-import Industries from "./Components/Industries";
+// import Industries from "./Components/Industries";
+
+import IndustriesPostPage from "./app/industries/[slug]/page.jsx";
+import IndustriesPostContent from "./app/industries/[slug]/Post" 
+import Industries from "./app/industries/page";
+
+
 import Contactus from "./Components/Contactus";
 import ApplyNow from "./Components/ApplyNow";
 import Careers from "./Components/Careers";
@@ -103,6 +109,25 @@ const App = () => {
           
           
           <Route path="/industries" element={<Industries />} />
+          <Route path="/industries/:slug" element={<IndustriesPostPage />} />
+          <Route path="/posts/:slug" component={<IndustriesPostContent />} />
+          <Route path="/industries" element={<Industries />} />
+
+
+          // import PracticeArea from "./Components/PracticeArea";
+import PostPage from "./app/practice-area/[slug]/page";
+import PostContent from "./app/practice-area/[slug]/Post" 
+import PracticeArea from "./app/practice-area/page";
+
+
+// import Industries from "./Components/Industries";
+
+import IndustriesPostPage from "./app/industries/[slug]/page";
+import IndustriesPostContent from "./app/industries/[slug]/Post" 
+import Industries from "./app/industries/page";
+
+
+
           {/* <Route path="/practice-area/art-law" element={<ArtLaw />} />
           <Route
             path="/practice-area/bankruptcy-ins"
@@ -149,7 +174,7 @@ const App = () => {
           <Route path="/team/spandan-asshwath" element={<Spandanasshwath />} />
           <Route path="/team/punthi-shah" element={<Punthishah />} />
           
-          <Route
+          {/* <Route
             path="/industries/automotive-industry"
             element={<Automotiveindustry />}
           />
@@ -189,7 +214,7 @@ const App = () => {
           />
           <Route path="/industries/retail" element={<Retail />} />
           <Route path="/industries/space-law" element={<SpaceLaw />} />
-          <Route path="/industries/sports-law" element={<SportsLaw />} />
+          <Route path="/industries/sports-law" element={<SportsLaw />} /> */}
 
           <Route path="/insights" element={<Insights />} />
           <Route path="/insights/:slug" element={<Insitespage />} />

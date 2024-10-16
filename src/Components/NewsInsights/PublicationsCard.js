@@ -28,7 +28,7 @@ const PublicationsCard = ({ cardDetails, onTitleClick }) => {
             onClick={onTitleClick} // Handle title click
           >
             {title}
-          </h5>
+          </h5> 
 
           <h5 className="text-md md:text-lg text-custom-blue font-semibold mb-3">
             {content}

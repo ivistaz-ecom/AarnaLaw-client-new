@@ -78,49 +78,48 @@ function AboutUs() {
         {" "}
         {/* Added margin for both mobile and desktop */}
         {/* What We Do Section */}
-        <div className="container mx-auto flex flex-col md:flex-row py-10 px-5">
-          <div className="w-full md:w-1/2">
-            <img
-              src={aboutimg}
-              width={683}
-              height={456}
-              className="w-full h-auto shadow-lg"
-              alt=""
-            />
-          </div>
-          <div className="w-full md:w-1/2 md:p-8">
-            {/* mobile */}
-            <h1 className="text-custom-red text-2xl font-bold text-center md:hidden">
-              What We Do
-            </h1>
+        <div className="container mx-auto flex flex-col md:flex-row">
+      <div className="w-full md:w-1/2  md:ps-5 p-4 md:pe-0 ">
+        <img
+          src={aboutimg}
+          width={683}
+          height={456}
+          className="w-full"
+          alt=""
+        />
+      </div>
+      <div className="w-full md:w-1/2 md:py-8 md:px-8 p-4 " >
+        {/* mobile */}
+        <h1 className="text-custom-red text-2xl font-bold text-center md:hidden">
+          What We Do
+        </h1>
 
-            <div className="flex flex-col justify-between items-start h-full w-full md:w-5/6">
-              {/* Desktop */}
-              <h1 className="text-custom-red text-2xl font-bold hidden md:block">
-                What We Do
-              </h1>
+        <div className="flex flex-col justify-between items-start h-full w-full md:w-5/6 pb-">
+          {/* Desktop */}
+          <h1 className="text-custom-red text-2xl font-bold hidden md:block">
+            What We Do
+          </h1>
 
-              <h2 className="text-custom-blue text-4xl font-semibold mt-4 md:mt-0 ">
-                We are an award-winning advisory with an international
-                perspective.
-              </h2>
-              <p className="text-custom-gray mt-4 md:mt-0 ">
-                Our counsel-led, tech-enabled practice envisions justice as an
-                essential service in this global economy of international trade
-                and fluid borders.
-              </p>
-              <p className="text-custom-gray mt-2  ">
-                We counsel domestic, foreign, and diasporic clients on a range
-                of issues. From minimizing regulatory, financial, and legal risk
-                to navigating highly specialized areas of national and
-                international law, we advise with uncompromising integrity.
-              </p>
-              <button className="border border-custom-red px-6 py-2 text-custom-red hover:bg-custom-red hover:text-white mt-4 mx-auto block md:mx-0">
-                Our Services
-              </button>
-            </div>
-          </div>
+          <h2 className="text-custom-blue text-4xl font-semibold mt-4 md:mt-0 ">
+            We are an award-winning advisory with an international perspective.
+          </h2>
+          <p className="text-custom-gray mt-4 md:mt-0 ">
+            Our counsel-led, tech-enabled practice envisions justice as an
+            essential service in this global economy of international trade and
+            fluid borders.
+          </p>
+          <p className="text-custom-gray mt-2">
+            We counsel domestic, foreign, and diasporic clients on a range of
+            issues. From minimizing regulatory, financial, and legal risk to
+            navigating highly specialized areas of national and international
+            law, we advise with uncompromising integrity.
+          </p>
+          <button className="border border-custom-red px-6 py-2 text-custom-red hover:bg-custom-red hover:text-white mt-4 mx-auto block md:mx-0">
+            Our Services
+          </button>
         </div>
+      </div>
+    </div>
       </div>
 
       {/* New Practice Area Section start */}
@@ -132,7 +131,7 @@ function AboutUs() {
       <div className="container mx-auto flex flex-col-reverse md:flex-row-reverse justify-between">
         {/* Our Legacy Section */}
         <div id="legacy" className="bg-white ">
-          <div className="flex flex-col-reverse md:flex-row-reverse justify-between container mx-auto px-5">
+          <div className="flex flex-col-reverse md:flex-row-reverse justify-between container mx-auto px-4">
             <motion.div
               className="w-full md:w-1/2 mb-4 md:mb-0"
               initial={{ opacity: 0, x: "10vw" }}
@@ -173,7 +172,7 @@ function AboutUs() {
       {/* What We Do Section */}
       <div className="mx-auto flex flex-col md:flex-row">
         <div id="what-we-do" className="bg-white w-full">
-          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between md:w-4/5 container mx-auto px-5">
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between md:w-4/5 container mx-auto md:px-0 px-4">
             <motion.div
               className="w-full md:w-1/2 mb-0"
               initial={{ opacity: 0, x: "-100vw" }}
@@ -221,7 +220,7 @@ function AboutUs() {
       {/* Foundation Section end */}
 
       {/* Our Founder Start Section */}
-      <div className="bg-white p-8">
+      <div className="bg-white md:p-8 p-4">
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between md:w-4/5 container mx-auto">
           {" "}
           {/* Adjusted margin */}
@@ -258,7 +257,7 @@ function AboutUs() {
               className="text-gray-700 text-base  font-montserrat text-justify"
               style={{ maxWidth: "100%", height: "auto" }}
             >
-              <p className="text-justify text-medium leading-8">
+              <p className="text-justify text-medium md:leading-8">
                 {translations[selectedLanguage].Founder_Message1}
               </p>
             </div>
@@ -290,7 +289,7 @@ function AboutUs() {
       {/* Foundation Section end */}
 
       <div className="bg-151C4A">
-        <div className="flex flex-col text-justify md:flex-row justify-center items-center container mx-auto py-20 px-5 ">
+        <div className="flex flex-col text-justify md:flex-row justify-center items-center container mx-auto md:py-20 py-5 md:px-5 ">
           {/* Left Column - Content */}
           <div
             className="flex-1 p-4 md:text-justify text-left"
@@ -348,31 +347,31 @@ function AboutUs() {
 
       {/* Foundation Section END */}
       {/* Opening Section START */}
-      <div className="bg-white-200 py-5 grid place-items-center">
-        <div className="flex flex-col md:flex-row items-center md:justify-between md:w-[1500px]">
-          <div className="md:w-[3/4]">
-            <div className="md:text-start text-center">
-              <div className="text-2xl font-semibold text-blue-900 py-5">
-                <p className="text-3xl leading-normal font-montserrat">
-                  {translations[selectedLanguage].Would_You_Join}
-                </p>
-              </div>
-              <div className="text-gray-700 text-base font-semibold md:w-3/4 ">
-                <p>{translations[selectedLanguage].Openining_message1}</p>
-              </div>
-            </div>
-          </div>
-          <div className="w-full md:w-auto mt-4 md:mt-0 flex justify-center md:justify-start">
-            <button
-              className="bg-white text-black border-2 border-custom-red px-8 py-3 rounded-lg font-bold hover:bg-custom-red hover:text-white transition-colors duration-300 ml-4 md:ml-0"
-              onClick={handleViewCurrentOpenings}
-            >
-              {translations[selectedLanguage]?.View_Current_Openings ||
-                "View Current Openings"}
-            </button>
-          </div>
+      <div className="bg-white-200 p-4 grid place-items-center">
+  <div className="container mx-auto flex flex-col md:flex-row items-center md:justify-between">
+    <div className="">
+      <div className="md:text-start text-center">
+        <div className="text-2xl font-semibold text-blue-900 py-5">
+          <p className="text-3xl leading-normal font-montserrat">
+            {translations[selectedLanguage].Would_You_Join}
+          </p>
+        </div>
+        <div className="text-gray-700 text-base font-semibold md:w-3/4">
+          <p>{translations[selectedLanguage].Openining_message1}</p>
         </div>
       </div>
+    </div>
+    <div className="mt-4 md:mt-0 flex justify-center md:justify-start">
+      <button
+        className="bg-white text-black border-2 border-custom-red px-8 py-3 rounded-lg font-bold hover:bg-custom-red hover:text-white transition-colors duration-300 ml-4 md:ml-0 whitespace-nowrap"
+        onClick={handleViewCurrentOpenings}
+      >
+        {translations[selectedLanguage]?.View_Current_Openings || "View Current Openings"}
+      </button>
+    </div>
+  </div>
+</div>
+
 
       {/* Opening Section END */}
     </div>

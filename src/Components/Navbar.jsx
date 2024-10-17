@@ -171,7 +171,9 @@ const Navbar = () => {
       className="w-full relative flex justify-center"
       onMouseLeave={handleMouseLeave}
     >
-      <div className="absolute z-50 flex justify-end space-x-5 my-5 w-11/12 md:w-11/12">
+
+      
+      {/* <div className="absolute z-50 flex justify-end space-x-5 my-5  md:w-11/12">
         <button
           className="bg-white text-custom-blue hover:text-white hover:bg-red-700 px-10 py-2 shadow-2xl "
           onClick={handleLogInClick}
@@ -180,9 +182,9 @@ const Navbar = () => {
         </button>
         <div className="relative inline-block text-left">
           <div>
-            {/*This is a language button; It is hidden for now. */}
+            This is a language button; It is hidden for now.
 
-            {/* <button
+            <button
               type="button"
               className="inline-flex justify-center w-full shadow-2xl px-4 py-3 bg-white text-custom-blue hover:text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               onClick={toggleDropdown}
@@ -201,7 +203,7 @@ const Navbar = () => {
                   clipRule="evenodd"
                 />
               </svg>
-            </button> */}
+            </button>
           </div>
 
           {isOpen && (
@@ -227,10 +229,10 @@ const Navbar = () => {
             </div>
           )}
         </div>
-      </div>
+      </div> */}
 
       <nav
-        className="absolute bg-white dark:bg-gray-900 w-11/12 md:w-11/12 z-20 my-20 border-b border-gray-200 dark:border-gray-600 shadow-2xl"
+        className="absolute bg-white dark:bg-gray-900 md:w-11/12 z-20 my-20 border-b border-gray-200 dark:border-gray-600 shadow-2xl"
         onMouseLeave={() => setIsSubmenuOpen(false)}
       >
         <div className="max-w-screen-xxl flex flex-wrap items-center justify-between mx-auto p-4 relative">

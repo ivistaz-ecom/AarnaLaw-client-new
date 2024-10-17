@@ -5,6 +5,10 @@ import { LanguageContext } from "../Components/LanguageContext";
 
 const Contactus = () => {
   const { selectedLanguage } = useContext(LanguageContext);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -106,6 +110,62 @@ const Contactus = () => {
 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+{/* Testimonial */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h5 className="text-2xl text-custom-blue font-bold mb-2 text-center">
+        Client’s Testimonials
+      </h5>
+
+      {/* Card */}
+      <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-10">
+        <div className="p-4">
+          <h5 className="text-xl text-custom-blue font-bold mb-2">Vinay Bhagwan</h5>
+          <h6 className="text-base text-gray-500 mb-2">General Counsel</h6>
+          <h6 className="text-base text-gray-500 mb-2">Daimler Trucks India</h6>
+          <p className="text-gray-700 mb-4">
+            My experience with Aarna Law has been nothing short of exceptional. The firm’s founding partners, Shreyas and Kamala, have managed the firm with remarkable vision and dedication, taking it to greater heights. Their leadership, coupled with their deep commitment to excellence, sets Aarna Law apart in the legal industry.
+          </p>
+          <button
+            onClick={openModal}
+            className="text-custom-red hover:text-custom-blue font-semibold"
+          >
+            Read more
+          </button>
+        </div>
+      </div>
+
+      {/* Modal */}
+      {isOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 ">
+          <div className="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
+          <div className="bg-white rounded-lg shadow-lg max-w-2xl mx-auto p-6 z-50">
+            <h5 className="text-xl text-custom-blue font-bold mb-2">Vinay Bhagwan</h5>
+            <h6 className="text-base text-gray-500 mb-2">General Counsel</h6>
+            <h6 className="text-base text-gray-500 mb-2">Daimler Trucks India</h6>
+            <p className="text-gray-700 mb-4">
+            <p className="text-gray-700 mb-4"> My experience with Aarna Law has been nothing short of exceptional. The firm’s founding partners, Shreyas and Kamala, have managed the firm with remarkable vision and dedication, taking it to greater heights. Their leadership, coupled with their deep commitment to excellence, sets Aarna Law apart in the legal industry.</p>
+            <p className="text-gray-700 mb-4"> As a husband-and-wife team, Shreyas and Kamala bring a unique dynamism to the firm, blending their individual strengths to create a cohesive and highly effective partnership. Their strategic acumen and meticulous attention to detail have been instrumental in guiding us through complex legal challenges.</p>
+            <p className="text-gray-700 mb-4"> I am particularly impressed by their appetite for innovation, especially their efforts to integrate cutting-edge technology into their practice. This forward-thinking approach not only enhances efficiency but also ensures that clients receive the most sophisticated and effective legal solutions available.</p>
+            <p className="text-gray-700 mb-4"> Beyond their technical proficiency, Shreyas and Kamala are known for their integrity, ethical standards, and genuine care for their clients. They have built a culture of trust and excellence that permeates the entire firm.</p>
+            <p className="text-gray-700 mb-4">I wholeheartedly recommend Aarna Law and its outstanding team to anyone seeking top-notch legal representation.</p>
+            </p>
+            <button
+              onClick={closeModal}
+              className="text-red-500 hover:text-red-700 font-semibold mt-4"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+
+
+
+
+
+
+
         <h1 className="text-3xl font-bold text-gray-800 mb-8 mt-[15px]" >
           {translations[selectedLanguage].Contact_Us}
         </h1>

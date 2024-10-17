@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NewsInsightsImg from "../../images/NewsInsights.jpeg";
+import NewsInsightsImg from "../../images/insights-banner.png";
 import { IoSearch } from "react-icons/io5";
 import PodcastCard from "../NewsInsights/PodcastCard";
 
@@ -63,10 +63,10 @@ const Podcast = () => {
   return (
     <div>
       {/* Header Section */}
-      <header className="w-full h-48 md:h-96 mb-8">
+      <header className="w-full mb-8">
         <img
           src={NewsInsightsImg}
-          className="w-full h-full object-cover rounded-md"
+          className="w-full h-[500px] object-cover rounded-md"
           alt="NewsInsights"
         />
       </header>

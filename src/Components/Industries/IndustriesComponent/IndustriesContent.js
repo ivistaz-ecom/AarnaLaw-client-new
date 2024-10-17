@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"; 
 import { Link } from "react-router-dom";
-import IndustiesImg from "../../../images/PracticeAreas.png";
+import IndustiesImg from "../../../images/Industries_old.png";
 
 const IndustriesContent = () => {
     const [data, setData] = useState([]); // Initialize data state with an empty array
@@ -42,7 +42,7 @@ const IndustriesContent = () => {
 
         {/* Desktop */}
         <div className="relative hidden md:block">
-          <img src={IndustiesImg} className="w-full" alt="About Us Area" />
+          <img src={IndustiesImg} className="w-full h-[500px]" alt="About Us Area" />
           <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
             <p>Industries</p>
           </div>
@@ -50,7 +50,7 @@ const IndustriesContent = () => {
 
         {/* Mobile */}
         <div className="relative block md:hidden">
-          <img src={IndustiesImg} className="w-full" alt="About Us Area" />
+          <img src={IndustiesImg} className="w-full h[500px]" alt="About Us Area" />
           <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
             <p>Industries </p>
           </div>

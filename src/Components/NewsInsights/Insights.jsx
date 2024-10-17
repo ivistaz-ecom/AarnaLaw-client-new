@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NewsInsightsImg from "../../images/NewsInsights.jpeg";
+import NewsInsightsImg from "../../images/insights-banner.png";
 import { IoSearch } from "react-icons/io5";
 
 const Insights = () => {
   const navigate = useNavigate();
   const [insights, setInsights] = useState([]);
   const [offset, setOffset] = useState(0);
-  const limit = 10; // Number of insights to fetch each time
+  const limit = 10; 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Function to fetch insights from the API
+ 
   const handleTabClick = (path) => {
     navigate(path);
     setIsDropdownOpen(false); // Close dropdown after navigating
@@ -48,9 +48,9 @@ const Insights = () => {
     }
   };
 
-  // Function to truncate text to a specified length
+
   const truncateText = (text, maxLength) => {
-    if (!text) return ""; // Check for undefined or null text
+    if (!text) return ""; 
     if (text.length <= maxLength) return text;
     return text.substr(0, maxLength - 3) + "...";
   };
@@ -77,10 +77,10 @@ const Insights = () => {
   return (
     <div>
       {/* Header Section */}
-      <header className="w-full h-48 md:h-96 mb-8">
+      <header className="w-full mb-8">
         <img
           src={NewsInsightsImg}
-          className="w-full h-full object-cover rounded-md"
+          className="w-full  object-cover rounded-md h-[500px]"
           alt="NewsInsights"
         />
       </header>
@@ -207,7 +207,7 @@ const Insights = () => {
               <p className="text-gray-600 mb-2">{item.desc}</p>
               <p className="text-gray-500 text-sm mb-4">{item.formattedDate}</p>
               <a
-                href={item.link}
+                 href={`/insights/${item.slug}`}
                 className="text-custom-red font-semibold hover:underline"
               >
                 Read More

@@ -69,7 +69,7 @@ const Posts = ({ slug }) => {
   <img
     src={post.acf?.banner_image?.url || "/default-image.jpg"}
     alt={post.title?.rendered || "No Title"}
-    className="w-full img-fluid rounded-5 mb-5 h-[500px]"
+    className="w-full img-fluid rounded-5 mb-5 h-[600px]"
   />
 
   {/* Content and Partner Image Layout */}

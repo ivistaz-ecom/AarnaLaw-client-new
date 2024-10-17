@@ -40,7 +40,7 @@ const PracticeAreaComponent = () => {
   return (
     <div className="">
       <div className="relative hidden md:block">
-        <img src={PracticeAreaImg} className="w-full" alt="About Us Area" />
+        <img src={PracticeAreaImg} className="w-full h-[500px]" alt="About Us Area" />
         <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
           <p>Practice Area</p>
         </div>

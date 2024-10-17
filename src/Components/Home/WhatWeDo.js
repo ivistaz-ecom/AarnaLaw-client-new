@@ -6,7 +6,7 @@ import whatwedoImg from "../Home/Images/What_we_do.jpg";
 const WhatWeDo = () => {
   return (
     <div className="container mx-auto flex flex-col md:flex-row">
-      <div className="w-full md:w-1/2  md:ps-5 ps-5 md:pe-0 pe-5">
+      <div className="w-full md:w-1/2  md:ps-5 px-4 md:pe-0 ">
         <img
           src={whatwedoImg}
           width={683}
@@ -15,7 +15,7 @@ const WhatWeDo = () => {
           alt=""
         />
       </div>
-      <div className="w-full md:w-1/2 p-8">
+      <div className="w-full md:w-1/2 py-8 md:px-8 px-4" >
         {/* mobile */}
         <h1 className="text-custom-red text-2xl font-bold text-center md:hidden">
           What We Do
@@ -35,7 +35,7 @@ const WhatWeDo = () => {
             essential service in this global economy of international trade and
             fluid borders.
           </p>
-          <p className="text-custom-gray mt-2 md:-mt-10 ">
+          <p className="text-custom-gray mt-2">
             We counsel domestic, foreign, and diasporic clients on a range of
             issues. From minimizing regulatory, financial, and legal risk to
             navigating highly specialized areas of national and international

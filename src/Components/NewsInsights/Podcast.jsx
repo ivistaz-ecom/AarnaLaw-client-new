@@ -6,6 +6,7 @@ import PodcastCard from "../NewsInsights/PodcastCard";
 
 const Podcast = () => {
   const [podcasts, setPodcasts] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState(""); // State for search keyword
   const hasFetchedData = useRef(false);
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -54,11 +55,14 @@ const Podcast = () => {
     }).format(date);
   };
 
- 
-
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+  // Filtered podcasts based on search keyword
+  const filteredPodcasts = podcasts.filter((podcast) =>
+    podcast.title.rendered.toLowerCase().includes(searchKeyword.toLowerCase())
+  );
 
   return (
     <div>
@@ -154,6 +158,8 @@ const Podcast = () => {
                 type="text"
                 id="keyword"
                 placeholder="Search by Keyword"
+                value={searchKeyword}
+                onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
                 className="px-2 py-1 border rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <IoSearch className="text-gray-400" />
@@ -172,6 +178,8 @@ const Podcast = () => {
               type="text"
               id="keyword"
               placeholder="Search by Keyword"
+              value={searchKeyword}
+              onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
               className="px-2 py-1 border rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <IoSearch className="text-gray-400" />
@@ -181,11 +189,16 @@ const Podcast = () => {
 
       {/* Displaying Podcasts in Blue Background */}
       <div className="md:px-4 mx-auto max-w-screen-xl flex flex-col gap-10">
-        <div className="md:px-4 mx-auto max-w-screen-xl flex flex-col gap-10"
-        >
-          {podcasts.map((item) => (
-            <PodcastCard key={item.id} podcastDetails={item} />
-          ))}
+        <div className="md:px-4 mx-auto max-w-screen-xl flex flex-col gap-10">
+          {filteredPodcasts.length > 0 ? (
+            filteredPodcasts.map((item) => (
+              <PodcastCard key={item.id} podcastDetails={item} />
+            ))
+          ) : (
+            <div className="text-center col-span-2">
+            <p className="text-red-500 font-semibold items-center md:pt-24 justify-center min-h-[300px]">No results found.</p>
+          </div>
+          )}
         </div>
       </div>
     </div>

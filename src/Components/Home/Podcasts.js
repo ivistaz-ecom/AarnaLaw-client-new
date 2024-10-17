@@ -93,21 +93,25 @@ const Podcasts = () => {
   };
 
   return (
-    <div className="container mx-auto relative mb-14 mt-6 md:mt-[650px] flex flex-col items-center overflow-hidden">
+    <div className="container mx-auto relative mb-14 mt-6 md:mt-[650px] flex flex-col items-center overflow-hidden px-4"> {/* Added padding to container */}
       <h1 className="text-custom-blue text-2xl font-semibold text-center mb-8">
         Podcast
       </h1>
 
       {/* Spinner while loading */}
       {loading ? (
-        <div className="flex justify-center items-center h-32">
+        <div className="flex justify-center items-center h-32 container ">
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-700 border-solid border-opacity-70"></div>
         </div>
       ) : (
-        <div className="w-full md:w-3/4 gap-24 overflow-hidden">
-          <InsightSlider ref={sliderRef} {...settings}>
+        <div className="w-full md:w-[1200px] gap-10 overflow-hidden "> {/* Added gap between cards */}
+          <InsightSlider
+            ref={sliderRef}
+            {...settings}
+            className="flex gap-6" // Added gap here
+          >
             {podcasts.slice(0, 4).map((item) => (
-              <div key={item.id} className="h-full">
+              <div key={item.id} className="h-full"> {/* Ensuring proper height */}
                 <PodcastCard podcastDetails={item} />
               </div>
             ))}

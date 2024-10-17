@@ -25,7 +25,7 @@ const NumbersSpeak = () => {
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext);
   return (
     <div className="flex flex-col items-center gap-10 mb-14">
-      <h1 className="text-custom-red text-2xl font-semibold">
+      <h1 className="text-custom-red text-2xl font-semibold px-4">
       {translations[selectedLanguage].Numbers_Speaks}
       </h1>
       <ul className="flex justify-center flex-wrap gap-6 p-2">

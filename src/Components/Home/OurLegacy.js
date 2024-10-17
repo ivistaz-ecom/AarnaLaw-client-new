@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const OurLegacy = () => {
   return (
     <div className="container mx-auto flex flex-col-reverse mb-8 md:flex-row">
-      <div className="w-full md:w-1/2 p-8">
+      <div className="w-full md:w-1/2 py-8 px-4">
         {/* Mobile */}
         <h1 className="text-custom-blue text-2xl font-bold text-center md:hidden">
           Our Legacy

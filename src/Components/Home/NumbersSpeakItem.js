@@ -38,7 +38,7 @@ const NumbersSpeakItem = ({ numberDetails }) => {
     <li className="py-5">
       <div className="flex flex-col items-center gap-5">
         <h1 className="text-5xl text-custom-blue px">
-          <div className="inline-block w-96 text-center">
+          <div className="inline-block md:w-96 w-full text-center">
             <CountUp
               end={parseNumber(rupees)}
               duration={2}

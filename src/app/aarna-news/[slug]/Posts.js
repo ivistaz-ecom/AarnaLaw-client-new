@@ -14,7 +14,7 @@ const Posts = () => {
           `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&slug=${slug}`
         );
         const data = await response.json();
-        console.log("Fetched post data:", data);
+        console.log("Fetched aarna-news data:", data);
 
         // Ensure that data is an array
         if (Array.isArray(data) && data.length > 0) {
@@ -53,11 +53,11 @@ const Posts = () => {
 
   // Design layout with post data
   return (
-    <div className="container mx-auto p-8 mt-52">
+    <div className="container mx-auto md:p-8 px-4 mt-52">
       {/* Title */}
       <div className="mb-8">
-        <h1 className="text-3xl md:w-2/4 w-full mb-4 leading-relaxed">
-          {post?.yoast_head_json?.og_title || "No title available"}
+        <h1 className="text-[28px] md:w-[650px] w-full mb-4 leading-relaxed">
+          {post?.title.rendered || "No title available"}
         </h1>
         <p className="text-gray-500 uppercase">
           PUBLISHED:{" "}
@@ -83,36 +83,53 @@ const Posts = () => {
       {/* Grid for Post Content on Left and Recent Insights on Right */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
         {/* Left Column: Post Content */}
-        <div className="lg:col-span-2">
-          {post?.yoast_head_json?.og_description ? (
-            <p
-              className="text-black leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: post.yoast_head_json.og_description }} // Use og_description from yoast_head_json
-            />
-          ) : (
-            <p>No content available</p>
-          )}
-        </div>
+        <div className="lg:col-span-2 pb-5 border-b-2 border-b-red-500">
+  {post ? (
+    <div
+      className="text-black leading-relaxed"
+      dangerouslySetInnerHTML={{
+        __html: post.content.rendered.replace(
+          /<p/g,
+          '<p style="margin-top: 1.25rem;"'
+        ),
+      }}
+    />
+  ) : (
+    <p>No content available</p>
+  )}
+</div>
+
 
         {/* Right Column: Recent Insights */}
-        <div className="lg:col-span-1">
-          <h2 className="text-xl font-bold mb-4">Recent Insights</h2>
-          <ul className="space-y-4">
-            <li>
-              <a href="#" className="text-blue-600 hover:underline">
-                Google loses landmark antitrust case over search monopoly
-              </a>
-              <p className="text-gray-500 text-sm">Tags: business law, google antitrust, monopoly</p>
-            </li>
-            <li>
-              <a href="#" className="text-blue-600 hover:underline">
-                WIPO Unveils New Treaty on Genetic Resources
-              </a>
-              <p className="text-gray-500 text-sm">Tags: intellectual property, genetic resources</p>
-            </li>
-            {/* Add more insights as needed */}
-          </ul>
-        </div>
+        <div className="lg:col-span-1 md:pl-14">
+            <h2 className="text-lg font-bold mb-6">More Insights</h2> {/* Increased the margin-bottom */}
+            <ul className="space-y-6"> {/* Increased spacing between list items */}
+              <li className="p-6 shadow-lg bg-white"> {/* Added padding */}
+                <a href="#" className="text-lg font-semibold text-black">
+                  Google loses landmark antitrust case over
+                </a>
+                <a href="#" className="text-custom-blue hover:underline block mt-4"> {/* Increased margin-top */}
+                  VIEW ARTICLE
+                </a>
+                <p className="text-gray-500 text-sm mt-4">Tags: <a href="#" className="hover:underline text-gray-500">business law</a>, <a href="#" className="hover:underline text-gray-500">google antitrust</a></p>
+              </li>
+              <li className="p-6 shadow-lg bg-white"> {/* Added padding */}
+                <a href="#" className="text-lg font-semibold text-black">
+                  WIPO Unveils New Treaty on Genetic Resources
+                </a>
+                <a href="#" className="text-custom-blue hover:underline block mt-4"> {/* Increased margin-top */}
+                  VIEW ARTICLE
+                </a>
+                <p className="text-gray-500 text-sm mt-4">Tags: <a href="#" className="hover:underline text-gray-500">intellectual property</a>, <a href="#" className="hover:underline text-gray-500">genetic resources</a></p>
+              </li>
+              {/* Add more insights as needed */}
+            </ul>
+            <div className="text-left mt-8"> {/* Increased margin-top */}
+              <button className="px-6 py-2 border-2 border-red-500 text-black font-semibold hover:bg-red-500 hover:text-white transition">
+                VIEW ALL
+              </button>
+            </div>
+          </div>
       </div>
     </div>
   );

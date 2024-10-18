@@ -240,7 +240,7 @@ const AarnaNews = () => {
                       {item.formattedDate}
                     </p>
                     <a
-                      href={`https://aarnalaw.com/news/${item.id}`}
+                      href={`/aarna-news/${item.slug}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-custom-red font-semibold hover:underline"

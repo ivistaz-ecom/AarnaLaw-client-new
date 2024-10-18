@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"; 
 import { Link } from "react-router-dom";
-import IndustiesImg from "../../../images/Industries_old.png";
+import IndustiesImg from "../../../images/IndutriesBanner.jpg";
 
 const IndustriesContent = () => {
     const [data, setData] = useState([]); // Initialize data state with an empty array

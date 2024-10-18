@@ -25,6 +25,13 @@ import IndustriesPostContent from "./app/industries/[slug]/Post"
 import Industries from "./app/industries/page";
 
 
+// import Publications from "./Components/NewsInsights/Publications";
+import Publications from "./app/publications/page.js";
+import PublicationsPostPage from "./app/publications/[slug]/page.jsx";
+import PublicationsPostContent from "./app/publications/[slug]/Post.js" 
+
+
+
 import Contactus from "./Components/Contactus";
 import ApplyNow from "./Components/ApplyNow";
 import Careers from "./Components/Careers";
@@ -79,7 +86,7 @@ import Spandanasshwath from "./Components/Team/Spandanasshwath";
 import Punthishah from "./Components/Team/Punthishah";
 import Insights from "./Components/NewsInsights/Insights";
 import AarnaNews from "./Components/NewsInsights/AarnaNews";
-import Publications from "./Components/NewsInsights/Publications";
+
 import Podcast from "./Components/NewsInsights/Podcast";
 import Insitespage from "./Components/NewsInsights/Insightspage";
 import PageNotFound from "./Components/PageNotFound";
@@ -107,25 +114,17 @@ const App = () => {
           <Route path="/practice-area" element={<PracticeArea />} />
           
           
-          
+          {/* Industries */}
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/:slug" element={<IndustriesPostPage />} />
           <Route path="/posts/:slug" component={<IndustriesPostContent />} />
           <Route path="/industries" element={<Industries />} />
 
-
-          // import PracticeArea from "./Components/PracticeArea";
-import PostPage from "./app/practice-area/[slug]/page";
-import PostContent from "./app/practice-area/[slug]/Post" 
-import PracticeArea from "./app/practice-area/page";
-
-
-// import Industries from "./Components/Industries";
-
-import IndustriesPostPage from "./app/industries/[slug]/page";
-import IndustriesPostContent from "./app/industries/[slug]/Post" 
-import Industries from "./app/industries/page";
-
+          {/* Publications */}
+          <Route path="/publications" element={<Publications />} />
+          <Route path="/publications/:slug" element={<PublicationsPostPage />} />
+          <Route path="/posts/:slug" component={<PublicationsPostContent />} />
+          <Route path="/publications" element={<Publications />} />
 
 
           {/* <Route path="/practice-area/art-law" element={<ArtLaw />} />
@@ -222,7 +221,7 @@ import Industries from "./app/industries/page";
           <Route path="/aarna-news" element={<AarnaNews />} />
           <Route path="/aarna-news/:slug" element={<Posts />} />
           
-          <Route path="/publications" element={<Publications />} />
+          
           <Route path="/podcast" element={<Podcast />} />
 
           <Route path="/careers" element={<Careers />} />

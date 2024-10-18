@@ -83,25 +83,25 @@ const Insights = () => {
         <div className="hidden md:flex justify-center space-x-16 mb-8">
           <span
             onClick={() => handleTabClick("/insights")}
-            className="text-gray-600 cursor-pointer hover:text-blue-500 transition"
+            className="text-custom-red cursor-pointer hover:text-custom-red hover:underline transition"
           >
             Insights
           </span>
           <span
             onClick={() => handleTabClick("/aarna-news")}
-            className="text-gray-600 cursor-pointer hover:text-blue-700 transition"
+            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
           >
             Aarna News
           </span>
           <span
             onClick={() => handleTabClick("/publications")}
-            className="text-gray-600 cursor-pointer hover:text-blue-700 transition"
+            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
           >
             Publications
           </span>
           <span
             onClick={() => handleTabClick("/podcast")}
-            className="text-gray-600 cursor-pointer hover:text-blue-700 transition"
+            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
           >
             Podcast
           </span>
@@ -142,21 +142,24 @@ const Insights = () => {
             insights.slice(0, visibleCount).map((item) => (
               <div key={item.id} className="p-2">
                 <div className="border rounded-md p-4 shadow-md hover:shadow-lg transition">
-                  <img
-                    src={item.imageUrl}
-                    alt={item.title}
-                    className="w-full h-48 object-cover rounded-md mb-4"
-                  />
-                  <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
-                  <p className="text-gray-600 mb-2">{item.desc}</p>
-                  <p className="text-gray-500 text-sm mb-4">{item.formattedDate}</p>
-                  <a
-                    href={`/insights/${item.slug}`}
-                    className="text-custom-red font-semibold hover:underline"
-                  >
-                    Read More
-                  </a>
-                </div>
+              <img
+                src={item.imageUrl}
+                alt={item.title}
+                className="w-full h-48 object-cover rounded-md mb-4"
+              />
+              <h2 className="text-xl font-semibold mb-2 h-14 overflow-hidden">
+                {item.title}
+              </h2>
+              <p className="text-gray-600 mb-2 line-clamp-2">{item.desc}</p>
+              <p className="text-gray-500 text-sm mb-4">{item.formattedDate}</p>
+              <a
+                href={`/insights/${item.slug}`}
+                className="text-custom-red font-semibold hover:underline"
+              >
+                Read More
+              </a>
+            </div>
+
               </div>
             ))
           ) : filteredInsights.length > 0 ? (
@@ -197,7 +200,7 @@ const Insights = () => {
         <div className="text-center mt-8">
           <button
             onClick={handleViewMore}
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+            className="px-4 py-2 text-custom-red transition hover:underline"
           >
             View More
           </button>

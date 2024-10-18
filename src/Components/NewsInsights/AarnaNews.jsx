@@ -129,25 +129,25 @@ const AarnaNews = () => {
           <div className="hidden md:flex justify-center space-x-16 mb-8">
             <span
               onClick={() => handleTabClick("/insights")}
-              className="text-gray-600 cursor-pointer hover:text-blue-500 transition"
+              className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
             >
               Insights
             </span>
             <span
               onClick={() => handleTabClick("/aarna-news")}
-              className="text-gray-600 cursor-pointer hover:text-blue-700 transition"
+              className="text-custom-red  cursor-pointer hover:text-custom-red hover:underline transition"
             >
               Aarna News
             </span>
             <span
               onClick={() => handleTabClick("/publications")}
-              className="text-gray-600 cursor-pointer hover:text-blue-700 transition"
+              className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
             >
               Publications
             </span>
             <span
               onClick={() => handleTabClick("/podcast")}
-              className="text-gray-600 cursor-pointer hover:text-blue-700 transition"
+              className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
             >
               Podcast
             </span>

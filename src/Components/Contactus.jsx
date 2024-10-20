@@ -200,7 +200,7 @@ const Contactus = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium text-black mb-1">
-                  {translations[selectedLanguage].First_Name}
+                  First Name
                 </label>
                 <input
                   type="text"
@@ -214,7 +214,7 @@ const Contactus = () => {
               </div>
               <div>
                 <label htmlFor="lastName" className="block text-sm font-medium text-black mb-1">
-                  {translations[selectedLanguage].Last_Name}
+                  Last Name
                 </label>
                 <input
                   type="text"

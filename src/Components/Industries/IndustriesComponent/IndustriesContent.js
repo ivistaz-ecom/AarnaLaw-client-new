@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"; 
 import { Link } from "react-router-dom";
-import IndustiesImg from "../../../images/IndutriesBanner.jpg";
+import IndustiesImg from "../../../images/Indutries-Banner.jpg";
+import IndustiesmobImg from "../../../images/IndustriesMobileBanner.jpg";
+
 
 const IndustriesContent = () => {
     const [data, setData] = useState([]); // Initialize data state with an empty array
@@ -50,18 +52,18 @@ const IndustriesContent = () => {
 
         {/* Mobile */}
         <div className="relative block md:hidden">
-          <img src={IndustiesImg} className="w-full h[500px]" alt="About Us Area" />
+          <img src={IndustiesmobImg} className="w-full h[500px]" alt="About Us Area" />
           <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
             <p>Industries </p>
           </div>
         </div>
   
-        <div className="bg-gradient-to-br from-white-900 via-blue-800 to-blue-900 p-8">
+        <div className="bg-gradient-to-br from-white-900 via-blue-800 to-blue-900 md:p-8 p-4">
           <ul className="text-center py-5">
             <p className="font-bold text-gray-500">INDUSTRIES WE SERVE </p>
             <br />
             <p className="text-3xl md:w-1/2 mx-auto">       
-                Our progressive practice provides expert assistance to clients across industry.
+            Our progressive practice provides expert assistance to clients across industry.
             </p>
           </ul>
           <br />

@@ -73,7 +73,7 @@ const Navbar = () => {
       onMouseLeave={handleMouseLeave}
     >
       <nav
-        className="absolute bg-white dark:bg-gray-900 md:w-11/12 z-20 my-20 border-b border-gray-200 dark:border-gray-600 shadow-2xl"
+        className="absolute bg-white dark:bg-gray-900 md:w-11/12 w-full z-20 md:mt-20 mt-5 border-b border-gray-200 dark:border-gray-600 shadow-2xl"
         onMouseLeave={() => setIsSubmenuOpen(false)}
       >
         <div className="max-w-screen-xxl flex flex-wrap items-center justify-between mx-auto p-4 relative">

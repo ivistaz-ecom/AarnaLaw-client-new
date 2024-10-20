@@ -65,20 +65,28 @@ const Posts = ({ slug }) => {
           {data ? (
             data.map((post) => (
               <div className="flex flex-col pb-10" key={post.id}>
-  {/* Banner Image */}
-  <img
-    src={post.acf?.banner_image?.url || "/default-image.jpg"}
-    alt={post.title?.rendered || "No Title"}
-    className="w-full img-fluid rounded-5 mb-5 h-[600px]"
-  />
+{/* Banner Image - Visible only on desktop */}
+<img
+  src={post.acf?.banner_image?.url || "/default-image.jpg"}
+  alt={post.title?.rendered || "No Title"}
+  className="w-full img-fluid rounded-5 mb-5 h-[600px] hidden md:block"
+/>
+
+{/* Mobile Banner Image - Visible only on mobile */}
+<img
+  src={post.acf?.mobile_banner?.url || "/default-image.jpg"}
+  alt={post.title?.rendered || "No Title"}
+  className="w-full img-fluid rounded-5 mb-5 md:hidden"
+/>
+
 
   {/* Content and Partner Image Layout */}
-  <div className="flex flex-col md:flex-row container mx-auto px-4 text-justify justify-between">
+  <div className="flex flex-col md:flex-row container mx-auto px-4 md:text-justify justify-between">
     {/* Left Column: Content */}
     <div className="w-full md:w-2/3 border-b-4 border-red-500 pb-10 md:mr-10">
       {/* Title inside the left column */}
       <h1
-        className="text-3xl font-bold text-black mb-5"
+        className="text-3xl font-bold text-custom-blue "
         dangerouslySetInnerHTML={{
           __html: post.title?.rendered || "Untitled",
         }}
@@ -93,7 +101,7 @@ const Posts = ({ slug }) => {
                 // Style for <h2> elements
                 .replace(
                   /<h2>/g,
-                  '<h2 style="font-weight: bold; font-size: 24px; color: black; padding-top: 20px; padding-bottom: 0;">'
+                  '<h2 style="font-size: 24px; color: black; padding-top: 20px; padding-bottom: 0;">'
                 )
                 // Style for paragraphs
                 .replace(
@@ -153,7 +161,7 @@ const Posts = ({ slug }) => {
         ))}
 
       {/* Contact Button */}
-      <button className="border-2 border-red-600 text-black py-2 px-4 rounded-lg hover:bg-red-600 hover:text-white mt-5">
+      <button className="border-2 border-red-600 text-black py-2 px-4 hover:bg-red-600 hover:text-white ">
         CONTACT PARTNER
       </button>
     </div>

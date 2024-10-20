@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PracticeAreaImg from "../../../images/PracticeAreas.png";
+import PracticeAreamobImg from "../../../images/PracticeAreaMobileBanner.jpg";
 
 const PracticeAreaComponent = () => {
   const [data, setData] = useState([]); // Initialize data state with an empty array
@@ -13,9 +14,7 @@ const PracticeAreaComponent = () => {
         );
         const result = await response.json();
 
-        console.log("Practice area dara", result);
-        
-
+        console.log("Practice area data", result);
 
         // Ensure the response is an array before setting the data
         if (Array.isArray(result)) {
@@ -40,16 +39,16 @@ const PracticeAreaComponent = () => {
   return (
     <div className="">
       <div className="relative hidden md:block">
-        <img src={PracticeAreaImg} className="w-full h-[500px]" alt="About Us Area" />
+        <img src={PracticeAreaImg} className="w-full h-[500px]" alt="Practice Area " />
         <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
-          <p>Practice Area</p>
+          Practice Area
         </div>
       </div>
 
       <div className="relative block md:hidden">
-        <img src={PracticeAreaImg} className="w-full" alt="About Us Area" />
+        <img src={PracticeAreamobImg} className="w-full" alt="Practice Area " />
         <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
-          <p>Practice Area</p>
+          Practice Area
         </div>
       </div>
 
@@ -77,12 +76,14 @@ const PracticeAreaComponent = () => {
               >
                 <Link to={`/practice-area/${post.slug}`} className="block w-full">
                   <div className="h-48 w-full overflow-hidden group">
-                    {/* Add hover zoom effect with scale and transition */}
-                    <img
-                      src={post.acf.banner_image.url}
-                      alt={post.title.rendered}
-                      className="object-cover w-full h-full transition-transform duration-500 ease-in-out transform group-hover:scale-105"
-                    />
+                    {/* Use the featured image instead of the banner image */}
+                    {post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && (
+                      <img
+                        src={post._embedded['wp:featuredmedia'][0].source_url} // Update to use the featured image
+                        alt={post.title.rendered}
+                        className="object-cover w-full h-full transition-transform duration-500 ease-in-out transform group-hover:scale-105"
+                      />
+                    )}
                   </div>
                   <div
                     className={`bg-blue-900 text-white text-center py-4 text-lg font-bold h-20 flex items-center justify-center`}

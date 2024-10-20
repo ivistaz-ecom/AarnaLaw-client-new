@@ -22,34 +22,28 @@ const AarnaNews = () => {
     setLoading(true); // Start loading
     try {
       const response = await fetch(
-        `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&categories=${catgorie_id}`
+        `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&categories=${catgorie_id}&per_page=100`
       );
       const data = await response.json();
 
-      const fetchMedia = async (mediaId) => {
-        const mediaResponse = await fetch(
-          `https://docs.aarnalaw.com/wp-json/wp/v2/media/${mediaId}`
-        );
-        const mediaData = await mediaResponse.json();
-        return mediaData.source_url;
-      };
+      const aarnaNewsData = data.map((item) => {
+        const imageUrl =
+          item._embedded && item._embedded["wp:featuredmedia"]
+            ? item._embedded["wp:featuredmedia"][0].source_url
+            : ""; // Get image from _embedded data
 
-      const aarnaNewsData = await Promise.all(
-        data.map(async (item) => {
-          const imageUrl = await fetchMedia(item.featured_media);
-          return {
-            ...item,
-            imageUrl,
-            title: item.yoast_head_json.title,
-            content: item.yoast_head_json.og_description,
-            formattedDate: new Date(item.date).toLocaleDateString("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            }),
-          };
-        })
-      );
+        return {
+          ...item,
+          imageUrl,
+          title: item.yoast_head_json.title,
+          content: item.yoast_head_json.og_description,
+          formattedDate: new Date(item.date).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          }),
+        };
+      });
 
       setAarnaNews(aarnaNewsData);
       setFilteredNews(aarnaNewsData); // Initially set filtered news to all news
@@ -81,7 +75,7 @@ const AarnaNews = () => {
 
   // Function to show more cards
   const handleViewMore = () => {
-    setVisibleCards((prevCount) => prevCount + 4); // Increment by 4 each time
+    setVisibleCards(filteredNews.length); // Show all remaining cards
   };
 
   return (
@@ -249,6 +243,8 @@ const AarnaNews = () => {
                     </a>
                   </div>
                 </div>
+             
+
               </div>
             ))
           ) : (
@@ -264,15 +260,18 @@ const AarnaNews = () => {
       )}
 
       {/* View More Button */}
-      {filteredNews.length > visibleCards && (
-        <div className="flex justify-center my-8">
-        <button
-          className="text-custom-blue text-lg font-semibold hover:text-custom-red transition"
-        >
-          VIEW ALL
-        </button>
-      </div>
-      )}
+      {/* View More Button */}
+{filteredNews.length > visibleCards && (
+  <div className="flex justify-center my-8">
+    <button
+      onClick={handleViewMore} // Add this to handle the click event
+      className="text-custom-blue text-lg font-semibold hover:text-custom-red transition"
+    >
+      VIEW ALL
+    </button>
+  </div>
+)}
+
     </div>
   );
 };

@@ -79,34 +79,35 @@ const Search = ({ handleSearchClick }) => {
 
       {/* Display search results outside the container */}
       {showResults && (
-        <ul
-          ref={resultsBoxRef}
-          className="search-results absolute z-50 w-[300px] bg-white border border-gray-200 mt-2 rounded-md shadow-lg"
-        >
-          {filteredPosts.length > 0 ? (
-            filteredPosts.map((post) => (
-              <li key={post.id} className="p-2 hover:bg-gray-100 flex items-center">
-                {/* Check if the post has a featured image */}
-                {post._embedded && post._embedded['wp:featuredmedia'] && (
-                  <img
-                    src={post._embedded['wp:featuredmedia'][0].source_url}
-                    alt={post.title.rendered}
-                    className="w-12 h-12 mr-2 rounded"
-                  />
-                )}
-                <a
-                  href={`/insights/${post.slug}`}
-                  rel="noopener noreferrer"
-                  className="block text-black"
-                >
-                  {post.title.rendered}
-                </a>
-              </li>
-            ))
-          ) : (
-            <li className="p-2 text-gray-500">No results found</li>
-          )}
-        </ul>
+       <ul
+       ref={resultsBoxRef}
+       className="search-results absolute z-50 w-[300px] bg-white border border-gray-200 mt-2 rounded-md shadow-lg overflow-y-auto no-scrollbar max-h-80 py-5"
+     >
+       {filteredPosts.length > 0 ? (
+         filteredPosts.map((post) => (
+           <li key={post.id} className="p-2 flex items-center group hover:bg-custom-red hover:text-white">
+             {/* Check if the post has a featured image */}
+             {post._embedded && post._embedded['wp:featuredmedia'] && (
+               <img
+                 src={post._embedded['wp:featuredmedia'][0].source_url}
+                 alt={post.title.rendered}
+                 className="w-12 h-12 mr-2 rounded"
+               />
+             )}
+             <a
+               href={`/insights/${post.slug}`}
+               rel="noopener noreferrer"
+               className="block text-black group-hover:text-white text-start"
+             >
+               {post.title.rendered}
+             </a>
+           </li>
+         ))
+       ) : (
+         <li className="p-2 text-gray-500">No results found</li>
+       )}
+     </ul>
+     
       )}
     </div>
   );

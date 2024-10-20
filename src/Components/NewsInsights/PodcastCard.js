@@ -112,6 +112,7 @@ const PodcastCard = ({ podcastDetails }) => {
           className={`text-red-500 cursor-pointer ${isMuted ? "text-3xl" : ""}`}
           onClick={handleVolumeToggle}
         />
+        
       </div>
 
       {/* Audio Element */}

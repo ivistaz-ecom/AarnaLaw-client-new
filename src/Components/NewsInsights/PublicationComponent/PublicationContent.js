@@ -1,122 +1,81 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NewsInsightsImg from "../../../images/insights-banner.png";
 import { IoSearch } from "react-icons/io5";
 
-const PublicationsContent = () => {
-  const navigate = useNavigate();
-  const [publications, setPublications] = useState([]);
-  const [filteredPublications, setFilteredPublications] = useState([]);
-  const [searchKeyword, setSearchKeyword] = useState("");
-  const [offset, setOffset] = useState(0);
-  const limit = 10;
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // State for loading
-  const [error, setError] = useState(""); // State for error handling
 
+
+
+
+const PublicationComponent = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const handleTabClick = (path) => {
     navigate(path);
-    setIsDropdownOpen(false);
+    setIsDropdownOpen(false); // Close dropdown after navigating
   };
-
-  const truncateContent = (content) => {
-    const words = content.split(" ");
-    if (words.length > 30) {
-      return words.slice(0, 30).join(" ") + "...";
-    }
-    return content;
-  };
-
-  const fetchPublications = async (newOffset) => {
-    setIsLoading(true); // Start loading
-    setError(""); // Reset error state
-    try {
-      const response = await fetch(
-        `https://docs.aarnalaw.com/wp-json/wp/v2/publications?_embed&per_page=100`
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch publications");
-      }
-
-      const data = await response.json();
-
-      console.log("Publication data=", data);
-
-      const publicationData = data.map((item) => {
-        const embedded = item["_embedded"] || {};
-        const media = embedded["wp:featuredmedia"] || [];
-        const imageUrl = media[0] ? media[0]["source_url"] : "";
-
-        return {
-          ...item,
-          title: item.title?.rendered || item.yoast_head_json?.og_title,
-          content: truncateContent(item["yoast_head_json"]["og_description"] || ""),
-          imageUrl,
-          date: item.date, // Add date here for later use
-          formattedDate: new Date(item.date).toLocaleDateString("en-US", {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-          }),
-        };
-      });
-
-      setPublications((prevPublications) => [
-        ...prevPublications,
-        ...publicationData,
-      ]);
-      setFilteredPublications((prevPublications) => [
-        ...prevPublications,
-        ...publicationData,
-      ]);
-      setOffset(newOffset + limit);
-    } catch (error) {
-      console.error("Error fetching publications:", error);
-      setError("Error fetching publications. Please try again."); // Set error message
-    } finally {
-      setIsLoading(false); // Stop loading
-    }
-  };
-
-  useEffect(() => {
-    fetchPublications(0);
-  }, []);
-
-  const handleSearch = (event) => {
-    const keyword = event.target.value.toLowerCase();
-    setSearchKeyword(keyword);
-
-    const filtered = publications.filter((publication) =>
-      publication.title.toLowerCase().includes(keyword)
-    );
-    setFilteredPublications(filtered);
-  };
-
-  const handleViewAllClick = () => {
-    fetchPublications(offset);
-  };
-
-  const handlePublicationClick = (url) => {
-    window.open(url, "_blank");
-  };
-
+  
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+  const [data, setData] = useState([]);
+  const [visiblePosts, setVisiblePosts] = useState(4);
+  const [searchKeyword, setSearchKeyword] = useState(""); 
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://docs.aarnalaw.com/wp-json/wp/v2/publications?_embed&per_page=100`
+        );
+        const result = await response.json();
+
+        if (Array.isArray(result)) {
+          const sortedData = result.sort((a, b) => new Date(b.date) - new Date(a.date));
+          setData(sortedData);
+        } else {
+          console.error("Expected an array but got:", result);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.toLocaleString('default', { month: 'short' }).toUpperCase();
+    const year = date.getFullYear();
+    return { day, month, year };
+  };
+
+  const filteredData = searchKeyword
+    ? data.filter((post) =>
+        post.title.rendered.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+        (post.yoast_head_json?.og_description || "").toLowerCase().includes(searchKeyword.toLowerCase())
+      )
+    : data;
+
+  const handleViewMore = () => {
+    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 4);
+  };
 
   return (
-    <div>
+    <div className="">
       <header className="w-full mb-8">
         <img
           src={NewsInsightsImg}
-          className="w-full h-[500px] object-cover rounded-md"
-          alt="News Insights"
+          className="w-full object-cover rounded-md h-[500px]"
+          alt="NewsInsights"
         />
       </header>
 
-      <div className="container mx-auto px-4 md:px-0">
-        <div className="md:hidden relative">
+      <div className="container mx-auto px-4 md:px-0 pb-5">
+       <div className="md:hidden relative">
           <button
             onClick={toggleDropdown}
             className="bg-gray-200 text-gray-600 px-4 py-2 rounded-md w-full text-left"
@@ -125,156 +84,176 @@ const PublicationsContent = () => {
           </button>
           {isDropdownOpen && (
             <div className="absolute left-0 mt-2 w-full bg-white border border-gray-200 rounded-md shadow-lg z-10">
-              <span onClick={() => handleTabClick("/insights")} className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100">
+              <span
+                onClick={() => handleTabClick("/insights")}
+                className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100"
+              >
                 Insights
               </span>
-              <span onClick={() => handleTabClick("/aarna-news")} className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100">
+              <span
+                onClick={() => handleTabClick("/aarna-news")}
+                className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100"
+              >
                 Aarna News
               </span>
-              <span onClick={() => handleTabClick("/publications")} className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100">
+              <span
+                onClick={() => handleTabClick("/publications")}
+                className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100"
+              >
                 Publications
               </span>
-              <span onClick={() => handleTabClick("/podcast")} className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100">
+              <span
+                onClick={() => handleTabClick("/podcast")}
+                className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100"
+              >
                 Podcast
               </span>
             </div>
           )}
         </div>
-
         <div className="hidden md:flex justify-center space-x-16 mb-8">
-          <span onClick={() => handleTabClick("/insights")} className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition">Insights</span>
-          <span onClick={() => handleTabClick("/aarna-news")} className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition">Aarna News</span>
-          <span onClick={() => handleTabClick("/publications")} className="text-custom-red cursor-pointer hover:text-custom-red hover:underline transition">Publications</span>
-          <span onClick={() => handleTabClick("/podcast")} className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition">Podcast</span>
+          <span
+            onClick={() => handleTabClick("/insights")}
+            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
+          >
+            Insights
+          </span>
+          <span
+            onClick={() => handleTabClick("/aarna-news")}
+            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
+          >
+            Aarna News
+          </span>
+          <span
+            onClick={() => handleTabClick("/publications")}
+            className="text-custom-red cursor-pointer hover:text-custom-red hover:underline transition"
+          >
+            Publications
+          </span>
+          <span
+            onClick={() => handleTabClick("/podcast")}
+            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
+          >
+            Podcast
+          </span>
         </div>
       </div>
 
-      <div className="px-[17%] mb-4">
-        <div className="md:hidden">
-          <h1 className="text-2xl font-semibold mt-4">Publications</h1>
-          <div className="flex flex-col items-center gap-2 mt-2">
-            <label htmlFor="keyword" className="hidden">Search by Key</label>
-            <div className="flex items-center gap-2">
-              <input
-                type="text"
-                id="keyword"
-                value={searchKeyword}
-                onChange={handleSearch}
-                placeholder="Search by Keyword"
-                 className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
-              />
-              <IoSearch className="text-custom-blue" />
-            </div>
-          </div>
-        </div>
-
-        <div className="hidden md:flex justify-between items-left">
-          <h1 className="text-2xl font-semibold">Publications</h1>
-          <div className="flex items-right gap-2">
-            <label htmlFor="keyword" className="hidden">Search by Keyword</label>
+     
+        {/* Mobile View: Insights and Search */}
+        <div className="md:px-[17%] px-2 mb-4">
+        <div className="md:hidden px-4">
+        <div className="flex items-center gap-4 mt-2">
+          <h1 className="text-xl font-semibold">Publication</h1>
+          <div className="flex items-center gap-2">
+            <label htmlFor="keyword" className="hidden">
+              Search by Keyword
+            </label>
             <input
               type="text"
               id="keyword"
-              value={searchKeyword}
-              onChange={handleSearch}
               placeholder="Search by Keyword"
-               className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
+              value={searchKeyword}
+              onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
+              className="px-2 py-1 w-44 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
             />
-            <IoSearch className="text-custom-blue mt-3" />
+            <IoSearch className="text-custom-red" />
           </div>
         </div>
       </div>
 
-      <div className="flex justify-center items-center mb-4">
-        {isLoading && (
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-700 border-solid border-opacity-70"></div>
-        )}
-        {error && (
-          <p className="text-red-500 font-semibold">{error}</p>
+       {/* Desktop View: Insights */}
+       <div className="hidden md:flex justify-between items-left">
+          <h1 className="text-2xl font-semibold">Publication</h1>
+          <div className="flex items-right gap-2">
+            <label htmlFor="keyword" className="hidden">
+              Search by Keyword
+            </label>
+            <input
+              type="text"
+              id="keyword"
+              placeholder="Search by Keyword"
+              value={searchKeyword}
+              onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
+              className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
+            />
+            <IoSearch className="text-custom-red mt-3 " />
+          </div>
+        </div>
+</div>
+      
+
+      <div className="bg-gradient-to-br from-white-900 via-blue-800 to-blue-900 md:p-8 p-4">
+        {data.length === 0 ? (
+          <div className="flex justify-center items-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-700 border-solid border-opacity-70"></div>
+          </div>
+        ) : (
+          <div className="max-w-7xl mx-auto">
+            <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+              {filteredData.length > 0 ? (
+                filteredData.slice(0, visiblePosts).map((post) => {
+                  const { day, month, year } = formatDate(post.date);
+                  return (
+                    <div
+                      key={post.id}
+                      className="relative flex bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                    >
+                      <div className="flex w-full">
+                        <div className="flex flex-col items-center justify-center p-10 bg-gray-100">
+                          <div className="text-2xl text-custom-red">{day}</div>
+                          <div className="text-lg font-medium text-black">{month}</div>
+                          <div className="text-md font-medium text-black">{year}</div>
+                        </div>
+
+                        <div className="ml-4 flex flex-col justify-center p-4">
+                          <h2
+                            className="text-xl text-black line-clamp-2"
+                            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                          />
+                          <p
+                            className="text-gray-700 mt-2 line-clamp-2"
+                            dangerouslySetInnerHTML={{
+                              __html: post.yoast_head_json?.og_description || "",
+                            }}
+                          />
+                          <a
+                            href={`/publication/${post.slug}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-custom-red hover:underline mt-4"
+                          >
+                            Read More
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="text-center col-span-2">
+                <p className="text-red-500 font-semibold items-center md:pt-24 justify-center min-h-[300px]">
+                  No results found.
+                </p>
+              </div>
+              )}
+            </div>
+
+            {visiblePosts < filteredData.length && (
+              <div className="flex justify-center mt-8">
+                <button
+                  onClick={handleViewMore}
+                  className="px-6 py-2 bg-custom-red text-white rounded-md hover:bg-red-700"
+                >
+                  View More
+                </button>
+              </div>
+            )}
+          </div>
         )}
       </div>
-
-      <div className="container md:px-4 mx-auto max-w-screen grid grid-cols-1 md:grid-cols-2 gap-10">
-  {filteredPublications.length === 0 && !isLoading ? (
-    <div className="text-center col-span-2">
-      <p className="text-red-500 font-semibold items-center md:pt-24 justify-center min-h-[300px]">
-        No results found.
-      </p>
-    </div>
-  ) : (
-    filteredPublications.slice(0, 9).map((publication) => {
-      const { title, content, date, formattedDate } = publication; // Destructure values from publication
-
-      // Add a check to ensure 'title' exists
-      if (!title) {
-        console.error("Publication data is incomplete:", publication);
-        return null;
-      }
-
-      return (
-        <li
-          className="flex w-full bg-white border border-gray-200 shadow dark:bg-white dark:border-gray-400 mb-0"
-          key={publication.id}
-        >
-          {/* Conditionally render the left side if date is present */}
-          {date && (
-            <div className="flex flex-col items-center justify-center p-4 bg-gray-100 w-[25%]">
-              <span className="text-2xl text-custom-red">
-                {new Date(date).getDate()}
-              </span>{" "}
-              {/* Day */}
-              <span className="text-lg font-semibold">
-                {new Date(date).toLocaleString("default", { month: "short" })}
-              </span>{" "}
-              {/* Month */}
-              <span className="text-lg font-semibold">
-                {new Date(date).getFullYear()}
-              </span>{" "}
-              {/* Year */}
-            </div>
-          )}
-
-          {/* Main content */}
-          <div
-            className={`flex-1 p-4 ${date ? "border-l border-gray-200" : ""}`}
-            onClick={() => handlePublicationClick(publication.link)}
-          >
-            <h2
-              className="text-xl font-bold text-black transition line-clamp-2"
-              dangerouslySetInnerHTML={{ __html: title }}
-            ></h2>
-            <p
-              className="text-gray-600 line-clamp-2"
-              dangerouslySetInnerHTML={{ __html: content }}
-            ></p>
-
-            {/* Read More button */}
-            <button
-              className="mt-4 text-custom-red py-2 rounded-md hover:underline transition"
-              onClick={() => handlePublicationClick(publication.link)}
-            >
-              Read More
-            </button>
-          </div>
-        </li>
-      );
-    })
-  )}
-</div>
-
-{filteredPublications.length > 9 && (
-  <div className="text-center mt-8">
-    <button
-      onClick={handleViewAllClick}
-      className="text-white px-6 py-2 rounded-md hover:bg-blue-600 transition"
-    >
-      View All
-    </button>
-  </div>
-)}
-
     </div>
   );
 };
 
-export default PublicationsContent;
+export default PublicationComponent;

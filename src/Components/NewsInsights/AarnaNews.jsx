@@ -90,7 +90,7 @@ const AarnaNews = () => {
       </header>
 
       {/* Tabs Section */}
-      <div className="container mx-auto px-4 md:px-0">
+      <div className="container mx-auto px-4 md:px-0 pb-5">
         {/* Mobile Dropdown */}
         <div className="md:hidden relative">
           <button
@@ -150,27 +150,27 @@ const AarnaNews = () => {
       </div>
 
       {/* Main Content Section */}
-      <div className="px-[17%] mb-4">
-        {/* Mobile View: Insights and Search */}
-        <div className="md:hidden">
-          <h1 className="text-2xl font-semibold mt-4">Aarna News</h1>
-          <div className="flex flex-col items-center gap-2 mt-2">
-            <label htmlFor="keyword" className="hidden">
-              Search by Keyword
-            </label>
-            <div className="flex items-center gap-2">
-              <input
-                type="text"
-                id="keyword"
-                value={searchQuery}
-                onChange={handleSearch}
-                placeholder="Search by Keyword"
-                className="px-2 py-1 border rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <IoSearch className="text-gray-400" />
-            </div>
-          </div>
-        </div>
+      <div className="px-2 md:px-[17%] mb-4">
+      {/* Mobile View: Insights and Search */}
+      <div className="md:hidden">
+  <div className="flex items-center gap-4 mt-4">
+    <h1 className="text-xl font-semibold">Aarna News</h1>
+    <div className="flex items-center gap-2">
+      <label htmlFor="keyword" className="hidden">
+        Search by Keyword
+      </label>
+      <input
+        type="text"
+        id="keyword"
+        placeholder="Search by Keyword"
+        value={searchQuery}
+        onChange={handleSearch}
+        className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
+      />
+      <IoSearch className="text-custom-red" />
+    </div>
+  </div>
+</div>
 
         {/* Desktop View: Insights */}
         <div className="hidden md:flex justify-between items-left">
@@ -187,7 +187,7 @@ const AarnaNews = () => {
               placeholder="Search by Keyword"
                className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
             />
-            <IoSearch className="text-custom-blue mt-3" />
+            <IoSearch className="text-custom-red mt-3" />
           </div>
         </div>
       </div>

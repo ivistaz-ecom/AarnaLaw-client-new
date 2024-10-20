@@ -7,6 +7,7 @@ import PodcastCard from "../NewsInsights/PodcastCard";
 const Podcast = () => {
   const [podcasts, setPodcasts] = useState([]);
   const [searchKeyword, setSearchKeyword] = useState(""); // State for search keyword
+  const [loading, setLoading] = useState(true); // State for loading
   const hasFetchedData = useRef(false);
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -20,6 +21,7 @@ const Podcast = () => {
   useEffect(() => {
     if (!hasFetchedData.current) {
       const fetchPodcasts = async () => {
+        setLoading(true); // Set loading to true when starting to fetch
         try {
           const response = await fetch(
             "https://docs.aarnalaw.com/wp-json/wp/v2/podcast"
@@ -38,6 +40,8 @@ const Podcast = () => {
           setPodcasts(latestPodcasts);
         } catch (error) {
           console.log(error);
+        } finally {
+          setLoading(false); // Set loading to false after fetching
         }
       };
 
@@ -81,7 +85,7 @@ const Podcast = () => {
         <div className="md:hidden relative">
           <button
             onClick={toggleDropdown}
-            className="bg-gray-200 text-gray-600 px-4 py-2 rounded-md w-full text-left"
+            className="bg-gray-50 font-bold text-black border-b border-blue-900 px-4 py-2 rounded-md w-full text-left"
           >
             Menu
           </button>
@@ -119,25 +123,25 @@ const Podcast = () => {
         <div className="hidden md:flex justify-center space-x-16 mb-8">
           <span
             onClick={() => handleTabClick("/insights")}
-            className="text-gray-600 cursor-pointer hover:text-blue-500 transition"
+            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
           >
             Insights
           </span>
           <span
             onClick={() => handleTabClick("/aarna-news")}
-            className="text-gray-600 cursor-pointer hover:text-blue-700 transition"
+            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
           >
             Aarna News
           </span>
           <span
             onClick={() => handleTabClick("/publications")}
-            className="text-gray-600 cursor-pointer hover:text-blue-700 transition"
+            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
           >
             Publications
           </span>
           <span
             onClick={() => handleTabClick("/podcast")}
-            className="text-gray-600 cursor-pointer hover:text-blue-700 transition"
+            className="text-custom-red cursor-pointer hover:text-custom-red hover:underline transition"
           >
             Podcast
           </span>
@@ -145,27 +149,28 @@ const Podcast = () => {
       </div>
 
       {/* Main Content Section */}
-      <div className="px-[17%] mb-4">
+      <div className="md:px-[17%] px-2 mb-4">
         {/* Mobile View: Insights and Search */}
         <div className="md:hidden">
-          <h1 className="text-2xl font-semibold mt-4">Insights</h1>
-          <div className="flex flex-col items-center gap-2 mt-2">
-            <label htmlFor="keyword" className="hidden">
-              Search by Keyword
-            </label>
-            <div className="flex items-center gap-2">
-              <input
-                type="text"
-                id="keyword"
-                placeholder="Search by Keyword"
-                value={searchKeyword}
-                onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
-                className="px-2 py-1 border rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <IoSearch className="text-gray-400" />
-            </div>
-          </div>
-        </div>
+  <div className="flex items-center gap-4 mt-4">
+    <h1 className="text-xl font-semibold">Podcast</h1>
+    <div className="flex items-center gap-2">
+      <label htmlFor="keyword" className="hidden">
+        Search by Keyword
+      </label>
+      <input
+        type="text"
+        id="keyword"
+        placeholder="Search by Keyword"
+        value={searchKeyword}
+        onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
+        className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
+      />
+      <IoSearch className="text-custom-red" />
+    </div>
+  </div>
+</div>
+
 
         {/* Desktop View: Insights */}
         <div className="hidden md:flex justify-between items-left">
@@ -182,24 +187,30 @@ const Podcast = () => {
               onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
               className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
             />
-            <IoSearch className="text-custom-blue mt-3 " />
+            <IoSearch className="text-custom-red mt-3 " />
           </div>
         </div>
       </div>
 
       {/* Displaying Podcasts in Blue Background */}
       <div className="md:px-4 mx-auto max-w-screen-xl flex flex-col gap-10">
-        <div className="md:px-4 mx-auto max-w-screen-xl flex flex-col gap-10">
-          {filteredPodcasts.length > 0 ? (
-            filteredPodcasts.map((item) => (
-              <PodcastCard key={item.id} podcastDetails={item} />
-            ))
-          ) : (
-            <div className="text-center col-span-2">
-            <p className="text-red-500 font-semibold items-center md:pt-24 justify-center min-h-[300px]">No results found.</p>
+        {loading ? ( // Conditional rendering for loading spinner
+          <div className="flex justify-center items-center mb-4">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-700 border-solid border-opacity-70"></div>
           </div>
-          )}
-        </div>
+        ) : (
+          <div className="md:px-4 mx-auto max-w-screen-xl flex flex-col gap-10 px-4">
+            {filteredPodcasts.length > 0 ? (
+              filteredPodcasts.map((item) => (
+                <PodcastCard key={item.id} podcastDetails={item} />
+              ))
+            ) : (
+              <div className="text-center col-span-2">
+                <p className="text-red-500 font-semibold items-center md:pt-24 justify-center min-h-[300px]">No results found.</p>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

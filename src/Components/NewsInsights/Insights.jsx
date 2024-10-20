@@ -9,10 +9,18 @@ const Insights = () => {
   const [searchKeyword, setSearchKeyword] = useState(""); // State for search input
   const [visibleCount, setVisibleCount] = useState(4); // State for managing visible insights
   const [loading, setLoading] = useState(true); // State for loading
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
 
   const handleTabClick = (path) => {
     navigate(path);
+    setIsDropdownOpen(false); // Close dropdown after navigating
   };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
 
   const fetchInsights = async () => {
     try {
@@ -77,6 +85,44 @@ const Insights = () => {
           alt="NewsInsights"
         />
       </header>
+       {/* Mobile Dropdown */}
+       <div className="container mx-auto px-4 md:px-0 pb-5">
+       <div className="md:hidden relative">
+          <button
+            onClick={toggleDropdown}
+            className="bg-gray-50 text-gray-600 px-4 py-2 rounded-md w-full text-left"
+          >
+            Insights
+          </button>
+          {isDropdownOpen && (
+            <div className="absolute left-0 mt-2 w-full bg-white border border-gray-200 rounded-md shadow-lg z-10">
+              <span
+                onClick={() => handleTabClick("/insights")}
+                className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100"
+              >
+                Insights
+              </span>
+              <span
+                onClick={() => handleTabClick("/aarna-news")}
+                className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100"
+              >
+                Aarna News
+              </span>
+              <span
+                onClick={() => handleTabClick("/publications")}
+                className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100"
+              >
+                Publications
+              </span>
+              <span
+                onClick={() => handleTabClick("/podcast")}
+                className="block px-4 py-2 text-gray-600 cursor-pointer hover:bg-gray-100"
+              >
+                Podcast
+              </span>
+            </div>
+          )}
+        </div>
 
       {/* Tabs Section */}
       <div className="container mx-auto px-4 md:px-0">
@@ -107,24 +153,47 @@ const Insights = () => {
           </span>
         </div>
       </div>
+      </div>
 
       {/* Search Section */}
-      <div className="px-[17%] mb-4">
-  <div className="md:flex justify-between items-left">
-    <h1 className="text-2xl font-semibold">Insights</h1>
-    <div className="flex items-right gap-2">
-      <label htmlFor="keyword" className="hidden">
-        Search by Keyword
-      </label>
-      <input
-  type="text"
-  id="keyword"
-  placeholder="Search by Keyword"
-  value={searchKeyword} // Bind search input value
-  onChange={(e) => setSearchKeyword(e.target.value)} // Update state on change
-  className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
-/>
-      <IoSearch className="text-custom-blue mt-3" />
+      <div className="px-2 md:px-[17%] mb-4">
+         {/* Mobile View: Insights and Search */}
+         <div className="md:hidden">
+          <div className="flex items-center gap-4 mt-4">
+            <h1 className="text-xl font-semibold">Insights</h1>
+            <div className="flex items-center gap-2">
+              <label htmlFor="keyword" className="hidden">
+                Search by Keyword
+              </label>
+              <input
+                type="text"
+                id="keyword"
+                placeholder="Search by Keyword"
+                value={searchKeyword}
+                onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
+                className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
+              />
+              <IoSearch className="text-custom-red" />
+            </div>
+          </div>
+        </div>
+
+        {/* desktop view */}
+          <div className="hidden md:flex justify-between items-left">
+            <h1 className="text-2xl font-semibold">Insights</h1>
+            <div className="flex items-right gap-2">
+              <label htmlFor="keyword" className="hidden">
+                Search by Keyword
+              </label>
+              <input
+          type="text"
+          id="keyword"
+          placeholder="Search by Keyword"
+          value={searchKeyword} // Bind search input value
+          onChange={(e) => setSearchKeyword(e.target.value)} // Update state on change
+          className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
+        />
+      <IoSearch className="text-custom-red mt-3" />
     </div>
   </div>
 </div>

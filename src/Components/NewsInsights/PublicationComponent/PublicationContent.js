@@ -161,9 +161,9 @@ const PublicationsContent = () => {
                 value={searchKeyword}
                 onChange={handleSearch}
                 placeholder="Search by Keyword"
-                className="px-2 py-1 border rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
               />
-              <IoSearch className="text-gray-400" />
+              <IoSearch className="text-custom-blue" />
             </div>
           </div>
         </div>
@@ -178,9 +178,9 @@ const PublicationsContent = () => {
               value={searchKeyword}
               onChange={handleSearch}
               placeholder="Search by Keyword"
-              className="px-2 py-1 border rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+               className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
             />
-            <IoSearch className="text-gray-400 mt-3" />
+            <IoSearch className="text-custom-blue mt-3" />
           </div>
         </div>
       </div>
@@ -240,7 +240,7 @@ const PublicationsContent = () => {
             onClick={() => handlePublicationClick(publication.link)}
           >
             <h2
-              className="text-xl font-bold text-gray-800 hover:text-blue-500 transition line-clamp-2"
+              className="text-xl font-bold text-black transition line-clamp-2"
               dangerouslySetInnerHTML={{ __html: title }}
             ></h2>
             <p

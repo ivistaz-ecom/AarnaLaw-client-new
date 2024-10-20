@@ -180,9 +180,9 @@ const Podcast = () => {
               placeholder="Search by Keyword"
               value={searchKeyword}
               onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
-              className="px-2 py-1 border rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
             />
-            <IoSearch className="text-gray-400" />
+            <IoSearch className="text-custom-blue mt-3 " />
           </div>
         </div>
       </div>

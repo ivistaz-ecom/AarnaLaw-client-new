@@ -110,24 +110,25 @@ const Insights = () => {
 
       {/* Search Section */}
       <div className="px-[17%] mb-4">
-        <div className="md:flex justify-between items-left">
-          <h1 className="text-2xl font-semibold">Insights</h1>
-          <div className="flex items-right gap-2">
-            <label htmlFor="keyword" className="hidden">
-              Search by Keyword
-            </label>
-            <input
-              type="text"
-              id="keyword"
-              placeholder="Search by Keyword"
-              value={searchKeyword} // Bind search input value
-              onChange={(e) => setSearchKeyword(e.target.value)} // Update state on change
-              className="px-2 py-1 border rounded-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <IoSearch className="text-gray-400" />
-          </div>
-        </div>
-      </div>
+  <div className="md:flex justify-between items-left">
+    <h1 className="text-2xl font-semibold">Insights</h1>
+    <div className="flex items-right gap-2">
+      <label htmlFor="keyword" className="hidden">
+        Search by Keyword
+      </label>
+      <input
+  type="text"
+  id="keyword"
+  placeholder="Search by Keyword"
+  value={searchKeyword} // Bind search input value
+  onChange={(e) => setSearchKeyword(e.target.value)} // Update state on change
+  className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
+/>
+      <IoSearch className="text-custom-blue mt-3" />
+    </div>
+  </div>
+</div>
+
 
       {/* Loading Spinner */}
       {loading ? (

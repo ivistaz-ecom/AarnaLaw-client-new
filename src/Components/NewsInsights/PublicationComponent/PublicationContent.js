@@ -32,7 +32,7 @@ const PublicationsContent = () => {
     setError(""); // Reset error state
     try {
       const response = await fetch(
-        `https://docs.aarnalaw.com/wp-json/wp/v2/publications?_embed`
+        `https://docs.aarnalaw.com/wp-json/wp/v2/publications?_embed&per_page=100`
       );
 
       if (!response.ok) {
@@ -195,50 +195,84 @@ const PublicationsContent = () => {
       </div>
 
       <div className="container md:px-4 mx-auto max-w-screen grid grid-cols-1 md:grid-cols-2 gap-10">
-        {filteredPublications.length === 0 && !isLoading ? (
-          <div className="text-center col-span-2">
-            <p className="text-red-500 font-semibold items-center md:pt-24 justify-center min-h-[300px]">
-              No results found.
-            </p>
-          </div>
-        ) : (
-          filteredPublications.slice(0, 9).map((publication) => {
-            const { title, content, date, formattedDate } = publication; // Destructure values from publication
+  {filteredPublications.length === 0 && !isLoading ? (
+    <div className="text-center col-span-2">
+      <p className="text-red-500 font-semibold items-center md:pt-24 justify-center min-h-[300px]">
+        No results found.
+      </p>
+    </div>
+  ) : (
+    filteredPublications.slice(0, 9).map((publication) => {
+      const { title, content, date, formattedDate } = publication; // Destructure values from publication
 
-            // Add a check to ensure 'title' exists
-            if (!title) {
-              console.error("Publication data is incomplete:", publication);
-              return null;
-            }
+      // Add a check to ensure 'title' exists
+      if (!title) {
+        console.error("Publication data is incomplete:", publication);
+        return null;
+      }
 
-            return (
-              <li className="flex w-full bg-white border border-gray-200 shadow dark:bg-white dark:border-gray-400 mb-0" key={publication.id}>
-                {/* Conditionally render the left side if date is present */}
-                {date && (
-                  <div className="flex flex-col items-center justify-center p-4 bg-gray-200 w-[35%]">
-                    <span className="text-2xl text-custom-red  font-bold">{new Date(date).getDate()}</span> {/* Day */}
-                  <span className="text-lg font-semibold">{new Date(date).toLocaleString('default', { month: 'short' })}</span> {/* Month */}
-                  <span className="text-lg font-bold">{new Date(date).getFullYear()}</span> {/* Year */}
-                  </div>
-                )}
-                <div className={`flex-1 p-4 ${date ? 'border-l border-gray-200' : ''}`} onClick={() => handlePublicationClick(publication.link)}>
-                  <h2 className="text-xl font-bold text-gray-800 hover:text-blue-500 transition">{title}</h2>
-                  <p className="text-gray-600 line-clamp-2">{content}</p>
-                </div>
-              </li>
-            );
-          })
-        )}
-      </div>
-
-      <div className="flex justify-center">
-        <button
-          onClick={handleViewAllClick}
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition mt-4"
+      return (
+        <li
+          className="flex w-full bg-white border border-gray-200 shadow dark:bg-white dark:border-gray-400 mb-0"
+          key={publication.id}
         >
-          View All Publications
-        </button>
-      </div>
+          {/* Conditionally render the left side if date is present */}
+          {date && (
+            <div className="flex flex-col items-center justify-center p-4 bg-gray-100 w-[25%]">
+              <span className="text-2xl text-custom-red">
+                {new Date(date).getDate()}
+              </span>{" "}
+              {/* Day */}
+              <span className="text-lg font-semibold">
+                {new Date(date).toLocaleString("default", { month: "short" })}
+              </span>{" "}
+              {/* Month */}
+              <span className="text-lg font-semibold">
+                {new Date(date).getFullYear()}
+              </span>{" "}
+              {/* Year */}
+            </div>
+          )}
+
+          {/* Main content */}
+          <div
+            className={`flex-1 p-4 ${date ? "border-l border-gray-200" : ""}`}
+            onClick={() => handlePublicationClick(publication.link)}
+          >
+            <h2
+              className="text-xl font-bold text-gray-800 hover:text-blue-500 transition line-clamp-2"
+              dangerouslySetInnerHTML={{ __html: title }}
+            ></h2>
+            <p
+              className="text-gray-600 line-clamp-2"
+              dangerouslySetInnerHTML={{ __html: content }}
+            ></p>
+
+            {/* Read More button */}
+            <button
+              className="mt-4 text-custom-red py-2 rounded-md hover:underline transition"
+              onClick={() => handlePublicationClick(publication.link)}
+            >
+              Read More
+            </button>
+          </div>
+        </li>
+      );
+    })
+  )}
+</div>
+
+{filteredPublications.length > 9 && (
+  <div className="text-center mt-8">
+    <button
+      onClick={handleViewAllClick}
+      className="text-white px-6 py-2 rounded-md hover:bg-blue-600 transition"
+    >
+      View All
+    </button>
+  </div>
+)}
+
     </div>
   );
 };

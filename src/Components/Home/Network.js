@@ -1,6 +1,6 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import { LanguageContext } from "../../Components/LanguageContext";
-import ContactForm from "../../Components/practice-area/ContactForm"; 
+import ContactForm from "../../Components/practice-area/ContactForm";
 
 const translations = {
   ar: require("../../Components/json/Home/ar.json"),
@@ -50,38 +50,36 @@ const Network = () => {
       </style>
       <div className="flex flex-col items-center gap-10 mb-14 lg:p-8 p-2">
         <h1 className="text-custom-blue text-xl md:text-2xl font-semibold">
-        {translations[selectedLanguage].Network_Around_Lawyers}
-        
+          {translations[selectedLanguage].Network_Around_Lawyers}
         </h1>
 
         <div className="py-5 bg-light-black text-white w-full">
           <p className="font-semibold p-3">Aarna Law</p>
-        <div className="w-full overflow-hidden">
-          
-          <iframe 
-            src="https://www.google.com/maps/d/embed?mid=1VcQJ5rncecjuzGEyGAVCekUkRYoLUpQ&ehbc=2E312F"
-            width="100%"
-            height="600"
-           
-            className="border-0 mt-[-61px]"
-          >
-          </iframe>
-        </div>
+          <div className="w-full overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/d/embed?mid=1VcQJ5rncecjuzGEyGAVCekUkRYoLUpQ&ehbc=2E312F"
+              width="100%"
+              height="600"
+              className="border-0 mt-[-61px]"
+            ></iframe>
+          </div>
         </div>
         <div>
-          
-          <button   onClick={handleContactClick} className="border border-custom-red px-6 py-2 text-custom-red hover:bg-custom-red hover:text-white">
-          {translations[selectedLanguage].Contact_Our_Experts}
+          <button
+            onClick={handleContactClick}
+            className="border border-custom-red px-6 py-2 text-custom-red hover:bg-custom-red hover:text-white"
+          >
+            {translations[selectedLanguage].Contact_Our_Experts}
           </button>
         </div>
 
-       
-      {/* Display Contact Form if showContactForm is true */}
-      {showContactForm && <ContactForm handleClose={handleCloseContactForm} />}
+        {/* Display Contact Form if showContactForm is true */}
+        {showContactForm && (
+          <ContactForm handleClose={handleCloseContactForm} />
+        )}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Network
-
+export default Network;

@@ -50,7 +50,7 @@ const Insights = ({ slug }) => {
           <img
             src={post._embedded["wp:featuredmedia"][0]["source_url"]}
             alt={post.title.rendered}
-            className="w-full h-[500px]"
+            className="w-full h-full"
           />
           <div
             dangerouslySetInnerHTML={{ __html: post.content.rendered }}

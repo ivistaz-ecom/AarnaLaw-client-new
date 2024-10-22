@@ -1,6 +1,7 @@
 // import Image from "next/image";
 import React from "react";
 import whatwedoImg from "../Home/Images/What_we_do.jpg";
+import { Link } from "react-router-dom";
 
 
 const WhatWeDo = () => {
@@ -41,9 +42,9 @@ const WhatWeDo = () => {
             navigating highly specialized areas of national and international
             law, we advise with uncompromising integrity.
           </p>
-          <button className="border border-custom-red px-6 py-2 text-custom-red hover:bg-custom-red hover:text-white mt-4 mx-auto block md:mx-0">
+          <Link  to={`/practice-area`} className="border border-custom-red px-6 py-2 text-custom-red hover:bg-custom-red hover:text-white mt-4 mx-auto block md:mx-0">
             Our Services
-          </button>
+          </Link>
         </div>
       </div>
     </div>

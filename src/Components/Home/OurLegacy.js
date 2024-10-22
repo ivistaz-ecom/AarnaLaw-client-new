@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import legacyImg from "../Home/Images/Our_legacy.jpg";
 import { motion } from "framer-motion";
-import { LanguageContext } from '../LanguageContext';
-import { useNavigate } from 'react-router-dom';
+import { LanguageContext } from "../LanguageContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const OurLegacy = () => {
   return (
@@ -26,9 +26,12 @@ const OurLegacy = () => {
             clients’ best interests without compromising on our principles of
             natural law, justice, and compassion.
           </p>
-          <button className="border border-custom-blue px-4 py-2 text-custom-blue hover:bg-custom-blue hover:text-white mt-4 md:mt-0 md:mx-0 mx-auto">
+          <Link
+            to={`/aboutus`}
+            className="border border-custom-blue px-4 py-2 text-custom-blue hover:bg-custom-blue hover:text-white mt-4 md:mt-0 md:mx-0 mx-auto"
+          >
             Our Firm
-          </button>
+          </Link>
         </div>
       </div>
       <div className="w-full md:w-1/2 md:pe-5 pe-5 md:ps-0 ps-5">

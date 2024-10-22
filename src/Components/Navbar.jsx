@@ -77,7 +77,10 @@ const Navbar = () => {
         onMouseLeave={() => setIsSubmenuOpen(false)}
       >
         <div className="max-w-screen-xxl flex flex-wrap items-center justify-between mx-auto p-4 relative">
-          <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <Link
+            to="/"
+            className="flex items-center space-x-3 rtl:space-x-reverse"
+          >
             <img
               src={logo}
               height={60}
@@ -212,13 +215,21 @@ const Navbar = () => {
                   </ul>
                 )}
               </li>
+              <li className="z-10">
+                <Link
+                  to="/careers"
+                  className="block py-2 px-1 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Careers
+                </Link>
+              </li>
             </ul>
             <div className={`flex-col ${isSearchActive ? "hidden" : ""}`}>
-            <Search
-              handleSearchClick={handleSearchClick}
-              handleOptionClick={handleOptionClick}
-            />
-          </div>
+              <Search
+                handleSearchClick={handleSearchClick}
+                handleOptionClick={handleOptionClick}
+              />
+            </div>
           </div>
         </div>
       </nav>

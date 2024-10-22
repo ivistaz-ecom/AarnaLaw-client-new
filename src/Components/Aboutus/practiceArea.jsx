@@ -35,7 +35,7 @@ const PracticeArea = () => {
     { key: "Int_DesResolution", path: "/practice-area/international-disputes" },
     { key: "Bank_ResIns", path: "/practice-area/bankruptcy-ins" },
     { key: "Farud_Assets_Enforcement", path: "/practice-area/fraud" },
-    { key: "Low_bano", path: "/practice-area/lowbono" },
+    { key: "Pro_bano", path: "/practice-area/pro-bono" },
     {
       key: "Risk_Management_and_Compliance",
       path: "/practice-area/risk-management",

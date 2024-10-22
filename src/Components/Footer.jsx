@@ -116,7 +116,7 @@ const Footer = () => {
               </a>
               <span className="font-bold text-white text-lg md:text-xl">|</span>
               <a
-                href="https://open.spotify.com"
+                href="https://open.spotify.com/show/2FYjq2t4nrx3bT9UMwN55h"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-white text-sm md:text-xl flex items-center"

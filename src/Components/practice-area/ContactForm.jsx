@@ -34,11 +34,11 @@ function ContactForm({ handleClose }) {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-8 rounded-lg w-96 relative">
+    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 p-4">
+      <div className="bg-white p-8 rounded-lg w-[800px] relative">
         <h2 className="text-2xl font-bold mb-4">Contact</h2>
         <button onClick={handleClose} className="absolute top-2 right-2 text-red-500 hover:text-red-600">
-          CLOSE <span className="text-black">×</span>
+         <span className="text-black">×</span>
         </button>
         <form onSubmit={handleSendMessage}>
           <div className="mb-4">

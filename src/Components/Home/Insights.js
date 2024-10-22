@@ -3,52 +3,49 @@ import InsightSlider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { leftArrow, rightArrow } from "../Home/utils/Icon";
+import { Link } from "react-router-dom";
 
 function HomeBanner() {
   const [insightsData, setInsightsData] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true);
   const sliderRef = useRef(null);
 
-  useEffect(() => {
-    const fetchInsights = async () => {
-      try {
-        const response = await fetch(
-          "https://www.aarnalaw.com/wp-json/wp/v2/posts?_embed"
-        );
-        const posts = await response.json();
+  const fetchInsights = async (page = 1, perPage = 10) => {
+    try {
+      setLoading(true); // Show loader while fetching data
+      const response = await fetch(
+        `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${page}`
+      );
+      const data = await response.json();
 
-        const fetchMedia = async (mediaId) => {
-          const mediaResponse = await fetch(
-            `https://www.aarnalaw.com/wp-json/wp/v2/media/${mediaId}`
-          );
-          const mediaData = await mediaResponse.json();
-          return mediaData.source_url;
+      const newInsights = data.map((item) => {
+        const imageUrl =
+          item?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "";
+        return {
+          ...item,
+          imageUrl,
+          title: item["yoast_head_json"]["title"],
+          desc: item["yoast_head_json"]["og_description"],
+          formattedDate: new Date(item.date).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          }),
+          link: item.link,
+          slug: item.slug, // Ensure the slug is used for links
         };
+      });
 
-        const latestInsights = await Promise.all(
-          posts
-            .sort((a, b) => new Date(b.date) - new Date(a.date))
-            .slice(0, 8)
-            .map(async (item) => {
-              const imageUrl = await fetchMedia(item.featured_media);
-              return {
-                ...item,
-                imageUrl: imageUrl,
-                title: item.title.rendered,
-                desc: item.acf.excerpt,
-              };
-            })
-        );
+      setInsightsData((prev) => [...prev, ...newInsights]); // Append new data to the existing data
+    } catch (error) {
+      console.error("Error fetching insights:", error);
+    } finally {
+      setLoading(false); // Hide loader after data is fetched
+    }
+  };
 
-        setInsightsData(latestInsights);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false); // Stop loading
-      }
-    };
-
-    fetchInsights();
+  useEffect(() => {
+    fetchInsights(); // Fetch the first batch of posts on component mount
   }, []);
 
   const NextArrow = () => (
@@ -75,7 +72,7 @@ function HomeBanner() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
-    arrows: false, // Disable the built-in arrows
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -117,7 +114,7 @@ function HomeBanner() {
       </div>
 
       <div className="px-4 mx-auto max-w-screen-xl text-center overflow-hidden w-full md:w-auto">
-        {loading ? (
+        {loading && insightsData.length === 0 ? (
           <div className="flex justify-center items-center">
             <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-700 border-solid border-opacity-70"></div>
           </div>
@@ -131,6 +128,7 @@ function HomeBanner() {
                       src={item.imageUrl}
                       className="w-full h-[200px] md:h-[280px] object-cover"
                       alt={item.title}
+                      loading="lazy"
                     />
                     <div className="p-5 flex flex-col items-start flex-grow text-black md:group-hover:text-white transition-colors duration-300">
                       <h5
@@ -155,9 +153,18 @@ function HomeBanner() {
               </div>
             ))}
           </InsightSlider>
+          
         )}
+        <div className="flex justify-center my-10">
+        <Link
+          to="/insights"
+          className="border border-custom-red px-6 py-2 text-custom-red md:hover:bg-custom-red md:hover:text-white mr-20"
+        >
+          View all
+        </Link>
+      </div>
 
-        <div className="flex gap-2 justify-center py-5 md:hidden">
+        <div className="flex gap-2 justify-center py-5 md:hidden ">
           <PrevArrow />
           <NextArrow />
         </div>

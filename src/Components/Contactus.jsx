@@ -3,6 +3,7 @@ import ContactusImg from "../images/contact-banner.jpg";
 import ContactusmobImg from "../images/contact-mobile-banner.jpg";
 import { LanguageContext } from "../Components/LanguageContext";
 import { conntactustestimonial } from "../Components/Home/utils/data";
+import { Link } from "react-router-dom";
 
 const Contactus = () => {
   const { selectedLanguage } = useContext(LanguageContext);
@@ -119,75 +120,72 @@ const Contactus = () => {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-
         {/* Testimonial */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <h5 className="text-2xl text-custom-blue font-bold mb-2 text-center">
-    Client’s Testimonials
-  </h5>
-
-  {/* Cards in three columns */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
-    {conntactustestimonial.map((conntactustestimonial, index) => (
-      <div
-        key={index}
-        className="bg-white shadow-lg rounded-lg overflow-hidden"
-      >
-        <div className="p-4">
-          <h5 className="text-xl text-custom-blue font-bold mb-2">
-            {conntactustestimonial.name}
+          <h5 className="text-2xl text-custom-blue font-bold mb-2 text-center">
+            Client’s Testimonials
           </h5>
-          <h6 className="text-base text-gray-500 mb-2">
-            {conntactustestimonial.title}
-          </h6>
-          <h6 className="text-base text-gray-500 mb-2">
-            {conntactustestimonial.company}
-          </h6>
-          <p className="text-gray-700 mb-4 line-clamp-4">
-            {conntactustestimonial.fullTestimonial}
-          </p>
-          <button
-            onClick={() => openModal(index)}
-            className="text-custom-red hover:text-custom-blue font-semibold bottom-0"
-          >
-            Read more
-          </button>
+
+          {/* Cards in three columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+            {conntactustestimonial.map((testimonial, index) => (
+              <div
+                key={index}
+                className="bg-white shadow-lg rounded-lg flex flex-col overflow-hidden"
+              >
+                <div className="p-4 flex-grow">
+                  <h5 className="text-xl text-custom-blue font-bold mb-2">
+                    {testimonial.name}
+                  </h5>
+                  <h6 className="text-base text-gray-500 mb-2">
+                    {testimonial.title}
+                  </h6>
+                  <h6 className="text-base text-gray-500 mb-2">
+                    {testimonial.company}
+                  </h6>
+                  <p className="text-gray-700 mb-4 line-clamp-4">
+                    {testimonial.fullTestimonial}
+                  </p>
+                </div>
+                <Link
+                  onClick={() => openModal(index)}
+                  className="text-custom-red hover:underline font-semibold mb-4 p-4"
+                >
+                  Read more
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Modal */}
+          {isOpen && selectedTestimonial && (
+            <div className="fixed inset-0 flex items-center justify-center z-50">
+              <div className="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
+              <div className="bg-white rounded-lg shadow-lg max-w-2xl mx-auto p-6 z-50">
+                <h5 className="text-xl text-custom-blue font-bold mb-2">
+                  {selectedTestimonial.name}
+                </h5>
+                <h6 className="text-base text-gray-500 mb-2">
+                  {selectedTestimonial.title}
+                </h6>
+                <h6 className="text-base text-gray-500 mb-2">
+                  {selectedTestimonial.company}
+                </h6>
+                {selectedTestimonial.fullTestimonial.map((paragraph, idx) => (
+                  <p key={idx} className="text-gray-700 mb-4">
+                    {paragraph}
+                  </p>
+                ))}
+                <button
+                  onClick={closeModal}
+                  className="text-red-500 hover:text-red-700 font-semibold mt-4"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-      </div>
-    ))}
-  </div>
-
-  {/* Modal */}
-  {isOpen && selectedTestimonial && (
-    <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
-      <div className="bg-white rounded-lg shadow-lg max-w-2xl mx-auto p-6 z-50">
-        <h5 className="text-xl text-custom-blue font-bold mb-2">
-          {selectedTestimonial.name}
-        </h5>
-        <h6 className="text-base text-gray-500 mb-2">
-          {selectedTestimonial.title}
-        </h6>
-        <h6 className="text-base text-gray-500 mb-2">
-          {selectedTestimonial.company}
-        </h6>
-        {selectedTestimonial.fullTestimonial.map((paragraph, idx) => (
-          <p key={idx} className="text-gray-700 mb-4">
-            {paragraph}
-          </p>
-        ))}
-        <button
-          onClick={closeModal}
-          className="text-red-500 hover:text-red-700 font-semibold mt-4"
-        >
-          Close
-        </button>
-      </div>
-    </div>
-  )}
-</div>
-
 
         <h1 className="text-3xl font-bold text-gray-800 mb-8 mt-[15px]">
           {translations[selectedLanguage].Contact_Us}

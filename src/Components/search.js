@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 
 const Search = ({ handleSearchClick }) => {
   const [inputValue, setInputValue] = useState("");
   const [posts, setPosts] = useState([]); // State to store posts fetched from API
   const [filteredPosts, setFilteredPosts] = useState([]); // State for filtered results
   const [showResults, setShowResults] = useState(false); // State to control search results visibility
+  const [loading, setLoading] = useState(false); // State to show loading indicator
   const searchBoxRef = useRef(null);
   const resultsBoxRef = useRef(null);
 
@@ -12,27 +13,34 @@ const Search = ({ handleSearchClick }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+        setLoading(true); // Start loading
         const response = await fetch(
-          "https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed"
+          "https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&per_page=100"
         );
         const data = await response.json();
         setPosts(data); // Store posts data
       } catch (error) {
         console.error("Error fetching posts:", error);
+      } finally {
+        setLoading(false); // Stop loading after data is fetched
       }
     };
 
     fetchPosts();
   }, []);
 
-  // Filter posts based on search input
-  useEffect(() => {
-    const results = posts.filter((post) =>
+  // Optimize filtering using useMemo
+  const filteredResults = useMemo(() => {
+    return posts.filter((post) =>
       post.title.rendered.toLowerCase().includes(inputValue.toLowerCase())
     );
-    setFilteredPosts(results); // Update filtered posts
-    setShowResults(inputValue.length > 0); // Show results only when there is input
   }, [inputValue, posts]);
+
+  // Update filtered posts when input changes
+  useEffect(() => {
+    setFilteredPosts(filteredResults); // Update filtered posts
+    setShowResults(inputValue.length > 0); // Show results only when there is input
+  }, [filteredResults, inputValue]);
 
   // Close the results when clicking outside the search box or results
   useEffect(() => {
@@ -79,35 +87,28 @@ const Search = ({ handleSearchClick }) => {
 
       {/* Display search results outside the container */}
       {showResults && (
-       <ul
-       ref={resultsBoxRef}
-       className="search-results absolute z-50 w-[300px] bg-white border border-gray-200 mt-2 rounded-md shadow-lg overflow-y-auto no-scrollbar max-h-80 py-5"
-     >
-       {filteredPosts.length > 0 ? (
-         filteredPosts.map((post) => (
-           <li key={post.id} className="p-2 flex items-center group hover:bg-custom-red hover:text-white">
-             {/* Check if the post has a featured image */}
-             {post._embedded && post._embedded['wp:featuredmedia'] && (
-               <img
-                 src={post._embedded['wp:featuredmedia'][0].source_url}
-                 alt={post.title.rendered}
-                 className="w-12 h-12 mr-2 rounded"
-               />
-             )}
-             <a
-               href={`/insights/${post.slug}`}
-               rel="noopener noreferrer"
-               className="block text-black group-hover:text-white text-start"
-             >
-               {post.title.rendered}
-             </a>
-           </li>
-         ))
-       ) : (
-         <li className="p-2 text-gray-500">No results found</li>
-       )}
-     </ul>
-     
+        <ul
+          ref={resultsBoxRef}
+          className="search-results absolute z-50 w-[300px] bg-white border border-gray-200 mt-2 rounded-md shadow-lg overflow-y-auto no-scrollbar max-h-80 py-5"
+        >
+          {loading ? (
+            // Show loading indicator while data is being fetched
+            <li className="p-2 text-gray-500">Loading...</li>
+          ) : filteredPosts.length > 0 ? (
+            filteredPosts.map((post) => (
+              <li key={post.id} className="p-2 flex items-center group hover:bg-custom-red hover:text-white">
+                <a
+                  href={`/insights/${post.slug}`}
+                  rel="noopener noreferrer"
+                  className="block text-black group-hover:text-white text-start"
+                  dangerouslySetInnerHTML={{ __html: post.title.rendered }} // Safely render title
+                ></a>
+              </li>
+            ))
+          ) : (
+            <li className="p-2 text-gray-500">No results found</li>
+          )}
+        </ul>
       )}
     </div>
   );

@@ -4,8 +4,8 @@
 @tailwind utilities;
 
 body {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
+  font-family: 'inter-regular', sans-serif;
+  font-weight: 300;
   font-style: normal;
   color: #333333;
 }

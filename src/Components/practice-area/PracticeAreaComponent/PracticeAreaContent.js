@@ -39,7 +39,11 @@ const PracticeAreaComponent = () => {
   return (
     <div className="">
       <div className="relative hidden md:block">
-        <img src={PracticeAreaImg} className="w-full h-[500px]" alt="Practice Area " />
+        <img
+          src={PracticeAreaImg}
+          className="w-full h-[500px]"
+          alt="Practice Area "
+        />
         <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
           Practice Area
         </div>
@@ -57,7 +61,8 @@ const PracticeAreaComponent = () => {
           <p className="font-bold text-gray-500">PRACTICE AREAS</p>
           <br />
           <p className="text-3xl md:w-1/2 mx-auto">
-            Our dynamic team provides experienced counsel on a diverse range of practice areas.
+            Our dynamic team provides experienced counsel on a diverse range of
+            practice areas.
           </p>
         </ul>
         <br />
@@ -74,16 +79,21 @@ const PracticeAreaComponent = () => {
                 key={post.id}
                 className="relative flex flex-col items-center bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
               >
-                <Link to={`/practice-area/${post.slug}`} className="block w-full">
+                <Link
+                  to={`/practice-area/${post.slug}`}
+                  className="block w-full"
+                >
                   <div className="h-48 w-full overflow-hidden group">
                     {/* Use the featured image instead of the banner image */}
-                    {post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && (
-                      <img
-                        src={post._embedded['wp:featuredmedia'][0].source_url} // Update to use the featured image
-                        alt={post.title.rendered}
-                        className="object-cover w-full h-full transition-transform duration-500 ease-in-out transform group-hover:scale-105"
-                      />
-                    )}
+                    {post._embedded &&
+                      post._embedded["wp:featuredmedia"] &&
+                      post._embedded["wp:featuredmedia"][0] && (
+                        <img
+                          src={post._embedded["wp:featuredmedia"][0].source_url} // Update to use the featured image
+                          alt={post.title.rendered}
+                          className="object-cover w-full h-full transition-transform duration-500 ease-in-out transform group-hover:scale-105"
+                        />
+                      )}
                   </div>
                   <div
                     className={`bg-blue-900 text-white text-center py-4 text-lg font-bold h-20 flex items-center justify-center`}

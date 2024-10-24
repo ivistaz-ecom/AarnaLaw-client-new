@@ -95,7 +95,7 @@ const Footer = () => {
 
 
       <div className="bg-custom-blue px-5 md:px-20 py-7">
-        <div className="flex justify-between items-center">
+        <div className="md:flex md:justify-between md:items-center">
           <div className="space-y-4">
             <img
               src={AarnawhiteLogo}
@@ -128,7 +128,7 @@ const Footer = () => {
           </div>
           <div>
             <button onClick={handleSubscribeClick}
-            className="border border-custom-red text-xs md:text-base md:px-6 px-2 py-2 ml-4 mt-2 text-white hover:bg-white hover:border-white hover:text-custom-red">
+            className="border border-custom-red text-xs md:text-base md:px-6 px-2 py-2 md:ml-4 md:mt-2 mt-4 text-white hover:bg-white hover:border-white hover:text-custom-red">
               Subscribe to newsletter
             </button>
           </div>

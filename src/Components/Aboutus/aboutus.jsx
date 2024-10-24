@@ -83,7 +83,7 @@ function AboutUs() {
         {/* Added margin for both mobile and desktop */}
         {/* What We Do Section */}
         <div className="container mx-auto flex flex-col md:flex-row">
-          <div className="w-full md:w-1/2  md:ps-5 p-4 md:pe-0 ">
+          <div className="w-full md:w-1/2  md:ps-5 p-4 md:pe-0 hidden md:block">
             <img
               src={aboutimg}
               width={683}
@@ -94,7 +94,7 @@ function AboutUs() {
           </div>
           <div className="w-full md:w-1/2 md:py-8 md:px-8 p-4 ">
             {/* mobile */}
-            <h1 className="text-custom-red text-2xl font-bold text-center md:hidden">
+            <h1 className="text-custom-red text-2xl font-bold md:hidden">
               What We Do
             </h1>
 
@@ -119,6 +119,16 @@ function AboutUs() {
                 to navigating highly specialized areas of national and
                 international law, we advise with uncompromising integrity.
               </p>
+
+              <div className="w-full md:w-1/2 mt-4 md:pe-0 md:hidden">
+            <img
+              src={aboutimg}
+              width={683}
+              height={456}
+              className="w-full"
+              alt=""
+            />
+          </div>
               <button className="border border-custom-red px-6 py-2 text-custom-red hover:bg-custom-red hover:text-white mt-4 mx-auto block md:mx-0">
                 Our Services
               </button>
@@ -130,15 +140,14 @@ function AboutUs() {
       {/* New Practice Area Section start */}
       <PracticeArea />
 
-      <br></br>
-      <br></br>
+
       {/* What LEGACY START Section */}
-      <div className="container mx-auto flex flex-col-reverse md:flex-row-reverse justify-between">
+      <div className="container mx-auto flex flex-col-reverse md:flex-row-reverse justify-between md:mt-10">
         {/* Our Legacy Section */}
         <div id="legacy" className="bg-white ">
           <div className="flex flex-col-reverse md:flex-row-reverse justify-between container mx-auto px-4">
             <motion.div
-              className="w-full md:w-1/2 mb-4 md:mb-0"
+              className="w-full md:w-1/2 my-4 md:mb-0"
               initial={{ opacity: 0, x: "10vw" }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 2 }}
@@ -175,11 +184,11 @@ function AboutUs() {
       </div>
 
       {/* What We Do Section */}
-      <div className="mx-auto flex flex-col md:flex-row">
+      <div className="mx-auto flex flex-col md:flex-row md:mt-0 mt-5">
         <div id="what-we-do" className="bg-white w-full">
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-between md:w-4/5 container mx-auto md:px-0 px-4">
             <motion.div
-              className="w-full md:w-1/2 mb-0"
+              className="w-full md:w-1/2 mb-0 hidden md:block"
               initial={{ opacity: 0, x: "-100vw" }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 2 }}
@@ -209,6 +218,22 @@ function AboutUs() {
                 <p>{translations[selectedLanguage].Whatwedo_Message2}</p>
               </div>
             </motion.div>
+             <motion.div
+              className="w-full mt-4 mb-0 md:hidden"
+              initial={{ opacity: 0, x: "-100vw" }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 2 }}
+              // style={{ marginRight: "10px", marginLeft: "60px" }}
+            >
+              <img
+                src={whatwedoimg}
+                className="w-full h-auto shadow-lg"
+                alt="aboutus"
+                loading="lazy"
+                style={{ maxWidth: "100%", maxHeight: "100%" }}
+              />
+            </motion.div>
+
           </div>
         </div>
       </div>

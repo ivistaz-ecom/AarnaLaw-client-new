@@ -10,7 +10,7 @@ const Posts = ({ slug }) => {
           `https://docs.aarnalaw.com/wp-json/wp/v2/publications?_embed&slug=${slug}`
         );
         const data = await response.json();
-        console.log(data);
+        console.log("Publication data",data);
 
         // Ensure that data is an array
         if (Array.isArray(data)) {
@@ -64,103 +64,46 @@ const Posts = ({ slug }) => {
         <div className="">
           {data ? (
             data.map((post) => (
-              <div className="flex flex-col pb-10" key={post.id}>
-  {/* Banner Image */}
-  <img
-    src={post.acf?.banner_image?.url || "/default-image.jpg"}
-    alt={post.title?.rendered || "No Title"}
-    className="w-full img-fluid rounded-5 mb-5 h-[500px]"
-  />
+              <div className="flex flex-col pt-64 pb-10" key={post.id}>
+                
+                <div className="flex flex-col md:flex-row container mx-auto px-4 text-justify justify-center">
+                  {/* Left Column: Content */}
+                  <div className="w-full md:w-2/3 pb-10 md:mr-10">
+                    {/* Title inside the left column */}
+                    <h1
+                      className="text-3xl font-bold text-black mb-5 text-center"
+                      dangerouslySetInnerHTML={{
+                        __html: post.title?.rendered || "Untitled",
+                      }}
+                    />
 
-  {/* Content and Partner Image Layout */}
-  <div className="flex flex-col md:flex-row container mx-auto px-4 text-justify justify-between">
-    {/* Left Column: Content */}
-    <div className="w-full md:w-2/3 pb-10 md:mr-10">
-      {/* Title inside the left column */}
-      <h1
-        className="text-3xl font-bold text-black mb-5"
-        dangerouslySetInnerHTML={{
-          __html: post.title?.rendered || "Untitled",
-        }}
-      />
+                    {/* Description */}
+                    <div
+                      className="card-text para-text text-black pt-5 pb-0"
+                      dangerouslySetInnerHTML={{
+                        __html: post?.content.rendered
+                          ? post.content.rendered
+                              // Style for <h2> elements
+                              .replace(
+                                /<h2>/g,
+                                '<h2 style="font-weight: bold; font-size: 30px !important; color: black; padding-top: 20px; padding-bottom: 0; text-align: center !important;">'
+                              )
+                              
+                              // Style for paragraphs
+                              .replace(
+                                /<p>/g,
+                                '<p style="padding: 5px; margin: 0;">'
+                              )
+                             
+                          : "No content available",
+                      }}
+                    />
+                  </div>
 
-      {/* Description */}
-      <div
-        className="card-text para-text text-black pt-5 pb-0"
-        dangerouslySetInnerHTML={{
-          __html: post.acf?.description
-            ? post.acf.description
-                // Style for <h2> elements
-                .replace(
-                  /<h2>/g,
-                  '<h2 style="font-weight: bold; font-size: 24px; color: black; padding-top: 20px; padding-bottom: 0;">'
-                )
-                // Style for paragraphs
-                .replace(
-                  /<p>/g,
-                  '<p style="padding: 5px; margin: 0;">'
-                )
-                // Style for top-level <li> elements
-                .replace(
-                  /<li>/g,
-                  '<li style="padding: 5px; color: black;">'
-                )
-            : "No content available",
-        }}
-      />
-    </div>
-
-    {/* Right Column: Partner Image */}
-    <div className="w-full md:w-1/3 md:pl-10 mt-5 md:mt-0">
-      {[
-        {
-          src: post.acf?.partner_image?.url,
-          alt: "Partner Image",
-          name: "Shreyas Jayasimha",
-          designation:
-            "COUNSEL | ADVOCATE | MEDIATOR | ARBITRATOR",
-        },
-        {
-          src: post.acf?.partner_image_2?.url,
-          alt: "Partner Image 2",
-          name: "Manjushree Somasundara",
-          designation:
-            "PARTNER - BANKING LAW AND PRACTICE, RISK MANAGEMENT",
-        },
-      ]
-        .filter((item) => item.src)
-        .map((item, index) => (
-          <div key={index} className="mb-10 text-start">
-            {/* Image Container with Background */}
-            <div className="bg-[#0E1333] inline-block">
-              <img
-                src={item.src || "/default-image.jpg"}
-                alt={item.alt}
-                className="w-40 h-40 object-cover"
-              />
-            </div>
-
-            {/* Partner Name */}
-            <h2 className="text-xl font-bold text-red-600 mt-4">
-              {item.name}
-            </h2>
-
-            {/* Partner Designation */}
-            <p className="text-md text-gray-700">
-              {item.designation}
-            </p>
-          </div>
-        ))}
-
-      {/* Contact Button */}
-      <button className="border-2 border-red-600 text-black py-2 px-4 rounded-lg hover:bg-red-600 hover:text-white mt-5">
-        CONTACT PARTNER
-      </button>
-    </div>
-  </div>
-</div>
-
-             
+                  {/* Right Column: Partner Image */}
+                  
+                </div>
+              </div>
             ))
           ) : (
             <div className="text-black">Loading...</div>

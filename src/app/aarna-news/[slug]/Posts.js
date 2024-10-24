@@ -56,9 +56,12 @@ const Posts = () => {
     <div className="container mx-auto md:p-8 px-4 mt-52">
       {/* Title */}
       <div className="mb-8">
-        <h1 className="text-[28px] md:w-[650px] w-full mb-4 leading-relaxed">
-          {post?.title.rendered || "No title available"}
-        </h1>
+        <h1
+          className="text-[28px] md:w-[650px] w-full mb-4 leading-relaxed"
+          dangerouslySetInnerHTML={{
+            __html: post?.title.rendered || "No title available",
+          }}
+        ></h1>
         <p className="text-gray-500 uppercase">
           PUBLISHED:{" "}
           {new Date(post.date).toLocaleDateString("en-US", {
@@ -84,52 +87,88 @@ const Posts = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
         {/* Left Column: Post Content */}
         <div className="lg:col-span-2 pb-5 border-b-2 border-b-red-500">
-  {post ? (
-    <div
-      className="text-black leading-relaxed"
-      dangerouslySetInnerHTML={{
-        __html: post.content.rendered.replace(
-          /<p/g,
-          '<p style="margin-top: 1.25rem;"'
-        ),
-      }}
-    />
-  ) : (
-    <p>No content available</p>
-  )}
-</div>
-
+          {post ? (
+            <div
+              className="text-black leading-relaxed"
+              dangerouslySetInnerHTML={{
+                __html: post.content.rendered.replace(
+                  /<p/g,
+                  '<p style="margin-top: 1.25rem;"'
+                ),
+              }}
+            />
+          ) : (
+            <p>No content available</p>
+          )}
+        </div>
 
         {/* Right Column: Recent Insights */}
         <div className="lg:col-span-1 md:pl-14">
-            <h2 className="text-lg font-bold mb-6">More Insights</h2> {/* Increased the margin-bottom */}
-            <ul className="space-y-6"> {/* Increased spacing between list items */}
-              <li className="p-6 shadow-lg bg-white"> {/* Added padding */}
-                <a href="#" className="text-lg font-semibold text-black">
-                  Google loses landmark antitrust case over
+          <h2 className="text-lg font-bold mb-6">More Insights</h2>{" "}
+          {/* Increased the margin-bottom */}
+          <ul className="space-y-6">
+            {" "}
+            {/* Increased spacing between list items */}
+            <li className="p-6 shadow-lg bg-white">
+              {" "}
+              {/* Added padding */}
+              <a href="#" className="text-lg font-semibold text-black">
+                Google loses landmark antitrust case over
+              </a>
+              <a
+                href="#"
+                className="text-custom-blue hover:underline block mt-4"
+              >
+                {" "}
+                {/* Increased margin-top */}
+                VIEW ARTICLE
+              </a>
+              <p className="text-gray-500 text-sm mt-4">
+                Tags:{" "}
+                <a href="#" className="hover:underline text-gray-500">
+                  business law
                 </a>
-                <a href="#" className="text-custom-blue hover:underline block mt-4"> {/* Increased margin-top */}
-                  VIEW ARTICLE
+                ,{" "}
+                <a href="#" className="hover:underline text-gray-500">
+                  google antitrust
                 </a>
-                <p className="text-gray-500 text-sm mt-4">Tags: <a href="#" className="hover:underline text-gray-500">business law</a>, <a href="#" className="hover:underline text-gray-500">google antitrust</a></p>
-              </li>
-              <li className="p-6 shadow-lg bg-white"> {/* Added padding */}
-                <a href="#" className="text-lg font-semibold text-black">
-                  WIPO Unveils New Treaty on Genetic Resources
+              </p>
+            </li>
+            <li className="p-6 shadow-lg bg-white">
+              {" "}
+              {/* Added padding */}
+              <a href="#" className="text-lg font-semibold text-black">
+                WIPO Unveils New Treaty on Genetic Resources
+              </a>
+              <a
+                href="#"
+                className="text-custom-blue hover:underline block mt-4"
+              >
+                {" "}
+                {/* Increased margin-top */}
+                VIEW ARTICLE
+              </a>
+              <p className="text-gray-500 text-sm mt-4">
+                Tags:{" "}
+                <a href="#" className="hover:underline text-gray-500">
+                  intellectual property
                 </a>
-                <a href="#" className="text-custom-blue hover:underline block mt-4"> {/* Increased margin-top */}
-                  VIEW ARTICLE
+                ,{" "}
+                <a href="#" className="hover:underline text-gray-500">
+                  genetic resources
                 </a>
-                <p className="text-gray-500 text-sm mt-4">Tags: <a href="#" className="hover:underline text-gray-500">intellectual property</a>, <a href="#" className="hover:underline text-gray-500">genetic resources</a></p>
-              </li>
-              {/* Add more insights as needed */}
-            </ul>
-            <div className="text-left mt-8"> {/* Increased margin-top */}
-              <button className="px-6 py-2 border-2 border-red-500 text-black font-semibold hover:bg-red-500 hover:text-white transition">
-                VIEW ALL
-              </button>
-            </div>
+              </p>
+            </li>
+            {/* Add more insights as needed */}
+          </ul>
+          <div className="text-left mt-8">
+            {" "}
+            {/* Increased margin-top */}
+            <button className="px-6 py-2 border-2 border-red-500 text-black font-semibold hover:bg-red-500 hover:text-white transition">
+              VIEW ALL
+            </button>
           </div>
+        </div>
       </div>
     </div>
   );

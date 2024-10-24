@@ -116,7 +116,7 @@ const Posts = ({ slug }) => {
                     />
                     {/* Description */}
                     <div
-                      className="card-text para-text text-black pt-5 pb-0"
+                      className="card-text para-text text-black pt-5 pb-0 ps-4"
                       style={{ textAlign: "left" }}
                       dangerouslySetInnerHTML={{
                         __html: post.acf?.description
@@ -192,7 +192,7 @@ const Posts = ({ slug }) => {
                     )}
 
                     {/* Sidebar: Practice Areas Titles */}
-                    <div className="mt-14">
+                    <div className="mt-14 text-left">
                       <h2 className="text-xl font-bold mb-4">Practice Areas</h2>
                       <ul className="list-none">
                         {sortedTitles.map((post) => (

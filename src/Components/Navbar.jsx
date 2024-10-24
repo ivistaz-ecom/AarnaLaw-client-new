@@ -5,7 +5,7 @@ import "../../src/styles/navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../images/logo.svg";
 import { LanguageContext } from "../Components/LanguageContext";
-import { FaArrowCircleUp } from "react-icons/fa";
+import { IoIosArrowUp } from "react-icons/io";
 import Search from "./search";
 
 const Navbar = () => {
@@ -163,7 +163,7 @@ const Navbar = () => {
                   onMouseEnter={() => setIsSubmenuOpen(true)}
                 >
                   News & Insight
-                  <FaArrowCircleUp
+                  <IoIosArrowUp
                     className={`w-4 h-4 ml-2 inline-block text-custom-blue transition-transform duration-300 group-hover:text-custom-red ${
                       isSubmenuOpen ? "rotate-180" : "rotate-0"
                     }`}
@@ -191,7 +191,7 @@ const Navbar = () => {
                         className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
                         onClick={handleNavigation}
                       >
-                        Arna News
+                        Aarna News
                       </Link>
                     </li>
                     <li>

@@ -218,7 +218,7 @@ const PublicationComponent = () => {
                             }}
                           />
                           <a
-                            href={`/publication/${post.slug}`}
+                            href={`/publications/${post.slug}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-custom-red hover:underline mt-4"

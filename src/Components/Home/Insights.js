@@ -153,20 +153,20 @@ function HomeBanner() {
               </div>
             ))}
           </InsightSlider>
-          
         )}
-        <div className="flex justify-center my-10">
-        <Link
-          to="/insights"
-          className="border border-custom-red px-6 py-2 text-custom-red md:hover:bg-custom-red md:hover:text-white mr-20"
-        >
-          View all
-        </Link>
-      </div>
-
+        
         <div className="flex gap-2 justify-center py-5 md:hidden ">
           <PrevArrow />
           <NextArrow />
+        </div>
+
+        <div className="flex justify-center my-10">
+          <Link
+            to="/insights"
+            className="border border-custom-red px-6 py-2 text-custom-red md:hover:bg-custom-red md:hover:text-white md:mr-48"
+          >
+            View all
+          </Link>
         </div>
       </div>
     </div>

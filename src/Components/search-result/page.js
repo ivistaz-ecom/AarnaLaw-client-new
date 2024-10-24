@@ -40,7 +40,7 @@ const Search = ({
               onFocus={() => setShowSearchResults(true)}
             />
             {showSearchResults && searchInput && (
-              <div className="absolute top-full mt-2 max-h-80 overflow-y-auto no-scrollbar bg-white p-2 text-start">
+              <div className="absolute top-full mt-2 max-h-80  bg-white p-2 text-start">
                 {data.length > 0 ? (
                   data.map((item, index) => (
                     <div

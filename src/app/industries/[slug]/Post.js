@@ -166,6 +166,10 @@ const Posts = ({ slug }) => {
                                 /<p>/g,
                                 '<p style="padding: 10px; margin: 0;">'
                               )
+                              .replace(
+                                /<h5>/g,
+                                '<h5 style="padding: 8px; color: #999999; padding-top: 20px;">'
+                              )
                               // Style for top-level <li> elements
                               .replace(
                                 /<li>/g,

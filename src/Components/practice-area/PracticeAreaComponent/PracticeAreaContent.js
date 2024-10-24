@@ -73,7 +73,7 @@ const PracticeAreaComponent = () => {
             <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-700 border-solid border-opacity-70"></div>
           </div>
         ) : (
-          <div className="max-w-7xl mx-auto grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div className="max-w-7xl mx-auto grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pb-10">
             {data.map((post) => (
               <div
                 key={post.id}

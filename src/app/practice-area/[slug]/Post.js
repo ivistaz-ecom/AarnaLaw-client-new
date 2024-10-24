@@ -108,8 +108,8 @@ const Posts = ({ slug }) => {
                     {/* Title inside the left column */}
                     <h1
                       ref={titleRef} // Reference the h1 element
-                      className="text-3xl font-bold text-custom-blue"
-                      style={{ margin: 0, padding: 0 }}
+                      className="text-3xl font-bold text-custom-blue ps-4"
+                      
                       dangerouslySetInnerHTML={{
                         __html: post.title?.rendered || "Untitled",
                       }}

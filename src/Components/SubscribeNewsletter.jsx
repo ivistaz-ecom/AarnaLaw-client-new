@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import SubscribeNewsletterimg from "../images/SubscribeNewsletter.jpg";
-import axios from 'axios';
+import axios from "axios";
 
 function SubscribeNewsletter({ handleClose }) {
   const [formData, setFormData] = useState({
-    email: '',
+    email: "",
     topics: {
       bankruptcy: false,
       intellectualProperty: false,
@@ -13,11 +13,11 @@ function SubscribeNewsletter({ handleClose }) {
     },
   });
 
-  const [submissionMessage, setSubmissionMessage] = useState('');
+  const [submissionMessage, setSubmissionMessage] = useState("");
 
   const handleInputChange = (event) => {
     const { name, value, type, checked } = event.target;
-    if (type === 'checkbox') {
+    if (type === "checkbox") {
       setFormData((prevFormData) => ({
         ...prevFormData,
         topics: {
@@ -38,19 +38,19 @@ function SubscribeNewsletter({ handleClose }) {
 
     try {
       // Send form data to the backend
-      await axios.post('http://localhost:3001/sendSubscribeEmail', formData);
+      await axios.post("http://localhost:3001/sendSubscribeEmail", formData);
 
       // Send welcome email to the user
-      await axios.post('http://localhost:3001/sendWelcomeEmail', {
+      await axios.post("http://localhost:3001/sendWelcomeEmail", {
         email: formData.email,
         topics: formData.topics,
       });
 
       // Update submission message
-      setSubmissionMessage('Thanks for subscribing  NewsLetter!');
+      setSubmissionMessage("Thanks for subscribing  NewsLetter!");
     } catch (error) {
-      console.error('Error sending email:', error.message);
-      alert('Failed to send email: ' + error.response.data);
+      console.error("Error sending email:", error.message);
+      alert("Failed to send email: " + error.response.data);
     }
   };
 
@@ -58,7 +58,11 @@ function SubscribeNewsletter({ handleClose }) {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4 overflow-auto">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl flex flex-col md:flex-row items-stretch">
         <div className="w-full md:w-1/2 p-10 flex justify-center items-center">
-          <img src={SubscribeNewsletterimg} className="w-full h-auto rounded-md" alt="Subscribe to Newsletter" />
+          <img
+            src={SubscribeNewsletterimg}
+            className="w-full h-auto rounded-md"
+            alt="Subscribe to Newsletter"
+          />
         </div>
         <div className="w-full md:w-1/2 p-6 flex flex-col">
           {submissionMessage && (
@@ -68,10 +72,13 @@ function SubscribeNewsletter({ handleClose }) {
             onClick={handleClose}
             className="self-end text-red-500 hover:text-red-600 focus:outline-none mb-4"
           >
-            CLOSE <span className="text-black">×</span>
+            <span className="text-black">×</span>
           </button>
           <h2 className="text-2xl font-bold mb-4">SUBSCRIBE TO NEWSLETTER</h2>
-          <form onSubmit={handleSendMessage} className="flex flex-col space-y-4">
+          <form
+            onSubmit={handleSendMessage}
+            className="flex flex-col space-y-4"
+          >
             <div>
               <input
                 type="email"
@@ -96,7 +103,8 @@ function SubscribeNewsletter({ handleClose }) {
                     checked={formData.topics.bankruptcy}
                     onChange={handleInputChange}
                     className="mr-2"
-                  /> Bankruptcy Restructuring & Insolvency
+                  />{" "}
+                  Bankruptcy Restructuring & Insolvency
                 </label>
                 <label className="flex items-center">
                   <input
@@ -105,7 +113,8 @@ function SubscribeNewsletter({ handleClose }) {
                     checked={formData.topics.intellectualProperty}
                     onChange={handleInputChange}
                     className="mr-2"
-                  /> Intellectual Property
+                  />{" "}
+                  Intellectual Property
                 </label>
                 <label className="flex items-center">
                   <input
@@ -114,7 +123,8 @@ function SubscribeNewsletter({ handleClose }) {
                     checked={formData.topics.internationalDispute}
                     onChange={handleInputChange}
                     className="mr-2"
-                  /> International Dispute
+                  />{" "}
+                  International Dispute
                 </label>
                 <label className="flex items-center">
                   <input
@@ -123,11 +133,15 @@ function SubscribeNewsletter({ handleClose }) {
                     checked={formData.topics.others}
                     onChange={handleInputChange}
                     className="mr-2"
-                  /> Others
+                  />{" "}
+                  Others
                 </label>
               </div>
               <br></br>
-              <button type="submit" className="bg-black text-white px-4 py-2 rounded-md hover:bg-red-600">
+              <button
+                type="submit"
+                className="bg-black text-white px-4 py-2 rounded-md hover:bg-red-600"
+              >
                 Submit
               </button>
             </div>

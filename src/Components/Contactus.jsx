@@ -144,7 +144,7 @@ const Contactus = () => {
                     {testimonial.company}
                   </h6>
                   <p className="text-gray-700 mb-4 line-clamp-4">
-                    {testimonial.fullTestimonial}
+                    {testimonial.fullTestimonial} 
                   </p>
                 </div>
                 <Link

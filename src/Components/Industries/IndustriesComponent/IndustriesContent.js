@@ -53,7 +53,7 @@ const IndustriesContent = () => {
         {/* Mobile */}
         <div className="relative block md:hidden">
           <img src={IndustiesmobImg} className="w-full h[500px]" alt="About Us Area" />
-          <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
+          <div className="absolute inset-x-0 top-2/4 text-white text-3xl font-bold text-center">
             <p>Industries </p>
           </div>
         </div>

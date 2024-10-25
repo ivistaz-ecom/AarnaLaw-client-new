@@ -38,7 +38,7 @@ const Navbar = () => {
 
   const handleNavigation = () => {
     setIsDropdownOpen(false);
-    setIsMobileMenuOpen(false);
+    setIsMobileMenuOpen(false); // This will close the mobile menu
     setIsSubmenuOpen(false);
     setIsSearchActive(false);
   };
@@ -136,7 +136,8 @@ const Navbar = () => {
                 <Link
                   to="/aboutus"
                   className="block py-2 px-1 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
+                  onClick={handleNavigation} 
+               >
                   About Us
                 </Link>
               </li>
@@ -144,6 +145,7 @@ const Navbar = () => {
                 <Link
                   to="/practice-area"
                   className="block py-2 px-1 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  onClick={handleNavigation} 
                 >
                   Practice Area
                 </Link>
@@ -152,7 +154,8 @@ const Navbar = () => {
                 <Link
                   to="/industries"
                   className="block py-2 px-1 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
+                  onClick={handleNavigation} 
+               >
                   Industries
                 </Link>
               </li>
@@ -161,7 +164,8 @@ const Navbar = () => {
                 <div
                   className="block py-2 px-3 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
                   onMouseEnter={() => setIsSubmenuOpen(true)}
-                >
+               
+               >
                   News & Insight
                   <IoIosArrowUp
                     className={`w-4 h-4 ml-2 inline-block text-custom-blue transition-transform duration-300 group-hover:text-custom-red ${
@@ -219,6 +223,7 @@ const Navbar = () => {
                 <Link
                   to="/careers"
                   className="block py-2 px-1 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  onClick={handleNavigation} 
                 >
                   Careers
                 </Link>

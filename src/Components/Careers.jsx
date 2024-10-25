@@ -47,7 +47,7 @@ const Careers = () => {
         {/* Mobile View */}
         <div className="flex md:hidden justify-center">
           <img src={CareersmobImg} className="w-full" alt="aboutus" />
-          <div className="absolute inset-x-0 mt-56 text-white text-5xl font-bold text-center">
+          <div className="absolute inset-x-0 mt-56 text-white text-3xl font-bold text-center">
             <p>Careers</p>
           </div>
         </div>

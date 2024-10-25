@@ -51,7 +51,7 @@ const PracticeAreaComponent = () => {
 
       <div className="relative block md:hidden">
         <img src={PracticeAreamobImg} className="w-full" alt="Practice Area " />
-        <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
+        <div className="absolute inset-x-0 top-2/4 text-white text-3xl font-bold text-center">
           Practice Area
         </div>
       </div>

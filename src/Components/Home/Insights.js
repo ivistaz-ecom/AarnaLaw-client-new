@@ -101,6 +101,11 @@ function HomeBanner() {
     ],
   };
 
+
+
+
+  
+
   return (
     <div className="flex flex-col md:flex-row bg-white md:absolute md:left-0 md:right-0 items-center gap-0 md:-mt-24 md:ml-24 md:pt-10">
       <div className="flex flex-col items-center gap-7">

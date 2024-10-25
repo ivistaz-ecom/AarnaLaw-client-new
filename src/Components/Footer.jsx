@@ -4,8 +4,9 @@ import ScrollToTop from "scroll-to-top-react";
 import AarnawhiteLogo from "../images/logo-white.svg";
 import BacktoTop from "../images/Back_to_top.svg";
 import SubscribeNewsletter from "../Components/SubscribeNewsletter"; 
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LanguageContext } from "../Components/LanguageContext";
+
 
 export const linkedIn = <FaLinkedin />;
 export const spotify = <FaSpotify />;
@@ -137,17 +138,17 @@ const Footer = () => {
       <div className="bg-[#091F48] md:px-20 py-5">
         <div className="flex flex-col gap-2 justify-between items-center">
           <div className="flex gap-2">
-            <span className="text-white text-xs md:text-sm flex items-center">
+            <Link to="/privacy-policy" className="text-white text-xs md:text-sm flex items-center">
               Privacy Policy
-            </span>
+            </Link>
             <span className="text-white text-xs md:text-sm font-bold">|</span>
-            <span className="text-white text-xs md:text-sm flex items-center">
+            <Link to="/terms-of-use" className="text-white text-xs md:text-sm flex items-center">
               Terms & Conditions
-            </span>
+            </Link>
             <span className="text-white text-xs md:text-sm font-bold">|</span>
-            <span className="text-white text-xs md:text-sm flex items-center">
+            <Link to="/disclaimer" className="text-white text-xs md:text-sm flex items-center">
               Disclaimer
-            </span>
+            </Link>
           </div>
           <span className="text-white text-xs md:text-sm">
             © 2024 Aarna Law. All Rights Reserved

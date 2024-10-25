@@ -9,6 +9,9 @@ import Navbar from "./Components/Navbar";
 import SubscribeNewsletter from "./Components/SubscribeNewsletter";
 
 import Home from "./Components/Home";
+import PrivacyPolicy from "./app/privacy-policy/page.jsx";
+import TermsOfUse from "./app/terms-of-use/Page.jsx";
+import Disclaimer from "./app/disclaimer/page.jsx";
 import AboutUs from "./Components/Aboutus/aboutus";
 // Practice Area
 
@@ -227,7 +230,9 @@ const App = () => {
           <Route path="/careers" element={<Careers />} />
           <Route path="/contactus" element={<Contactus />} />
           <Route path="/apply-now" element={<ApplyNow />} />
-
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-use" element={< TermsOfUse />} />
+          <Route path="/disclaimer" element={< Disclaimer />} />
 
           
           <Route path="/upload-pdf" element={<UploadPdf />} />

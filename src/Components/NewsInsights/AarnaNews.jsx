@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NewsInsightsImg from "../../images/insights-banner.png";
 import { IoSearch } from "react-icons/io5";
+import NewsInsightsMobImg from "../../images/InsightMobileBanner.jpg";
 
 const AarnaNews = () => {
   const navigate = useNavigate();
@@ -81,16 +82,24 @@ const AarnaNews = () => {
   return (
     <div>
       {/* Header Section */}
-      <header className="w-full mb-8">
-        <img
-          src={NewsInsightsImg}
-          className="w-full h-[500px] object-cover rounded-md"
-          alt="NewsInsights"
-        />
+        {/* Desktop Header */}
+        <header className="relative hidden md:block">
+        <img src={NewsInsightsImg} className="w-full" alt="Aarna News " />
+        <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
+          Aarna News
+        </div>
+      </header>
+
+      {/* Mobile View */}
+      <header className="relative block md:hidden">
+        <img src={NewsInsightsMobImg} className="w-full" alt="Aarna News " />
+        <div className="absolute inset-x-0 top-2/4 text-white text-3xl font-bold text-center">
+          Aarna News
+        </div>
       </header>
 
       {/* Tabs Section */}
-      <div className="container mx-auto px-4 md:px-0 pb-5">
+      <div className="container mx-auto px-4 md:px-0 py-5">
         {/* Mobile Dropdown */}
         <div className="md:hidden relative">
           <button
@@ -265,9 +274,9 @@ const AarnaNews = () => {
   <div className="flex justify-center my-8">
     <button
       onClick={handleViewMore} // Add this to handle the click event
-      className="text-custom-blue text-lg font-semibold hover:text-custom-red transition"
-    >
-      VIEW ALL
+      className="px-4 py-2 text-custom-red transition hover:underline"
+          >
+            View More
     </button>
   </div>
 )}

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NewsInsightsImg from "../../images/insights-banner.png";
+import NewsInsightsMobImg from "../../images/InsightMobileBanner.jpg";
 import { IoSearch } from "react-icons/io5";
 import PodcastCard from "../NewsInsights/PodcastCard";
 
@@ -11,6 +12,7 @@ const Podcast = () => {
   const hasFetchedData = useRef(false);
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(5); // Initial number of podcasts to show
 
   // Function to fetch insights from the API
   const handleTabClick = (path) => {
@@ -63,6 +65,10 @@ const Podcast = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const handleViewMore = () => {
+    setVisibleCount((prevCount) => prevCount + 5); // Increase visible count by 5
+  };
+
   // Filtered podcasts based on search keyword
   const filteredPodcasts = podcasts.filter((podcast) =>
     podcast.title.rendered.toLowerCase().includes(searchKeyword.toLowerCase())
@@ -71,16 +77,24 @@ const Podcast = () => {
   return (
     <div>
       {/* Header Section */}
-      <header className="w-full mb-8">
-        <img
-          src={NewsInsightsImg}
-          className="w-full h-[500px] object-cover rounded-md"
-          alt="NewsInsights"
-        />
+      {/* Desktop Header */}
+      <header className="relative hidden md:block">
+        <img src={NewsInsightsImg} className="w-full" alt="Podcast " />
+        <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
+          Podcast
+        </div>
+      </header>
+
+      {/* Mobile View */}
+      <header className="relative block md:hidden">
+        <img src={NewsInsightsMobImg} className="w-full" alt="Podcast " />
+        <div className="absolute inset-x-0 top-2/4 text-white text-3xl font-bold text-center">
+          Podcast
+        </div>
       </header>
 
       {/* Tabs Section */}
-      <div className="container mx-auto px-4 md:px-0">
+      <div className="container mx-auto px-4 md:px-0 py-5">
         {/* Mobile Dropdown */}
         <div className="md:hidden relative">
           <button
@@ -152,25 +166,24 @@ const Podcast = () => {
       <div className="md:px-[17%] px-2 mb-4">
         {/* Mobile View: Insights and Search */}
         <div className="md:hidden">
-  <div className="flex items-center gap-4 mt-4">
-    <h1 className="text-xl font-semibold">Podcast</h1>
-    <div className="flex items-center gap-2">
-      <label htmlFor="keyword" className="hidden">
-        Search by Keyword
-      </label>
-      <input
-        type="text"
-        id="keyword"
-        placeholder="Search by Keyword"
-        value={searchKeyword}
-        onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
-        className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
-      />
-      <IoSearch className="text-custom-red" />
-    </div>
-  </div>
-</div>
-
+          <div className="flex items-center gap-4 mt-4">
+            <h1 className="text-xl font-semibold">Podcast</h1>
+            <div className="flex items-center gap-2">
+              <label htmlFor="keyword" className="hidden">
+                Search by Keyword
+              </label>
+              <input
+                type="text"
+                id="keyword"
+                placeholder="Search by Keyword"
+                value={searchKeyword}
+                onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
+                className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
+              />
+              <IoSearch className="text-custom-red" />
+            </div>
+          </div>
+        </div>
 
         {/* Desktop View: Insights */}
         <div className="hidden md:flex justify-between items-left">
@@ -193,20 +206,32 @@ const Podcast = () => {
       </div>
 
       {/* Displaying Podcasts in Blue Background */}
-      <div className="md:px-4 mx-auto max-w-screen-xl flex flex-col gap-10">
+      <div className="md:px-4 mx-auto max-w-screen-xl flex flex-col gap-10 mb-10">
         {loading ? ( // Conditional rendering for loading spinner
           <div className="flex justify-center items-center mb-4">
             <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-700 border-solid border-opacity-70"></div>
           </div>
         ) : (
-          <div className="md:px-4 mx-auto max-w-screen-xl flex flex-col gap-10 px-4">
+          <div className="md:px-4 mx-auto max-w-screen-xl flex flex-col gap-10 px-4"> 
             {filteredPodcasts.length > 0 ? (
-              filteredPodcasts.map((item) => (
+              filteredPodcasts.slice(0, visibleCount).map((item) => (
                 <PodcastCard key={item.id} podcastDetails={item} />
               ))
             ) : (
               <div className="text-center col-span-2">
                 <p className="text-red-500 font-semibold items-center md:pt-24 justify-center min-h-[300px]">No results found.</p>
+              </div>
+            )}
+
+            {/* View More Button */}
+            {visibleCount < filteredPodcasts.length && searchKeyword === "" && (
+              <div className="text-center mt-8">
+                <button
+                  onClick={handleViewMore}
+                  className="px-4 py-2 text-custom-red transition hover:underline"
+                >
+                  View More
+                </button>
               </div>
             )}
           </div>

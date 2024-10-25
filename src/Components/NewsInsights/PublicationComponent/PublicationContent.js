@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import NewsInsightsImg from "../../../images/insights-banner.png";
+import NewsInsightsMobImg from "../../../images/InsightMobileBanner.jpg";
 import { IoSearch } from "react-icons/io5";
-
-
-
-
 
 const PublicationComponent = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -13,15 +10,14 @@ const PublicationComponent = () => {
     navigate(path);
     setIsDropdownOpen(false); // Close dropdown after navigating
   };
-  
+
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
   const [data, setData] = useState([]);
   const [visiblePosts, setVisiblePosts] = useState(4);
-  const [searchKeyword, setSearchKeyword] = useState(""); 
+  const [searchKeyword, setSearchKeyword] = useState("");
   const navigate = useNavigate();
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +28,9 @@ const PublicationComponent = () => {
         const result = await response.json();
 
         if (Array.isArray(result)) {
-          const sortedData = result.sort((a, b) => new Date(b.date) - new Date(a.date));
+          const sortedData = result.sort(
+            (a, b) => new Date(b.date) - new Date(a.date)
+          );
           setData(sortedData);
         } else {
           console.error("Expected an array but got:", result);
@@ -48,15 +46,22 @@ const PublicationComponent = () => {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const day = date.getDate();
-    const month = date.toLocaleString('default', { month: 'short' }).toUpperCase();
+    const month = date
+      .toLocaleString("default", { month: "short" })
+      .toUpperCase();
     const year = date.getFullYear();
     return { day, month, year };
   };
 
   const filteredData = searchKeyword
-    ? data.filter((post) =>
-        post.title.rendered.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-        (post.yoast_head_json?.og_description || "").toLowerCase().includes(searchKeyword.toLowerCase())
+    ? data.filter(
+        (post) =>
+          post.title.rendered
+            .toLowerCase()
+            .includes(searchKeyword.toLowerCase()) ||
+          (post.yoast_head_json?.og_description || "")
+            .toLowerCase()
+            .includes(searchKeyword.toLowerCase())
       )
     : data;
 
@@ -66,16 +71,24 @@ const PublicationComponent = () => {
 
   return (
     <div className="">
-      <header className="w-full mb-8">
-        <img
-          src={NewsInsightsImg}
-          className="w-full object-cover rounded-md h-[500px]"
-          alt="NewsInsights"
-        />
+      {/* Desktop Header */}
+      <header className="relative hidden md:block">
+        <img src={NewsInsightsImg} className="w-full" alt="Publications " />
+        <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
+          Publications
+        </div>
       </header>
 
-      <div className="container mx-auto px-4 md:px-0 pb-5">
-       <div className="md:hidden relative">
+      {/* Mobile View */}
+      <header className="relative block md:hidden">
+        <img src={NewsInsightsMobImg} className="w-full" alt="Publications " />
+        <div className="absolute inset-x-0 top-2/4 text-white text-3xl font-bold text-center">
+          Publications
+        </div>
+      </header>
+
+      <div className="container mx-auto px-4 md:px-0 py-5">
+        <div className="md:hidden relative">
           <button
             onClick={toggleDropdown}
             className="bg-gray-200 text-gray-600 px-4 py-2 rounded-md w-full text-left"
@@ -139,31 +152,30 @@ const PublicationComponent = () => {
         </div>
       </div>
 
-     
-        {/* Mobile View: Insights and Search */}
-        <div className="md:px-[17%] px-2 mb-4">
+      {/* Mobile View: Insights and Search */}
+      <div className="md:px-[17%] px-2 mb-4">
         <div className="md:hidden px-4">
-        <div className="flex items-center gap-4 mt-2">
-          <h1 className="text-xl font-semibold">Publication</h1>
-          <div className="flex items-center gap-2">
-            <label htmlFor="keyword" className="hidden">
-              Search by Keyword
-            </label>
-            <input
-              type="text"
-              id="keyword"
-              placeholder="Search by Keyword"
-              value={searchKeyword}
-              onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
-              className="px-2 py-1 w-44 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
-            />
-            <IoSearch className="text-custom-red" />
+          <div className="flex items-center gap-4 mt-2">
+            <h1 className="text-xl font-semibold">Publication</h1>
+            <div className="flex items-center gap-2">
+              <label htmlFor="keyword" className="hidden">
+                Search by Keyword
+              </label>
+              <input
+                type="text"
+                id="keyword"
+                placeholder="Search by Keyword"
+                value={searchKeyword}
+                onChange={(e) => setSearchKeyword(e.target.value)} // Update searchKeyword on input change
+                className="px-2 py-1 w-44 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
+              />
+              <IoSearch className="text-custom-red" />
+            </div>
           </div>
         </div>
-      </div>
 
-       {/* Desktop View: Insights */}
-       <div className="hidden md:flex justify-between items-left">
+        {/* Desktop View: Insights */}
+        <div className="hidden md:flex justify-between items-left">
           <h1 className="text-2xl font-semibold">Publication</h1>
           <div className="flex items-right gap-2">
             <label htmlFor="keyword" className="hidden">
@@ -180,8 +192,7 @@ const PublicationComponent = () => {
             <IoSearch className="text-custom-red mt-3 " />
           </div>
         </div>
-</div>
-      
+      </div>
 
       <div className="bg-gradient-to-br from-white-900 via-blue-800 to-blue-900 md:p-8 p-4">
         {data.length === 0 ? (
@@ -202,19 +213,26 @@ const PublicationComponent = () => {
                       <div className="flex w-full">
                         <div className="flex flex-col items-center justify-center p-10 bg-gray-100">
                           <div className="text-2xl text-custom-red">{day}</div>
-                          <div className="text-lg font-medium text-black">{month}</div>
-                          <div className="text-md font-medium text-black">{year}</div>
+                          <div className="text-lg font-medium text-black">
+                            {month}
+                          </div>
+                          <div className="text-md font-medium text-black">
+                            {year}
+                          </div>
                         </div>
 
                         <div className="ml-4 flex flex-col justify-center p-4">
                           <h2
                             className="text-xl text-black line-clamp-2"
-                            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                            dangerouslySetInnerHTML={{
+                              __html: post.title.rendered,
+                            }}
                           />
                           <p
                             className="text-gray-700 mt-2 line-clamp-2"
                             dangerouslySetInnerHTML={{
-                              __html: post.yoast_head_json?.og_description || "",
+                              __html:
+                                post.yoast_head_json?.og_description || "",
                             }}
                           />
                           <a
@@ -232,10 +250,10 @@ const PublicationComponent = () => {
                 })
               ) : (
                 <div className="text-center col-span-2">
-                <p className="text-red-500 font-semibold items-center md:pt-24 justify-center min-h-[300px]">
-                  No results found.
-                </p>
-              </div>
+                  <p className="text-red-500 font-semibold items-center md:pt-24 justify-center min-h-[300px]">
+                    No results found.
+                  </p>
+                </div>
               )}
             </div>
 
@@ -243,9 +261,9 @@ const PublicationComponent = () => {
               <div className="flex justify-center mt-8">
                 <button
                   onClick={handleViewMore}
-                  className="px-6 py-2 bg-custom-red text-white rounded-md hover:bg-red-700"
-                >
-                  View More
+                  className="px-4 py-2 text-custom-red transition hover:underline"
+          >
+            View More
                 </button>
               </div>
             )}

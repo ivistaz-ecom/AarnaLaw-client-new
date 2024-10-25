@@ -144,7 +144,7 @@ const Posts = ({ slug }) => {
                     {/* Main Title */}
                     <h1
                     ref={titleRef}
-                      className="text-3xl font-bold text-custom-blue mb-5 px-4"
+                      className="text-3xl font-bold text-custom-blue mb-5 ps-6"
                       dangerouslySetInnerHTML={{
                         __html: post.title?.rendered || "Untitled",
                       }}

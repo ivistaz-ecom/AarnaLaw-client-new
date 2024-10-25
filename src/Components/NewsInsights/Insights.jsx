@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NewsInsightsImg from "../../images/insights-banner.png";
+import NewsInsightsMobImg from "../../images/InsightMobileBanner.jpg";
 import { IoSearch } from "react-icons/io5";
 
 const Insights = () => {
@@ -11,7 +12,6 @@ const Insights = () => {
   const [loading, setLoading] = useState(true); // State for loading
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-
   const handleTabClick = (path) => {
     navigate(path);
     setIsDropdownOpen(false); // Close dropdown after navigating
@@ -20,7 +20,6 @@ const Insights = () => {
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
-
 
   const fetchInsights = async () => {
     try {
@@ -66,9 +65,10 @@ const Insights = () => {
   }, []);
 
   // Function to filter insights based on search input
-  const filteredInsights = insights.filter((item) =>
-    item.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-    item.desc.toLowerCase().includes(searchKeyword.toLowerCase())
+  const filteredInsights = insights.filter(
+    (item) =>
+      item.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+      item.desc.toLowerCase().includes(searchKeyword.toLowerCase())
   );
 
   const handleViewMore = () => {
@@ -78,16 +78,25 @@ const Insights = () => {
   return (
     <div>
       {/* Header Section */}
-      <header className="w-full mb-8">
-        <img
-          src={NewsInsightsImg}
-          className="w-full object-cover rounded-md h-[500px]"
-          alt="NewsInsights"
-        />
+      {/* Desktop Header */}
+      <header className="relative hidden md:block">
+        <img src={NewsInsightsImg} className="w-full" alt="Insights " />
+        <div className="absolute inset-x-0 top-2/4 text-white text-5xl font-bold text-center">
+          Insights
+        </div>
       </header>
-       {/* Mobile Dropdown */}
-       <div className="container mx-auto px-4 md:px-0 pb-5">
-       <div className="md:hidden relative">
+
+      {/* Mobile View */}
+      <header className="relative block md:hidden">
+        <img src={NewsInsightsMobImg} className="w-full" alt="Insights " />
+        <div className="absolute inset-x-0 top-2/4 text-white text-3xl font-bold text-center">
+          Insights
+        </div>
+      </header>
+
+      {/* Mobile Dropdown */}
+      <div className="container mx-auto px-4 md:px-0 py-5">
+        <div className="md:hidden relative">
           <button
             onClick={toggleDropdown}
             className="bg-gray-50 text-gray-600 px-4 py-2 rounded-md w-full text-left"
@@ -124,41 +133,41 @@ const Insights = () => {
           )}
         </div>
 
-      {/* Tabs Section */}
-      <div className="container mx-auto px-4 md:px-0">
-        <div className="hidden md:flex justify-center space-x-16 mb-8">
-          <span
-            onClick={() => handleTabClick("/insights")}
-            className="text-custom-red cursor-pointer hover:text-custom-red hover:underline transition"
-          >
-            Insights
-          </span>
-          <span
-            onClick={() => handleTabClick("/aarna-news")}
-            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
-          >
-            Aarna News
-          </span>
-          <span
-            onClick={() => handleTabClick("/publications")}
-            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
-          >
-            Publications
-          </span>
-          <span
-            onClick={() => handleTabClick("/podcast")}
-            className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
-          >
-            Podcast
-          </span>
+        {/* Tabs Section */}
+        <div className="container mx-auto px-4 md:px-0">
+          <div className="hidden md:flex justify-center space-x-16 mb-8">
+            <span
+              onClick={() => handleTabClick("/insights")}
+              className="text-custom-red cursor-pointer hover:text-custom-red hover:underline transition"
+            >
+              Insights
+            </span>
+            <span
+              onClick={() => handleTabClick("/aarna-news")}
+              className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
+            >
+              Aarna News
+            </span>
+            <span
+              onClick={() => handleTabClick("/publications")}
+              className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
+            >
+              Publications
+            </span>
+            <span
+              onClick={() => handleTabClick("/podcast")}
+              className="text-gray-600 cursor-pointer hover:text-custom-red hover:underline transition"
+            >
+              Podcast
+            </span>
+          </div>
         </div>
-      </div>
       </div>
 
       {/* Search Section */}
       <div className="px-2 md:px-[17%] mb-4">
-         {/* Mobile View: Insights and Search */}
-         <div className="md:hidden">
+        {/* Mobile View: Insights and Search */}
+        <div className="md:hidden">
           <div className="flex items-center gap-4 mt-4">
             <h1 className="text-xl font-semibold">Insights</h1>
             <div className="flex items-center gap-2">
@@ -179,25 +188,24 @@ const Insights = () => {
         </div>
 
         {/* desktop view */}
-          <div className="hidden md:flex justify-between items-left">
-            <h1 className="text-2xl font-semibold">Insights</h1>
-            <div className="flex items-right gap-2">
-              <label htmlFor="keyword" className="hidden">
-                Search by Keyword
-              </label>
-              <input
-          type="text"
-          id="keyword"
-          placeholder="Search by Keyword"
-          value={searchKeyword} // Bind search input value
-          onChange={(e) => setSearchKeyword(e.target.value)} // Update state on change
-          className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
-        />
-      <IoSearch className="text-custom-red mt-3" />
-    </div>
-  </div>
-</div>
-
+        <div className="hidden md:flex justify-between items-left">
+          <h1 className="text-2xl font-semibold">Insights</h1>
+          <div className="flex items-right gap-2">
+            <label htmlFor="keyword" className="hidden">
+              Search by Keyword
+            </label>
+            <input
+              type="text"
+              id="keyword"
+              placeholder="Search by Keyword"
+              value={searchKeyword} // Bind search input value
+              onChange={(e) => setSearchKeyword(e.target.value)} // Update state on change
+              className="px-2 py-1 border-t-0 border-r-0 border-l-0 border-b-2 border-blue-950 text-lg focus:outline-none focus:border-red-500"
+            />
+            <IoSearch className="text-custom-red mt-3" />
+          </div>
+        </div>
+      </div>
 
       {/* Loading Spinner */}
       {loading ? (
@@ -212,24 +220,25 @@ const Insights = () => {
             insights.slice(0, visibleCount).map((item) => (
               <div key={item.id} className="p-2">
                 <div className="border rounded-md p-4 shadow-md hover:shadow-lg transition">
-              <img
-                src={item.imageUrl}
-                alt={item.title}
-                className="w-full h-48 object-cover rounded-md mb-4"
-              />
-              <h2 className="text-xl font-semibold mb-2 h-14 overflow-hidden">
-                {item.title}
-              </h2>
-              <p className="text-gray-600 mb-2 line-clamp-2">{item.desc}</p>
-              <p className="text-gray-500 text-sm mb-4">{item.formattedDate}</p>
-              <a
-                href={`/insights/${item.slug}`}
-                className="text-custom-red font-semibold hover:underline"
-              >
-                Read More
-              </a>
-            </div>
-
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-48 object-cover rounded-md mb-4"
+                  />
+                  <h2 className="text-xl font-semibold mb-2 h-14 overflow-hidden">
+                    {item.title}
+                  </h2>
+                  <p className="text-gray-600 mb-2 line-clamp-2">{item.desc}</p>
+                  <p className="text-gray-500 text-sm mb-4">
+                    {item.formattedDate}
+                  </p>
+                  <a
+                    href={`/insights/${item.slug}`}
+                    className="text-custom-red font-semibold hover:underline"
+                  >
+                    Read More
+                  </a>
+                </div>
               </div>
             ))
           ) : filteredInsights.length > 0 ? (
@@ -244,7 +253,9 @@ const Insights = () => {
                   />
                   <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
                   <p className="text-gray-600 mb-2">{item.desc}</p>
-                  <p className="text-gray-500 text-sm mb-4">{item.formattedDate}</p>
+                  <p className="text-gray-500 text-sm mb-4">
+                    {item.formattedDate}
+                  </p>
                   <a
                     href={`/insights/${item.slug}`}
                     className="text-custom-red font-semibold hover:underline"

@@ -89,12 +89,12 @@ const PublicationComponent = () => {
 
       <div className="container mx-auto px-4 md:px-0 py-5">
         <div className="md:hidden relative">
-          <button
+          {/* <button
             onClick={toggleDropdown}
-            className="bg-gray-200 text-gray-600 px-4 py-2 rounded-md w-full text-left"
+            className="bg-gray-50 font-bold text-black border-b border-blue-900 px-4 py-2 rounded-md w-full text-left"
           >
             Menu
-          </button>
+          </button> */}
           {isDropdownOpen && (
             <div className="absolute left-0 mt-2 w-full bg-white border border-gray-200 rounded-md shadow-lg z-10">
               <span
@@ -154,9 +154,9 @@ const PublicationComponent = () => {
 
       {/* Mobile View: Insights and Search */}
       <div className="md:px-[17%] px-2 mb-4">
-        <div className="md:hidden px-4">
-          <div className="flex items-center gap-4 mt-2">
-            <h1 className="text-xl font-semibold">Publication</h1>
+        <div className="md:hidden ">
+          <div className="flex items-center gap-1 mt-2">
+            <h1 className="text-xl font-semibold">Publications</h1>
             <div className="flex items-center gap-2">
               <label htmlFor="keyword" className="hidden">
                 Search by Keyword
@@ -262,8 +262,8 @@ const PublicationComponent = () => {
                 <button
                   onClick={handleViewMore}
                   className="px-4 py-2 text-custom-red transition hover:underline"
-          >
-            View More
+                >
+                  View More
                 </button>
               </div>
             )}

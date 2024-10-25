@@ -8,6 +8,8 @@ import Manjushreeimg from "../../images/Manjushree.jpg";
 import Spandanaimg from "../../images/Spandana.png";
 import PunthiShahimg from "../../images/Punthi-Shah.png";
 import Apoorvaimg from "../../images/Apoorva.png";
+import SriHariIng from "../../images/Apoorva.png";
+import MeghnaImg from "../../images/Apoorva.png";
 import { motion } from "framer-motion";
 
 const translations = {
@@ -35,6 +37,22 @@ const Partner = () => {
   const [displayedPartners, setDisplayedPartners] = useState([]);
 
   const teamData = [
+    {
+      image: Manjushreeimg,
+      profileName: "team/manjushree",
+      name: translations[selectedLanguage].Manjushree_Somasundara,
+      position: translations[selectedLanguage].Manjushree_Role,
+      workExperience: translations[selectedLanguage].Manjushree_exp,
+      ReadMore: translations[selectedLanguage].Read_More,
+    },
+    {
+      image: Manjushreeimg,
+      profileName: "team/manjushree",
+      name: translations[selectedLanguage].Manjushree_Somasundara,
+      position: translations[selectedLanguage].Manjushree_Role,
+      workExperience: translations[selectedLanguage].Manjushree_exp,
+      ReadMore: translations[selectedLanguage].Read_More,
+    },
     {
       image: Manjushreeimg,
       profileName: "team/manjushree",

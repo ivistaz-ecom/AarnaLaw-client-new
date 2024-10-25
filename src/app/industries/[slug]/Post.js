@@ -144,7 +144,7 @@ const Posts = ({ slug }) => {
                     {/* Main Title */}
                     <h1
                     ref={titleRef}
-                      className="text-3xl font-bold text-custom-blue mb-5 ps-6"
+                      className="text-3xl font-bold text-custom-blue mb-5 p-2"
                       dangerouslySetInnerHTML={{
                         __html: post.title?.rendered || "Untitled",
                       }}
@@ -152,7 +152,7 @@ const Posts = ({ slug }) => {
 
                     {/* Description */}
                     <div
-                      className="card-text para-text text-black pt-5 pb-0 px-4"
+                      className="card-text para-text text-black pt-5 pb-0"
                       dangerouslySetInnerHTML={{
                         __html: post.acf?.description
                           ? post.acf.description

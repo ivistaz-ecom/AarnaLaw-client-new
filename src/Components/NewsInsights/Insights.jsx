@@ -97,12 +97,12 @@ const Insights = () => {
       {/* Mobile Dropdown */}
       <div className="container mx-auto px-4 md:px-0 py-5">
         <div className="md:hidden relative">
-          <button
+          {/* <button
             onClick={toggleDropdown}
-            className="bg-gray-50 text-gray-600 px-4 py-2 rounded-md w-full text-left"
+            className="bg-gray-50 font-bold text-black border-b border-blue-900 px-4 py-2 rounded-md w-full text-left"
           >
-            Insights
-          </button>
+            Menu
+          </button> */}
           {isDropdownOpen && (
             <div className="absolute left-0 mt-2 w-full bg-white border border-gray-200 rounded-md shadow-lg z-10">
               <span

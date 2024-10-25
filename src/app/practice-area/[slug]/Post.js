@@ -88,7 +88,7 @@ const Posts = ({ slug }) => {
         <div>
           {data ? (
             data.map((post) => (
-              <div className="flex flex-col pb-10" key={post.id}>
+              <div className="flex flex-col pb-20" key={post.id}>
                 {/* Banner Image - Visible only on desktop */}
                 <img
                   src={post.acf?.banner_image?.url || "/default-image.jpg"}
@@ -104,11 +104,11 @@ const Posts = ({ slug }) => {
                 {/* Content and Partner Image Layout */}
                 <div className="flex flex-col md:flex-row container mx-auto px-4 md:text-justify justify-between md:w-[1000px]">
                   {/* Left Column: Content */}
-                  <div className="w-full border-b-4 border-red-500 pb-10 pt-5 md:mr-10">
+                  <div className="w-full border-b-2 border-red-500 pb-10 pt-5 md:mr-10">
                     {/* Title inside the left column */}
                     <h1
                       ref={titleRef} // Reference the h1 element
-                      className="text-3xl font-bold text-custom-blue ps-4"
+                      className="text-3xl font-bold text-custom-blue md:ps-4"
                       
                       dangerouslySetInnerHTML={{
                         __html: post.title?.rendered || "Untitled",
@@ -116,7 +116,7 @@ const Posts = ({ slug }) => {
                     />
                     {/* Description */}
                     <div
-                      className="card-text para-text text-black pt-5 pb-0 ps-4"
+                      className="card-text para-text text-black pt-5 pb-0 md:ps-4"
                       style={{ textAlign: "left" }}
                       dangerouslySetInnerHTML={{
                         __html: post.acf?.description

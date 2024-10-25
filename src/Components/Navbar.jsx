@@ -161,64 +161,62 @@ const Navbar = () => {
               </li>
 
               <li className="relative group">
-                <div
-                  className="block py-2 px-3 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
-                  onMouseEnter={() => setIsSubmenuOpen(true)}
-               
-               >
-                  News & Insight
-                  <IoIosArrowUp
-                    className={`w-4 h-4 ml-2 inline-block text-custom-blue transition-transform duration-300 group-hover:text-custom-red ${
-                      isSubmenuOpen ? "rotate-180" : "rotate-0"
-                    }`}
-                  />
-                </div>
+  <div
+    className="block py-2 px-3 text-custom-blue rounded hover:bg-gray-100 md:hover:bg-transparent hover:text-custom-red md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
+    onMouseEnter={() => setIsSubmenuOpen(true)}
+  >
+    News & Insights
+    <IoIosArrowUp
+      className="w-4 h-4 ml-2 inline-block text-custom-blue transition-transform duration-300 group-hover:text-custom-red"
+    />
+  </div>
 
-                {isSubmenuOpen && (
-                  <ul
-                    className="flex flex-col mt-2 md:absolute bg-white rounded-md shadow-lg"
-                    onMouseEnter={() => setIsSubmenuOpen(true)}
-                    onMouseLeave={() => setIsSubmenuOpen(false)}
-                  >
-                    <li>
-                      <Link
-                        to="/insights"
-                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-                        onClick={handleNavigation}
-                      >
-                        Insights
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/aarna-news"
-                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-                        onClick={handleNavigation}
-                      >
-                        Aarna News
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/publications"
-                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-                        onClick={handleNavigation}
-                      >
-                        Publication
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/podcast"
-                        className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-                        onClick={handleNavigation}
-                      >
-                        Podcast
-                      </Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
+  {isSubmenuOpen && (
+    <ul
+      className="flex flex-col mt-2 md:absolute bg-white rounded-md shadow-lg"
+      onMouseEnter={() => setIsSubmenuOpen(true)}
+      onMouseLeave={() => setIsSubmenuOpen(false)}
+    >
+      <li>
+        <Link
+          to="/insights"
+          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+          onClick={handleNavigation}
+        >
+          Insights
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/aarna-news"
+          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+          onClick={handleNavigation}
+        >
+          Aarna News
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/publications"
+          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+          onClick={handleNavigation}
+        >
+          Publication
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/podcast"
+          className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
+          onClick={handleNavigation}
+        >
+          Podcast
+        </Link>
+      </li>
+    </ul>
+  )}
+</li>
+
               <li className="z-10">
                 <Link
                   to="/careers"

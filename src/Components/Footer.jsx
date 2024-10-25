@@ -98,6 +98,7 @@ const Footer = () => {
       <div className="bg-custom-blue px-5 md:px-20 py-7">
         <div className="md:flex md:justify-between md:items-center">
           <div className="space-y-4">
+            <Link to= "/">
             <img
               src={AarnawhiteLogo}
               width={200}
@@ -105,6 +106,7 @@ const Footer = () => {
               alt="Aarna Law Logo"
               className="w-24 sm:w-40 md:w-52"
             />
+            </Link>
             <div className="flex gap-4">
               <a
                 href="https://www.linkedin.com/company/aarna-law1/"

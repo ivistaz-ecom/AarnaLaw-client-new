@@ -37,7 +37,7 @@ const PracticeAreaComponent = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className=" mb-10">
       <div className="relative hidden md:block">
         <img
           src={PracticeAreaImg}
@@ -56,7 +56,7 @@ const PracticeAreaComponent = () => {
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-white-900 via-blue-800 to-blue-900 p-8">
+      <div className="bg-gradient-to-br from-white-900 via-blue-800 to-blue-900 md:p-8 p-4">
         <ul className="text-center py-5">
           <p className="font-bold text-gray-500">PRACTICE AREAS</p>
           <br />

@@ -82,13 +82,17 @@ const IndustriesContent = () => {
                 >
                   <Link to={`/industries/${post.slug}`} className="block w-full">
                     <div className="h-48 w-full overflow-hidden group">
-                      {/* Add hover zoom effect with scale and transition */}
-                      <img
-                        src={post.acf.banner_image.url}
-                        alt={post.title.rendered}
-                        className="object-cover w-full h-full transition-transform duration-500 ease-in-out transform group-hover:scale-105"
-                      />
-                    </div>
+                    {/* Use the featured image instead of the banner image */}
+                    {post._embedded &&
+                      post._embedded["wp:featuredmedia"] &&
+                      post._embedded["wp:featuredmedia"][0] && (
+                        <img
+                          src={post._embedded["wp:featuredmedia"][0].source_url} // Update to use the featured image
+                          alt={post.title.rendered}
+                          className="object-cover w-full h-full transition-transform duration-500 ease-in-out transform group-hover:scale-105"
+                        />
+                      )}
+                  </div>
                     <div
                       className={`bg-blue-900 text-white text-center py-4 text-lg font-bold h-20 flex items-center justify-center`}
                     >

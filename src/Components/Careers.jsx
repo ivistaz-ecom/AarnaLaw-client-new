@@ -34,7 +34,7 @@ const Careers = () => {
   };
 
   return (
-    <div>
+    <div className=" mb-20">
       <section className="text-center font-extrabold text-3xl">
         {/* Desktop View */}
         <div className="hidden md:flex justify-center">
@@ -58,7 +58,7 @@ const Careers = () => {
         <div className="col-span-5">
           <div className="bg-white-400">
             <ul>
-              <li className="text-center font-medium tracking-wider text-gray-900 mb-4 font-montserrat text-sm">
+              <li className="text-center font-medium tracking-wider text-gray-400 pb-4 pt-8 text-base font-montserrat">
                 CAREERS AT AARNA LAW
               </li>
               <li className="text-center text-3xl font-medium text-blue">
@@ -72,7 +72,7 @@ const Careers = () => {
 
           {/* What we do Section */}
           <div className="mt-8 text-base leading-relaxed md:text-justify text-gray-700 font-inter">
-            <ul>
+            <ul className="mb-10">
               <li>
                 Aarna Law is an India-based international legal advisory rooted
                 in dharmic principles of natural law, justice, and compassion.
@@ -82,7 +82,7 @@ const Careers = () => {
                 Start-ups, and Individual Interests.
               </li>
               <br />
-              <li>RECRUITMENT FOR LEGAL AND ADMINISTRATIVE PROFESSIONALS</li>
+              <li className="text-custom-blue font-medium">RECRUITMENT FOR LEGAL AND ADMINISTRATIVE PROFESSIONALS</li>
               <br />
               <li>
                 We are always interested to hear from professionals with
@@ -99,14 +99,14 @@ const Careers = () => {
 
             {/* Current Openings */}
             <ul>
-              <li className="flex items-center justify-between text-3xl">
+              <li className="flex items-center justify-between text-2xl text-custom-blue font-medium">
                 Current Openings
               </li>
               <li className="border-b-2 border-custom-red mt-1 mb-4"></li>
               {/* Reduced margin between title and line */}
 
               {/* First Job Listing */}
-              <li className="flex items-center justify-between text-lg font-bold gap-4 py-2">
+              <li className="flex items-center justify-between text-lg font-medium text-custom-blue gap-4 py-2">
                 <div className="flex-1">
                   Litigation - 5 to 9 years - Bangalore
                 </div>
@@ -144,7 +144,7 @@ const Careers = () => {
               )}
 
               {/* Second Job Listing */}
-              <li className="flex items-center justify-between text-lg font-bold gap-4 py-2">
+              <li className="flex items-center justify-between text-lg font-medium text-custom-blue gap-4 py-2">
                 <div className="flex-1">
                   Corporate Advisory - 5 to 8 years - Bangalore
                 </div>
@@ -203,7 +203,7 @@ const Careers = () => {
             <div className="flex justify-start items-center">
               <button
                 onClick={handleApplyNowClick}
-                className="bg-white text-black border-2 border-custom-red px-6 py-2 rounded-md font-semibold hover:bg-custom-red hover:text-white"
+                className="bg-white text-black border-2 border-custom-red px-6 py-2 font-semibold hover:bg-custom-red hover:text-white"
               >
                 Apply Now
               </button>
@@ -211,10 +211,10 @@ const Careers = () => {
             <br />
             {/* Internships Section */}
             <ul>
-              <li className="text-3xl">Internships</li>
+              <li className="text-2xl text-custom-blue font-medium">Internships</li>
               <li className="border-b-2 border-custom-red mt-1 mb-4"></li>{" "}
               {/* Reduced margin between title and line */}
-              <li className="text-2xl">Internship</li>
+              <li className="text-base  text-custom-blue font-medium">INTERSHIPS</li>
               <br />
               <li>
                 At Aarna, we offer an internship experience that is enriching
@@ -250,7 +250,7 @@ const Careers = () => {
             <div className="flex justify-start items-center">
               <button
                 onClick={handleApplyNowInternClick}
-                className="bg-white text-black border-2 border-custom-red px-6 py-2 rounded-md font-semibold hover:bg-custom-red hover:text-white"
+                className="bg-white text-black border-2 border-custom-red px-6 py-2 font-semibold hover:bg-custom-red hover:text-white"
               >
                 Apply Now
               </button>

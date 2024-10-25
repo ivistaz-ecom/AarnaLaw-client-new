@@ -83,7 +83,7 @@ function AboutUs() {
         {/* Added margin for both mobile and desktop */}
         {/* What We Do Section */}
         <div className="container mx-auto flex flex-col md:flex-row md:py-16">
-          <div className="w-full md:w-1/2  md:ps-5 p-4 md:pe-0 hidden md:block">
+          <div className="w-full md:w-1/2  md:ps-5 p-4 md:pe-0 hidden md:block justify-between  flex-col my-auto">
             <img
               src={aboutimg}
               width={683}
@@ -92,13 +92,13 @@ function AboutUs() {
               alt=""
             />
           </div>
-          <div className="w-full md:w-1/2 md:p-10 p-4 ">
+          <div className="w-full md:w-1/2">
             {/* mobile */}
             <h1 className="text-custom-red text-2xl text-center font-bold md:hidden">
               What We Do
             </h1>
 
-            <div className="flex flex-col justify-between items-start h-full w-full md:w-5/6 pb-">
+            <div className="flex flex-col justify-between items-start h-full w-full md:w-5/6 gap-4 px-4">
               {/* Desktop */}
               <h1 className="text-custom-red text-2xl font-bold hidden md:block">
                 What We Do

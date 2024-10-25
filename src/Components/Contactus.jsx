@@ -217,7 +217,7 @@ const Contactus = () => {
         {/* Contact form */}
         <div className="bg-white rounded-lg shadow-md p-8">
           <h2 className="text-2xl font-semibold mb-6">
-            {translations[selectedLanguage].Send_us_a_message}
+            Contact
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -261,7 +261,7 @@ const Contactus = () => {
                 htmlFor="email"
                 className="block text-sm font-medium text-black mb-1"
               >
-                {translations[selectedLanguage].Email}
+                Email*
               </label>
               <input
                 type="email"

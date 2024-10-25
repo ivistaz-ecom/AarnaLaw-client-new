@@ -201,7 +201,7 @@ const Navbar = () => {
           className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
           onClick={handleNavigation}
         >
-          Publication
+          Publications
         </Link>
       </li>
       <li>
@@ -210,7 +210,7 @@ const Navbar = () => {
           className="block py-2 px-4 text-custom-blue hover:bg-gray-100 hover:text-custom-red dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
           onClick={handleNavigation}
         >
-          Podcast
+          Podcasts
         </Link>
       </li>
     </ul>

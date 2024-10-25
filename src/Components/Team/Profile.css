@@ -15,7 +15,7 @@ body, html {
 
 .back-link {
   position: absolute;
-  top: 200px;  /* Moved 180px down from original position */
+  top: 200px;  
   left: 20px;
   z-index: 10;
 }
@@ -99,9 +99,9 @@ body, html {
   width: 100%;
 }
 
-.left-column {
+/* .left-column {
   margin-bottom: 40px;
-}
+} */
 
 h2 {
   color: #4a5568;
@@ -218,11 +218,12 @@ h2 {
   .left-column {
     width: 30%;
     margin-right: 40px;
-    margin-bottom: 0;
+    /* margin-bottom: 10px !important; */
   }
 
   .left-column::after {
     left: -40px; /* Adjust the line position for desktop view */
+    margin-bottom: 10px !important;
   }
 }
 
@@ -290,7 +291,7 @@ h2 {
   }
 
   .back-link {
-    top: 200px;  /* Consistent with desktop view */
+    top: 130px !important; 
     left: 10px;
   }
 

@@ -63,7 +63,7 @@ const IndustriesContent = () => {
             <p className="font-bold text-gray-500">INDUSTRIES WE SERVE </p>
             <br />
             <p className="text-3xl md:w-1/2 mx-auto">       
-            Our progressive practice provides expert assistance to clients across industry.
+            Our progressive practice provides expert assistance to clients across industry
             </p>
           </ul>
           <br />

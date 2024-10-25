@@ -53,36 +53,49 @@ const Posts = ({ slug }) => {
   return (
     <>
       <style>
-        {`
-          .active-title {
-            color: #E2041C;
-          }
-          .card-text ul {
-            list-style-type: disc;
-            list-style-position: inside;
-          }
-          .card-text li {
-            padding: 5px;
-            color: black;
-          }
-          .card-text ul li::marker {
-            color: #E2041C;
-          }
-          .card-text ul li ul {
-            list-style-type: decimal;
-            padding-left: 20px;
-          }
-          .card-text ul li ul li::marker {
-            color: black;
-          }
+  {`
+    .active-title {
+      color: #E2041C;
+    }
+    /* Unordered list styles */
+    .card-text ul {
+      list-style-position: inside;
+    }
+    .card-text ul li {
+      padding: 5px;
+      color: black;
+    }
+    .card-text ul li::marker {
+      color: #E2041C; /* Red marker color for unordered lists */
+    }
+    .card-text ul li ul {
+      padding-left: 20px;
+    }
+    .card-text ul li ul li::marker {
+      color: black;
+    }
 
-          @media (min-width: 768px) {
-          .card-text {
-            text-align: justify;
-          }
-        }
-        `}
-      </style>
+    /* Ordered list styles */
+    .card-text ol {
+      list-style-type: decimal; /* Keep numbers for ordered lists */
+      list-style-position: inside;
+       padding-left: 1.5rem !important;
+    }
+    .card-text ol li {
+      padding: 5px; 
+      color: black;
+      
+      list-style-type: decimal; /* Ensure nested ordered lists use numbers */
+    }
+
+    @media (min-width: 768px) {
+      .card-text {
+        text-align: justify;
+      }
+    }
+  `}
+</style>
+
 
       <div>
         <div>

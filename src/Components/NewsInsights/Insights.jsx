@@ -20,12 +20,12 @@ const Insights = () => {
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
-
+  const catgorie_id = 13;
   const fetchInsights = async () => {
     try {
       setLoading(true); // Set loading to true before fetching data
       const response = await fetch(
-        `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&per_page=100`
+        `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&categories=${catgorie_id}&per_page=100`
       );
       const data = await response.json();
 

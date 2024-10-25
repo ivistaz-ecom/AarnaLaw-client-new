@@ -144,7 +144,7 @@ const Posts = ({ slug }) => {
                     {/* Main Title */}
                     <h1
                     ref={titleRef}
-                      className="text-3xl font-bold text-custom-blue mb-5 p-2"
+                      className="text-3xl font-bold text-custom-blue mb-5"
                       dangerouslySetInnerHTML={{
                         __html: post.title?.rendered || "Untitled",
                       }}
@@ -164,7 +164,7 @@ const Posts = ({ slug }) => {
                               // Style for paragraphs
                               .replace(
                                 /<p>/g,
-                                '<p style="padding: 10px; margin: 0;">'
+                                '<p style="padding-bottom: 10px; margin: 0;">'
                               )
                               .replace(
                                 /<h5>/g,

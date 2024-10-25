@@ -9,12 +9,12 @@ function HomeBanner() {
   const [insightsData, setInsightsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const sliderRef = useRef(null);
-
+  const catgorie_id = 13;
   const fetchInsights = async (page = 1, perPage = 10) => {
     try {
       setLoading(true); // Show loader while fetching data
       const response = await fetch(
-        `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${page}`
+        `https://docs.aarnalaw.com/wp-json/wp/v2/posts?_embed&categories=${catgorie_id}&per_page=${perPage}&page=${page}`
       );
       const data = await response.json();
 

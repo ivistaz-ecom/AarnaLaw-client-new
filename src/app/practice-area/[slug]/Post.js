@@ -53,48 +53,44 @@ const Posts = ({ slug }) => {
   return (
     <>
       <style>
-  {`
-    .active-title {
-      color: #E2041C;
-    }
-    /* Unordered list styles */
-    .card-text ul {
-      list-style-position: inside;
-    }
-    .card-text ul li {
-      padding: 5px;
-      color: black;
-    }
-    .card-text ul li::marker {
-      color: #E2041C; /* Red marker color for unordered lists */
-    }
-    .card-text ul li ul {
-      padding-left: 20px;
-    }
-    .card-text ul li ul li::marker {
-      color: black;
-    }
+        {`
+          .active-title {
+            color: #E2041C;
+          }
+          /* Unordered list styles */
+          .card-text ul {
+            list-style-position: inside;
+          }
+          .card-text ul li {
+            padding: 5px;
+            color: black;
+          }
+          .card-text ul li::marker {
+            color: #E2041C; /* Red marker color for unordered lists */
+          }
+          .card-text ul li ul {
+            padding-left: 20px;
+          }
+          .card-text ul li ul li::marker {
+            color: #E2041C; /* Red marker color for nested unordered lists */
+          }
 
-    /* Ordered list styles */
-    .card-text ol {
-      list-style-type: decimal; /* Keep numbers for ordered lists */
-      list-style-position: inside;
-       padding-left: 1.5rem !important;
-    }
-    .card-text ol li {
-      padding: 5px; 
-      color: black;
-      
-      list-style-type: decimal; /* Ensure nested ordered lists use numbers */
-    }
-
-    @media (min-width: 768px) {
-      .card-text {
-        text-align: justify;
-      }
-    }
-  `}
+          /* Ordered list styles */
+          .card-text ol {
+            list-style-type: decimal; /* Keep numbers for ordered lists */
+            list-style-position: inside;
+            padding-left: 1.5rem !important;
+          }
+          .card-text ol li {
+            padding: 5px; 
+            color: black; /* Ensure ordered list numbers are black */
+          }
+          .card-text ol li::marker {
+            color: black; /* Black color for ordered list numbers */
+          }
+        `}
 </style>
+
 
 
       <div>
@@ -129,30 +125,39 @@ const Posts = ({ slug }) => {
                     />
                     {/* Description */}
                     <div
-                      className="card-text para-text text-black pt-5 pb-0 md:ps-4"
-                      style={{ textAlign: "left" }}
-                      dangerouslySetInnerHTML={{
-                        __html: post.acf?.description
-                          ? post.acf.description
-                              .replace(
-                                /<h2>/g,
-                                '<h2 style="font-size: 24px; color: black; padding-top: 20px; padding-bottom: 0; font-family: Montserrat-Regular, sans-serif !important; ">'
-                              )
-                              .replace(
-                                /<h5>/g,
-                                '<h5 style="padding: 5px; color: #999999; padding-top: 20px;">'
-                              )
-                              .replace(
-                                /<p>/g,
-                                '<p style="padding: 5px; margin: 0;">' // Light gray color for paragraph text
-                              )
-                              .replace(
-                                /<li>/g,
-                                '<li style="padding: 5px; color: black;  list-style-position: outside;">'
-                              )
-                          : "No content available",
-                      }}
-                    />
+  className="card-text para-text text-black pt-5 pb-0 md:ps-4"
+  style={{ textAlign: "left" }}
+  dangerouslySetInnerHTML={{
+    __html: post.acf?.description
+      ? post.acf.description
+          .replace(
+            /<ul>/g,
+            '<ul class="list-disc list-inside">'
+          ) // Add Tailwind classes for `ul`
+          .replace(
+            /<li>/g,
+            '<li style="padding: 5px; color: black;">'
+          )
+          .replace(
+            /<ol>/g,
+            '<ol class="list-decimal list-inside">'
+          ) // Add Tailwind classes for `ol`
+          .replace(
+            /<h2>/g,
+            '<h2 style="font-size: 24px; color: black; padding-top: 20px; padding-bottom: 0; font-family: Montserrat-Regular, sans-serif !important;">'
+          )
+          .replace(
+            /<h5>/g,
+            '<h5 style="padding: 5px; color: #999999; padding-top: 20px;">'
+          )
+          .replace(
+            /<p>/g,
+            '<p style="padding: 5px; margin: 0;">'
+          )
+      : "No content available",
+  }}
+/>
+
                   </div>
                   {/* Right Column: Partner Image */}
                   <div className="w-full md:w-1/3 md:pl-10 mt-5 md:mt-0">

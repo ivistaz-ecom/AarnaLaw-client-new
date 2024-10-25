@@ -93,8 +93,8 @@ const Podcasts = () => {
   };
 
   return (
-    <div className="container mx-auto relative mb-14 mt-6 md:mt-[720px] flex flex-col items-center overflow-hidden px-4"> {/* Added padding to container */}
-      <h1 className="text-custom-blue text-2xl font-semibold text-center mb-8">
+    <div className="container mx-auto relative md:mb-14 mb-10 mt-6 md:mt-[720px] flex flex-col items-center overflow-hidden px-4"> {/* Added padding to container */}
+      <h1 className="text-custom-blue text-2xl font-semibold text-center md:mb-8">
         Podcast
       </h1>
 
@@ -119,7 +119,7 @@ const Podcasts = () => {
         </div>
       )}
 
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center md:mt-10 mt-5">
         <Link
           to="/podcast"
           className="border border-custom-blue px-6 py-2 text-custom-blue md:hover:bg-custom-blue md:hover:text-white"

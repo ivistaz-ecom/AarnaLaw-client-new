@@ -81,6 +81,8 @@ import RealEstate from "./Components/practice-area/RealEstate";
 import TrialLitigation from "./Components/practice-area/TrialLitigation";
 import RiskManagement from "./Components/practice-area/RiskManagement";
 import { LanguageProvider } from "./Components/LanguageContext";
+import Sriharinaganand from "./Components/Team/srihari-naganand.jsx";
+import Meghna from "./Components/Team/MeghnaTalwar.jsx";
 import Shreyasjayasimha from "./Components/Team/Shreyasjayasimha";
 import Kamalanaganand from "./Components/Team/Kamalanaganand";
 import Manjushree from "./Components/Team/Manjushree";
@@ -175,6 +177,9 @@ const App = () => {
           />
           <Route path="/team/spandan-asshwath" element={<Spandanasshwath />} />
           <Route path="/team/punthi-shah" element={<Punthishah />} />
+          <Route path="/team/srihari-naganand" element={<Sriharinaganand />} />
+          <Route path="/team/meghna-talwar" element={<Meghna />} />
+          
           
           {/* <Route
             path="/industries/automotive-industry"

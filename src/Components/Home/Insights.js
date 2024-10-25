@@ -160,7 +160,7 @@ function HomeBanner() {
           <NextArrow />
         </div>
 
-        <div className="flex justify-center my-10">
+        <div className="flex justify-center md:my-10">
           <Link
             to="/insights"
             className="border border-custom-red px-6 py-2 text-custom-red md:hover:bg-custom-red md:hover:text-white md:mr-48"

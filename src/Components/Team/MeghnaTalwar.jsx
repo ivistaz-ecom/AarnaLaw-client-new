@@ -1,31 +1,32 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { LanguageContext } from '../../Components/LanguageContext';
+import { LanguageContext } from "../LanguageContext";
 import ContactForm from "../practice-area/ContactForm";
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import './Profile.css';
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import "./Profile.css";
 
-function Manjushree() {
+function Spandanasshwath() {
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext);
   const [showContactForm, setShowContactForm] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
   const translations = {
-    ar: require('../../Components/json/team/ar.json'),
-    de: require('../../Components/json/team/de.json'),
-    en: require('../../Components/json/team/en.json'),
-    es: require('../../Components/json/team/es.json'),
-    fr: require('../../Components/json/team/fr.json'),
-    gu: require('../../Components/json/team/gu.json'),
-    hi: require('../../Components/json/team/hi.json'),
-    ja: require('../../Components/json/team/ja.json'),
-    ko: require('../../Components/json/team/ko.json'),
-    ml: require('../../Components/json/team/ml.json'),
-    ru: require('../../Components/json/team/ru.json'),
-    ta: require('../../Components/json/team/ta.json'),
-    tel: require('../../Components/json/team/tel.json'),
-    zh: require('../../Components/json/team/zh.json'),
+    ar: require("../json/team/ar.json"),
+    de: require("../json/team/de.json"),
+    en: require("../json/team/en.json"),
+    es: require("../json/team/es.json"),
+    fr: require("../json/team/fr.json"),
+    gu: require("../json/team/gu.json"),
+    hi: require("../json/team/hi.json"),
+    ja: require("../json/team/ja.json"),
+    kn: require("../json/team/kn.json"),
+    ko: require("../json/team/ko.json"),
+    ml: require("../json/team/ml.json"),
+    ru: require("../json/team/ru.json"),
+    ta: require("../json/team/ta.json"),
+    tel: require("../json/team/tel.json"),
+    zh: require("../json/team/zh.json"),
   };
 
   useEffect(() => {
@@ -42,7 +43,8 @@ function Manjushree() {
 
   const handleContactClick = () => setShowContactForm(true);
   const handleCloseContactForm = () => setShowContactForm(false);
-  const handleBackToTeam = () => navigate('/aboutus', { state: { scrollTo: 'partners' } });
+  const handleBackToTeam = () =>
+    navigate("/aboutus", { state: { scrollTo: "partners" } });
 
   return (
     <div className="profile-container">
@@ -57,14 +59,14 @@ function Manjushree() {
       {/* Header */}
       <header className="profile-header">
         <div className="header-content">
-          <img 
-            src={require("../../images/Manjushree.jpg")}
-            alt="Manjushree Somasundara" 
+          <img
+            src={require("../../images/meghna-square.jpg")}
+            alt="Spandana Ashwath"
             className="profile-image"
           />
           <div className="profile-title">
-            <h1>{translations[selectedLanguage].Manjushree_Somasundara}</h1>
-            <p>{translations[selectedLanguage].Manjushree_Role}</p>
+            <h1>Meghna Talwar</h1>
+            <p>Partner - Litigation and Securities Law</p>
           </div>
         </div>
       </header>
@@ -89,25 +91,27 @@ function Manjushree() {
           {/* Profile Description */}
           <section className="right-column">
             <div className="profile-description">
-              <p>{translations[selectedLanguage].Manjushree_Desc1}</p>
-              <p>{translations[selectedLanguage].Manjushree_Desc2}</p>
-              <p>{translations[selectedLanguage].Manjushree_Desc3}</p>
-              <p>{translations[selectedLanguage].Manjushree_Desc4}</p>
-              <p className="qualifications">{translations[selectedLanguage].Manjushree_Desc5}</p>
-              <p className="bullet-point">{translations[selectedLanguage].Manjushree_Desc6}</p>
+              <p>
+                {" "}
+                Meghna is a partner at Aarna Law and specialises in civil and
+                corporate litigation, arbitration and mediation. Her areas of
+                practice include securities, consumer, real estate, and
+                testamentary. Meghna advises and represents a broad range of
+                clients which include conglomerates, multinational companies,
+                small and medium-sized enterprises (SMEs) and private
+                individuals. She has represented clients in matters before the
+                Supreme Court, High Courts, District Courts, Securities
+                Appellate Tribunal, SEBI, NCLAT, NCLT and consumer forums.
+              </p>
             </div>
-
             {/* Navigation Links */}
             <hr className="nav-divider" />
             <div className="navigation">
-              <a href="/team/spandan-asshwath" className="prev">
+              <a href="/team/srihari-naganand" className="prev">
                 <ArrowLeft className="arrow-icon" />
-                <span>Spandana Ashwath</span>
+                <span>Srihari Naganand</span>
               </a>
-              <a href="/team/srihari-naganand" className="next">
-                <span>Srihari Saranathan</span>
-                <ArrowRight className="arrow-icon" />
-              </a>
+             
             </div>
           </section>
         </div>
@@ -119,4 +123,4 @@ function Manjushree() {
   );
 }
 
-export default Manjushree;
+export default Spandanasshwath;

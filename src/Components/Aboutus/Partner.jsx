@@ -8,8 +8,8 @@ import Manjushreeimg from "../../images/Manjushree.jpg";
 import Spandanaimg from "../../images/Spandana.png";
 import PunthiShahimg from "../../images/Punthi-Shah.png";
 import Apoorvaimg from "../../images/Apoorva.png";
-import SriHariIng from "../../images/Apoorva.png";
-import MeghnaImg from "../../images/Apoorva.png";
+import SriHariIng from "../../images/srihari-square.jpg";
+import MeghnaImg from "../../images/meghna-square.jpg";
 import { motion } from "framer-motion";
 
 const translations = {
@@ -38,19 +38,20 @@ const Partner = () => {
 
   const teamData = [
     {
-      image: Manjushreeimg,
-      profileName: "team/manjushree",
-      name: translations[selectedLanguage].Manjushree_Somasundara,
-      position: translations[selectedLanguage].Manjushree_Role,
-      workExperience: translations[selectedLanguage].Manjushree_exp,
+      image: MeghnaImg,
+      profileName: "team/meghna-talwar",
+      name: translations[selectedLanguage].Meghna_Talwar,
+      position: translations[selectedLanguage].Meghna_Role,
+      workExperience: translations[selectedLanguage].Meghna_exp,
       ReadMore: translations[selectedLanguage].Read_More,
     },
+    
     {
-      image: Manjushreeimg,
-      profileName: "team/manjushree",
-      name: translations[selectedLanguage].Manjushree_Somasundara,
-      position: translations[selectedLanguage].Manjushree_Role,
-      workExperience: translations[selectedLanguage].Manjushree_exp,
+      image: SriHariIng,
+      profileName: "team/srihari-naganand",
+      name: translations[selectedLanguage].Srihari_Naganand,
+      position: translations[selectedLanguage].Srihari_Role,
+      workExperience: translations[selectedLanguage].Srihari_exp,
       ReadMore: translations[selectedLanguage].Read_More,
     },
     {

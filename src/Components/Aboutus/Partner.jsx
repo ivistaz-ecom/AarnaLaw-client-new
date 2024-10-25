@@ -45,7 +45,6 @@ const Partner = () => {
       workExperience: translations[selectedLanguage].Meghna_exp,
       ReadMore: translations[selectedLanguage].Read_More,
     },
-    
     {
       image: SriHariIng,
       profileName: "team/srihari-naganand",
@@ -62,7 +61,6 @@ const Partner = () => {
       workExperience: translations[selectedLanguage].Manjushree_exp,
       ReadMore: translations[selectedLanguage].Read_More,
     },
-
     {
       image: Spandanaimg,
       profileName: "team/spandan-asshwath",
@@ -111,7 +109,7 @@ const Partner = () => {
 
     // Automatically change the radio button index after 4 seconds
     const interval = setInterval(() => {
-      const newIndex = (currentIndex + 1) % teamData.length;
+      const newIndex = (currentIndex + 1) % 2; // Only 2 groups (0 and 1)
       setCurrentIndex(newIndex);
     }, 4000);
 
@@ -124,14 +122,9 @@ const Partner = () => {
       return [teamData[index]]; // Show one partner for mobile view
     }
 
-    // In desktop view, show four partners
-    const partners = [];
-    for (let i = 0; i < 4; i++) {
-      const partnerIndex = (index + i) % teamData.length;
-      partners.push(teamData[partnerIndex]);
-    }
-
-    return partners;
+    // In desktop view, show four partners per dot
+    const startIndex = index * 4;
+    return teamData.slice(startIndex, startIndex + 4);
   };
 
   const handleRadioChange = (index) => {
@@ -176,20 +169,16 @@ const Partner = () => {
                   {partner.name}
                 </h2>
 
-                {/* Set min-h to ensure consistent height */}
                 <p className="text-black text-sm text-center mb-4 min-h-[40px]">
                   {partner.position}
                 </p>
 
-                {/* Use min-h to maintain consistent height for work experience */}
                 <p className="text-gray-700 text-base text-center line-clamp-2 min-h-[50px]">
                   {partner.workExperience}
                 </p>
               </div>
 
               <div className="mt-auto text-center">
-                {" "}
-                {/* Push the button to the bottom */}
                 <Link
                   to={`/${partner.profileName}`}
                   className="mt-2 inline-block bg-custom-red text-white py-2 px-4 rounded hover:bg-red-800"
@@ -201,24 +190,27 @@ const Partner = () => {
           ))}
         </div>
 
-        <div className="absolute -bottom-4 left-0 right-0 flex justify-center space-x-2">
-          {teamData.map((_, index) => (
-            <label key={index}>
-              <input
-                type="radio"
-                name="carousel-radio"
-                checked={index === currentIndex}
-                onChange={() => handleRadioChange(index)}
-                className="sr-only"
-              />
-              <span
-                className={`w-3 h-3 inline-block rounded-full ${
-                  index === currentIndex ? "bg-custom-red" : "bg-gray-300"
-                }`}
-              ></span>
-            </label>
-          ))}
-        </div>
+        {/* Show radio buttons only in desktop view */}
+        {window.innerWidth >= 768 && (
+          <div className="absolute -bottom-4 left-0 right-0 flex justify-center space-x-2">
+            {[0, 1].map((index) => (
+              <label key={index}>
+                <input
+                  type="radio"
+                  name="carousel-radio"
+                  checked={index === currentIndex}
+                  onChange={() => handleRadioChange(index)}
+                  className="sr-only"
+                />
+                <span
+                  className={`w-3 h-3 inline-block rounded-full ${
+                    index === currentIndex ? "bg-custom-red" : "bg-gray-500"
+                  }`}
+                />
+              </label>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

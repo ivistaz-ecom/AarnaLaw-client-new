@@ -217,6 +217,11 @@ const Navbar = () => {
   )}
 </li>
 
+
+
+
+
+
               <li className="z-10">
                 <Link
                   to="/careers"

@@ -102,7 +102,7 @@ function HomeBanner() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row bg-white md:absolute md:left-0 md:right-0 items-center gap-0 md:-mt-24 md:ml-24 md:pt-10">
+    <div className="flex flex-col md:flex-row md:absolute md:left-0 md:right-0 items-center gap-0 md:-mt-24 md:ml-24 md:pt-10">
       <div className="flex flex-col items-center gap-7">
         <h1 className="text-2xl md:text-[80px] text-custom-red md:writing-mode-vertical-rl transform md:rotate-180 font-bold m-0 md:p-0 py-5">
           Insights
